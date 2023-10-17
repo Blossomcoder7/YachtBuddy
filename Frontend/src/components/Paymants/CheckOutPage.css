@@ -1,0 +1,153 @@
+.checkOut{
+    width: 100%;
+    display: flex;
+}
+.checkOutL, .checkOutR{
+width: 50%;
+display: flex;
+flex-direction: column;
+text-align: left;
+gap: 20px;
+padding: 20px 40px;
+}
+.checkOutDetail{
+    width: 100%;
+    display: flex;
+justify-content: space-between;
+padding: 30px;
+/* background-color: #fff; */
+box-shadow: 0 2px 2px 1px  rgba(128, 128, 128, 0.267);
+
+}
+.checkOutDetail span:nth-child(1){
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.checkOutDetail span h5{
+    font-size: 20px;
+}
+.checkOutDetail span:nth-child(2){
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+.bOaTiMg{
+    width: 100%;
+    height: 17vh;
+    border-radius: 20px;
+    overflow: hidden;
+}
+ .bOaTiMg img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+}
+.raTing{
+    /* width: 100%; */
+    display: flex;
+    gap: 10px;
+}
+.raTing p, .raTing label{
+    font-size: 13px;
+
+}
+.limeDivider{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.589);
+}
+.checkOutL form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+.checkOutL form input{
+    padding: 13px;
+    font-size: 14px;
+    border: 1px solid rgba(128, 128, 128, 0.589);
+    border-radius: 10px;
+}
+.fLex{
+    display: flex;
+    justify-content: space-between;
+}
+.fLex input{
+    width: 32%;
+}
+.checkOutL form label{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.checkOutL form label input[type = "checkbox"]{
+    width: 15px;
+    height: 15px;
+}
+.InterDuse{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.InterDuse span{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+.InterDuse span img{
+    width: 15%;
+}
+.OwnerMsg{
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.589);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 80px;
+}
+.OwnerMsg>input{
+    border: 0 !important;
+}
+.TermConDition{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+.TermConDition>input[type = "checkbox"]{
+    width: 17px;
+    /* height: 15px; */
+}
+.checkOutL form button{
+    width: 30%;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #47b7ac;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+}
+.checkOutR span{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.visible {
+    opacity: 1;
+    width: 100% !important;
+}
+
+.paypal-button.paypal-button-color-gold{
+    display: none !important;
+}

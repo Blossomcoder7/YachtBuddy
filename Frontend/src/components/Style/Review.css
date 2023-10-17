@@ -1,0 +1,121 @@
+.reviewPage{
+    width: 100%;
+    margin-bottom: 50px;
+}
+.reviewHead{
+    width: 100%;
+    height: 25vh;
+    background: linear-gradient( 90deg, rgba(71, 183, 172, 1) 3%, rgba(36, 28, 97, 1) 100% );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0 5%;
+}
+.reviewHead h1{
+    font-size: 55px;
+    text-align: center;
+
+}
+.boatDetails{
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    text-align: left;
+
+
+}
+.boatDetailsL{
+    width: 50%;
+}
+.boatDetailsR{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #47b7ac07;
+}
+.detailsContent{
+    width: 100%;
+    border: 1px solid #241c614f;
+    padding: 20px;
+    line-height: 25px;
+    border-radius: 15px;
+
+}
+.detailsContent2{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contentRow{
+    display: flex;
+    gap: 100px;
+    margin-top: 20px;
+}
+.contentRow ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contentRow ul:nth-child(2){
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.774);
+}
+.contentRow ul li{
+    list-style: none;
+}
+.coNteNtDivider{
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+background-color: #241c614f;
+}
+.detailsContent span{
+    color: #47B7AC;
+    font-size: 18px;
+}
+.detailsContent>ul{
+    margin-top: 20px ;
+}
+.detailsContent>ul li{
+   list-style: none;
+}
+.featireList{
+    margin-top: 2px !important;
+}
+.featirehD{
+    margin-top: 10px;
+}
+.availbility{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.coNteNtDivider1{
+    margin-top: 50px;
+}
+.availbility label{
+    display: flex;
+    justify-content: space-between;
+}
+.boatDetailsR>ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    line-height: 25px;
+}
+
+.suBmIt{
+    font-size: 18px;
+    /* padding: 10px 25px; */
+    width: 10%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #47B7AC;
+    color: #fff;
+    margin-top: 30px;
+}
+

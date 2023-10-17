@@ -1,0 +1,113 @@
+.operatorBooking{
+    width: 100%;
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.operatorBooking .titleDescL {
+    height: 89.5vh;
+    justify-content: center;
+}
+.operatorBookingR{
+    width: 50%;
+    padding: 2% 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* align-items: center; */
+    justify-content: center;
+}
+.operatorBookingR h6{
+    font-size: 24px;
+}
+.operateOption{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.322);
+    border-radius: 15px;
+    padding: 20px 30px;
+}
+.operateOption span{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    padding: 15px 0;
+    align-items: center;
+}
+.operateOption span input{
+    width: 22px;
+    height: 22px;
+}
+.operateOption span p{
+    font-size: 20px;
+}
+.operateOption label{
+    width: 150px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: yellow;
+    padding: 10px;
+}
+.durationOffer{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+.durationOfferT{
+    width: calc(33% - 20px);
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient( 90deg, rgba(71, 183, 172, 1) 3%, rgba(36, 28, 97, 1) 100% );
+color: #fff;
+}
+.durationOfferT input{
+    width: 22px;
+    height: 22px;
+}
+.durationOfferT span{
+    font-size: 20px;
+}
+.payFuel{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* padding-left: 50px; */
+    border: 1px solid rgba(128, 128, 128, 0.253);
+    border-radius: 15px;
+
+}
+.payFuel span{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* background-color: bisque; */
+    padding: 20px;
+}
+.payFuel span input{
+width: 22px;
+height: 22px;
+}
+.durationPriCe{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.durationPriceInput{
+    width: calc(33% - 20px);
+}
+.durationPriceInput input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.445);
+}

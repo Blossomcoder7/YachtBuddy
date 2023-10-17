@@ -1,0 +1,267 @@
+.signupPage {
+  width: 100%;
+  
+}
+.signUpheader {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 4px 25px 0px #00000015;
+
+  padding: 20px 0;
+}
+.signupFooter {
+  padding: 15px 0;
+  background: #f5f5f5;
+  position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.signupCenter {
+  width: 100%;
+  display: flex;
+  box-shadow: 0px 0px 25px 0px #0000001a;
+  border-radius: 20px;
+  margin: 70px 0;
+
+}
+.signupCenterL {
+  width: 50%;
+  background-image: url("../../images/signupBG.png");
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  position: relative;
+}
+.signupCenterL1 {
+  width: 50%;
+  background-image: url("../../images/requestImg.png");
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  position: relative;
+}
+.signUpCont{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mask{
+    width: 100%;
+    height: 100%;
+    background-color: #47B7AC;
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+    border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+ padding: 0 60px;
+  justify-content: center;
+
+}
+.mask1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  justify-content: center;
+  position: absolute;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+ padding: 0 60px;
+
+
+}
+.mask h1, .mask1 h1{
+    color: #fff;
+    line-height: 68px;
+}
+.mask p, .mask1 p{
+ 
+font-size: 22px;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 0em;
+text-align: center;
+color: #fff;
+
+
+}
+.signupCenterR {
+  width: 50%;
+  padding: 20px 50px;
+}
+.signupCenterR h1 {
+  margin-bottom: 20px;
+}
+.signupCenterR input, .signupCenterR select, .signupCenterR textarea{
+  width: 100%;
+  font-size: 16px;
+  padding: 13px;
+  border: 1px solid #47b7ac;
+  margin-bottom: 25px;
+}
+.radioBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.radioBtn label {
+  width: 25%;
+  display: flex;
+  gap: 5px;
+}
+.radioBtn label input {
+  width: 15%;
+}
+.radioBtn label P {
+  margin-top: -3px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.788);
+}
+.loggedMe {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.loggedMe span {
+  width: 40%;
+  display: flex;
+  gap: 5px;
+}
+.loggedMe span > input {
+  width: 10%;
+}
+.loggedMe span > P {
+  margin-top: -3px;
+}
+.loggedMe > p {
+  color: #47b7ac;
+}
+
+.signupCenterR>button {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  border: 0;
+  background-color: #241c61;
+  color: #fff;
+  margin-top: 10px;
+}
+.lineOr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+.orLine {
+  width: 47%;
+  height: 2px;
+  background-color: #47b7ac80;
+}
+.socialButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  
+}
+.socialButton label{
+    width: 30%;
+    display: flex;
+}
+.socialButton label span {
+    width: 70%;
+  padding: 15px 20px;
+  color: #fff;
+}
+.socialButton label>div {
+    width: 30%;
+    height: unset;
+  padding: 15px 10px;
+  color: #fff;
+}
+.socialButton label:nth-child(3){
+    width: 30%;
+    background-color: #47B7AC;
+    padding: 13px;
+    border: 0;
+    font-size: 18px;
+    display: block;
+    color: #fff;
+}
+.haveAcnt{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+.price{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: -10px;
+}
+.price label{
+  font-size: 20px;
+}
+.price label:nth-child(1){
+  color: #47B7AC;
+}
+.price label:nth-child(2){
+  color:#241c61;
+  font-weight: 600;
+}
+
+/* Responsive for mobile ..../ */
+
+@media screen and (max-width: 990px) {
+  .signupCenter{
+    flex-direction: column;
+    margin: 30px 0;
+  }
+  .signupCenterL, .signupCenterL1{
+    width: 100%;
+    height: 50vh;
+    border-radius: 20px;
+    background-position: center;
+  }
+  .signupCenterR{
+    width: 100%;
+    padding: 20px;
+  }
+  .mask, .mask1{
+    border-radius: 20px;
+    padding: 0 30px;
+  }
+  .mask h1, .mask1 h1{
+line-height: 45px;
+font-size: 40px;
+  }
+  .mask p, .mask1 p{
+    line-height: 30px;
+  }
+  
+.signupFooter {
+  position: unset;
+}
+
+.radioBtn label {
+  width: 50%;
+}
+.loggedMe span {
+  width: 50%;
+}
+.socialButton {
+  flex-direction: column;
+  gap: 10px;
+}
+.socialButton label {
+  width: 100%;
+}
+.socialButton label:nth-child(3) {
+  width: 100%;
+}
+}

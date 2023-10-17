@@ -1,0 +1,111 @@
+.uploadPic {
+  width: 100%;
+  display: flex;
+}
+.titleDescL {
+  width: 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(71, 183, 172, 1) 3%,
+    rgba(36, 28, 97, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 5%;
+  gap: 10px;
+  text-align: left;
+  color: #fff;
+}
+.titleDescL p {
+  font-size: 20px;
+  display: block;
+  text-align: left;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}
+.titleDescL label {
+  font-size: 18px;
+  color: blue;
+  font-weight: 600;
+  position: relative;
+  z-index: 10;
+}
+
+.titleCont {
+  margin-top: 55px;
+}
+
+.uploadPicR {
+  width: 50%;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 20px;
+}
+.uploadPicR p:nth-child(1) {
+  font-size: 18px;
+  line-height: 25px;
+}
+.uploadPicR > span {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.774);
+}
+.uploadGallary {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
+}
+.mainGallaryImg {
+  width: 30%;
+  height: 230px;
+  position: relative;
+}
+.mainGallaryImg span {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #47b7ac;
+}
+
+.gallaryImg {
+  width: 100%;
+  height: 100%;
+  border: 2px dotted #47b7ac;
+  cursor: pointer;
+}
+.gallaryImg input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.uploadIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 230px;
+}
+.previewImg img {
+  width: 100%;
+  object-fit: cover;
+  height: 230px;
+}

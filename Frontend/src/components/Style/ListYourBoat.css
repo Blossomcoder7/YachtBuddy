@@ -1,0 +1,252 @@
+.listBoat {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0px;
+  padding-top: 150px;
+  gap: 10px;
+  justify-content: center;
+}
+.listBoat span {
+  font-size: 25px;
+  font-weight: 400;
+  color: #47b7ac;
+  font-family: Avenir Next LT Pro;
+}
+.listBoat h1 {
+  font-size: 50px;
+}
+.boatGallary {
+  width: 100%;
+  display: flex;
+  padding: 40px 0px;
+  gap: 20px;
+}
+.boatGallaryL {
+  width: 50%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transition: all 700ms ease;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+
+}
+.boatGallaryL:hover img{
+  opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.boatGallaryL img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: .3s ease-in-out;
+	transition: 1.3s ease-in-out;
+}
+.boatGallaryL img:hover{
+  transform: scale(1.2);
+}
+.boatGallaryL .imgDescriptionL{
+    display: flex;
+    flex-direction: column;
+   gap: 7px;
+position: absolute;
+bottom: 30px;
+left: 30px;
+text-align: left;
+}
+.boatGallaryL .imgDescriptionL>h1{
+    font-size: 20px !important;
+    color: #fff;
+}
+.boatGallaryL .imgDescriptionL>h4{
+    font-size: 20px !important;
+    color: #fff;
+    font-weight: 600;
+}
+.boatGallaryL .imgDescriptionL span{
+    color: #fff;
+    font-size: 18px;
+}
+.boatGallaryR {
+  width: 50%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+
+}
+.boatGallaryR .boatGallaryList {
+  width: 100%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transition: all 700ms ease;
+}
+.boatGallaryR .boatGallaryList:hover img{
+  opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+
+.boatGallaryR .boatGallaryList>img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: .3s ease-in-out;
+	transition: 1.3s ease-in-out;
+}
+.boatGallaryR .boatGallaryList:nth-child(2)>img {
+  border-top-right-radius: 40px;
+
+}
+.boatGallaryR .boatGallaryList:nth-child(2) {
+  border-top-right-radius: 40px;
+
+}
+.boatGallaryR .boatGallaryList:nth-child(4)>img {
+  border-bottom-right-radius: 40px;
+
+}
+.boatGallaryR .boatGallaryList:nth-child(4) {
+  border-bottom-right-radius: 40px;
+
+}
+.boatGallaryR .boatGallaryList>img:hover {
+  transform: scale(1.2);
+}
+
+.boatGallaryR .boatGallaryList>.imgDescription{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+left: 20px;
+text-align: left;
+
+}
+.listBoat button {
+  width: 10%;
+  background-color: #241c61;
+  color: #fff;
+  border: 0;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 10px;
+}
+.boatGallaryList .imgDescription h4{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+
+}
+.boatGallaryList .imgDescription span{
+    color: #fff;
+    font-size: 16px;
+}
+.boatGallaryList .imgDescription h1{
+    font-size: 18px !important;
+    color: #fff;
+}
+
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+.boatGallary{
+  display: block;
+  padding: 0;
+}
+.listBoat {
+padding: 25px;
+padding-top: 40px;
+}
+.boatGallaryL {
+width: 100%;
+overflow: hidden;
+}
+.boatGallaryR{
+  width: 100%;
+  grid-template-columns: auto;
+}
+.listBoat span {
+  font-size: 16px;
+}
+.listBoat h1 {
+  font-size: 35px;
+}
+
+.boatGallaryL .imgDescriptionL>h4 {
+  font-size: 16px !important;
+}
+.boatGallaryL .imgDescriptionL span {
+  font-size: 14px;
+}
+.boatGallaryL .imgDescriptionL>h1 {
+  font-size: 16px !important;
+}
+.boatGallaryList .imgDescription h4 {
+  font-size: 16px;
+}
+
+.boatGallaryList .imgDescription span {
+  font-size: 14px;
+}
+
+.boatGallaryList .imgDescription h1 {
+  font-size: 16px !important;
+}
+
+.boatGallaryR .boatGallaryList>.imgDescription {
+bottom: 10px;
+left: 10px;
+text-align: left;
+}
+
+.boatGallaryL .imgDescriptionL {
+  bottom: 10px;
+  left: 10px;
+  text-align: left;
+}
+.listBoat button {
+font-size: 14px;
+width: 45%;
+}
+
+.boatGallaryR .boatGallaryList>img {
+  border-radius: 10px;
+  width: 100%;
+  display: block;
+}
+.boatGallaryR .boatGallaryList {
+  border-radius: 10px;
+padding-top: 10px;
+overflow: hidden;
+}
+  
+.boatGallary img {
+  border-radius: 10px !important;
+}
+.boatGallary div{border-radius: 10px !important;}
+
+}

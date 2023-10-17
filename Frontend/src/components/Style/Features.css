@@ -1,0 +1,68 @@
+.features {
+    width: 100%;
+    /* background-color: #f5f5f5; */
+    /* margin-top: 100px; */
+  }
+  .featuresMain {
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+  }
+  .featuresR {
+    width: 70%;
+    border-radius: 20px;
+
+  }
+  .featuresR img {
+    width: 100%;
+    border-radius: 20px;
+  }
+  .featuresL {
+    width: 70%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px 1px #0000000d;
+    justify-content: center;
+    margin-right: -120px;
+    z-index: 10;
+    background-color: #fff;
+    text-align: left;
+  }
+  .featuresL h2 {
+    font-family: Avenir Next LT Pro;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0em;
+    color: #241c61;
+  }
+  .featuresL p {
+    font-family: Avenir Next LT Pro;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  
+
+  /* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+  .featuresMain {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  .featuresL, .featuresR{
+    width: 100%;
+  }
+  .featuresL{
+    margin: 0;
+  }
+
+}

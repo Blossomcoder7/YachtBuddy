@@ -1,0 +1,57 @@
+.dashboard_wrapper{
+    width: 100%;
+    padding: 50px 40px;
+    color: #271f63;
+}
+.com-dash-nav-c{
+    width: 100%;
+}
+
+.day-stat{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    }
+.no-of-application{
+    width: calc(33% - 40px);
+    display: flex;
+    background-color: #a2a0b81c;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+.application{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding-left: 10px;
+    
+}
+.application p{
+font-size: 16px;
+font-weight: bold;
+}
+.application h6{
+    font-size: 15px;
+}
+.day-stat-1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 50px;
+}
+.stat-of-active{
+    width: calc(50% - 30px);
+    background-color: #a2a0b81c;
+
+    padding: 20px;
+    border-radius: 30px;
+
+}
+.recharts-wrapper{
+    height: 200px !important;
+}

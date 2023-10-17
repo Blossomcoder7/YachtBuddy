@@ -1,0 +1,6 @@
+.boatRequest .inputRequest:nth-child(4) input {
+    border: none;
+}
+.boatRequest .inputRequest:nth-child(3) input {
+    border-right: 2px solid #CBC0C0;
+}

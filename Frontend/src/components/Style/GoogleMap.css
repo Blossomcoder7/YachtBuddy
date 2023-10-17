@@ -1,0 +1,64 @@
+.googleMap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+
+}
+.googleMap iframe{
+    position: relative;
+    margin-top: -85px;
+}
+.googleMap button{
+    width: 10%;
+    background-color: #241c61;
+    color: #fff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 10px;
+    z-index: 10;
+    margin-top: -120px;
+    
+}
+.googleMap span{
+    width: 30%;
+       display: flex;
+       z-index: 30;
+       margin-top: 20px;
+       height: 50px;
+       border-radius: 30px;
+       
+    
+
+    
+}
+.googleMap span input{
+    width: 100%;
+    padding: 0 30px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 2px 2px 20px 2px #0000000D;
+    border-radius: 30px;
+
+    
+}
+.googleMap span img{
+    margin-left: -80px;
+}
+
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+    .googleMap span {
+        width: 80%;}
+        .googleMap button {
+            width: 50%;
+        }
+        .googleMap iframe{
+            /* width: 50%; */
+        }
+}

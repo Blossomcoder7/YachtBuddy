@@ -1,0 +1,132 @@
+.headSupport{
+    width: 100%;
+    background-color: #241c61;
+    color: #fff;
+    padding: 50px 0;
+}
+.headSupport h1{
+    font-size: 45px;
+}
+.headSupport .wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.headSupport .wrapper span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headSupport .wrapper span img{
+    margin-right: -70px;
+    z-index: 2;
+    transform: scale(0.5);
+}
+.headSupport .wrapper span input{
+    width: 50%;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 30px;
+    border: 0;
+    padding-left: 55px;
+}
+.lowerSupport{
+    width: 100%;
+    padding: 20px 0;
+    padding-top: 60px;
+}
+.lowerSupport h1{
+    color: #241c61;
+}
+.lowerSupport p{
+    font-size: 18px;
+}
+.lowerSupport .wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.browseCategiory{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.browseCategiory a{ 
+    width: calc(30% - 30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+    box-shadow: 0 2px 6px 0 rgba(130, 130, 130, 0.5);
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.categoryCont:hover{
+    color: #453999;
+}
+.helpInfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.helpInfo button{
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #241c61;
+    color: #fff;
+}
+
+
+
+
+/* ........Renter Support Page.../// */
+
+.headRenter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headRenter span{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.headRenter h1{
+    width: 50%;
+    text-align: left;
+}
+.headRenter span input{
+    width: 100%;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px 0 rgba(130, 130, 130, 0.5);
+border: 0;
+    padding-left: 55px;
+}
+.headRenter span img{
+    margin-right: -70px;
+    z-index: 2;
+    transform: scale(0.5);
+}
+.browseCategiory1{
+    /* justify-content: flex-start; */
+}

@@ -1,0 +1,96 @@
+.yachtRental{
+    width: 100%;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 80px;
+}
+.yachtRental h1{
+    font-size: 50px;
+    font-family: Avenir Next LT Pro;
+font-size: 50px;
+font-weight: 700;
+line-height: 47px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+.popularBoatsDown1 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 5vh;
+    margin-top: 0px;
+  }
+  .popularBoatsCard1 {
+width: 32%;
+  }
+  .socialContact{
+    width: 100%;
+    display: flex;
+    padding: 10px 20px;
+    padding-bottom: 0px;
+    gap: 10px;
+  }
+  .socialContact span{
+    display: flex;
+    gap: 10px;
+    color: #241C61;
+font-size: 16px;  
+
+  }
+  .socialContact span{
+font-size: 16px;  
+}
+.popularBoats_cardDown1>P{
+    color: #0000004D;
+}
+.popularBoats_cardDown1>span{display: flex;}
+.star{
+    gap: 5px;
+}
+.star img{
+    transform: scale(1.2);
+}
+.yacht_LearnMore{
+    width: 10%;
+    background-color: #241c61;
+    color: #fff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 40px;
+}
+.regular.slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 5vh;
+}
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+    .yachtRental h1 {
+        font-size: 28px;
+    }
+    
+.popularBoatsDown1 {
+    flex-direction: column;
+}
+.popularBoatsCard1{
+    box-shadow: none;
+    border: 1px solid #0000001a;
+}
+.yacht_LearnMore {
+    width: 50%;
+    margin-top: 40px;
+}
+
+}

@@ -1,0 +1,78 @@
+.advanceNotice {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.advanceNoticeL {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 89.5vh;
+  background: linear-gradient(
+    90deg,
+    rgba(71, 183, 172, 1) 3%,
+    rgba(36, 28, 97, 1) 100%
+  );
+  color: #fff;
+}
+.advanceNoticeL span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5% 8%;
+  gap: 2 0px;
+  background-color: rgba(0, 0, 0, 0.37);
+}
+.advanceNoticeL span h1 {
+  font-size: 55px;
+}
+.advanceNoticeL span p {
+  font-size: 20px;
+}
+.advanceNoticeR {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 30px;
+  padding: 3%;
+}
+
+.timeSlot {
+  width: calc(33% - 15px);
+  display: flex;
+  border: 1px solid rgba(128, 128, 128, 0.288);
+  padding: 30px;
+  border-radius: 15px;
+  gap: 20px;
+  cursor: pointer;
+}
+.timeSlot input {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+.timeSlot span {
+  font-size: 18px;
+}
+.needTime {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  justify-content: space-between;
+  /* padding: 0 20px; */
+}
+.timeDuration {
+  width: calc(50% - 15px);
+  display: flex;
+  gap: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.308);
+  padding: 15px;
+  border-radius: 15px;
+}

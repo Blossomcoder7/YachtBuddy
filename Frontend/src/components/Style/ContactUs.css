@@ -1,0 +1,113 @@
+.contact{
+    width: 100%;
+    background-color: #241C61;
+
+}
+.contactUs{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0px;
+    margin-top: 90px;
+}
+.contactL{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+.contactL span{
+    color: #47B7AC;
+    font-size: 25px;
+}
+.contactL h1{
+    color: #fff;
+    font-size: 50px;
+}
+.contactL p{
+    font-size: 20px;
+    color: #fff;
+}
+.contactR{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+ }
+ .contactR-c{
+    display: flex;
+    border: 2px solid #47B7AC;
+
+    
+ }
+.contactR img{
+        padding: 15px;
+    background-color: #47B7AC;
+}
+.contactR span{
+       display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    padding: 0 15px;
+
+    
+}
+.contactR span:hover{
+    background: linear-gradient(90deg, #241C61, #47B7AC); 
+  background-size: 200% 100%; 
+  animation: backgroundMove 1s linear infinite;
+}
+@keyframes backgroundMove {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+.contactUs{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contactL h1 {
+    font-size: 35px;
+}
+.contactL p {
+    font-size: 16px;
+}
+
+.contactR img {
+    /* height: 45px !important; */
+}
+
+.contactR {
+width: 100%;
+justify-content: start;
+margin-top: 20px;
+}
+.contactR img{
+    padding: 10px   ;
+}
+.contactR-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactR span {
+    width: 100%;
+    height: 45px;
+}
+}

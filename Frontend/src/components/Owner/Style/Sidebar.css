@@ -1,0 +1,43 @@
+.Sidebar{
+    width: 15%;
+    background-color: #a2a0b81c;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.Sidebar>img{
+    padding: 20px;
+}
+.Sidebar ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Sidebar ul a{
+    color: #47b7ac !important;
+
+}
+.Sidebar ul span{
+    width: 100%;
+    display: flex;
+gap: 10px;
+align-items: center;
+padding: 10px;
+padding-left: 20px;
+}
+.Sidebar ul span:hover{
+    background-color: rgba(22, 33, 185, 0.733);
+    color: #fff;
+}
+.Sidebar ul span img{
+width: 13%;
+}
+.Sidebar ul span li{
+    list-style: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #47b7ac !important;
+}

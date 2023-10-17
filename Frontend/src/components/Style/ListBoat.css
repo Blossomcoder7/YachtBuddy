@@ -1,0 +1,155 @@
+.ListBoat {
+  width: 100%;
+  background-image: url("../../images//ListStep1.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 89vh;
+  display: grid;
+  place-content: center;
+  position: relative;
+  /* opacity: 0.9; */
+}
+.boatFilter {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #241c616c;
+  position: absolute;
+  display: grid;
+  place-content: center;
+}
+.listBoatM {
+  width: 100%;
+  display: flex;
+  z-index: 10;
+}
+.listBoatL {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 50px;
+  gap: 20px;
+}
+.listBoatL h1 {
+  color: #fff;
+  font-size: 45px;
+  text-align: left;
+}
+.listBoatL p {
+  color: #fff;
+  line-height: 30px;
+  font-size: 20px;
+  text-align: left;
+}
+.listBoatR {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.listForm {
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+}
+.listForm form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.locationInput {
+  width: 100%;
+  display: flex;
+}
+.locationInput input {
+  margin-right: -20px;
+}
+
+.locationInput img {
+  z-index: 10;
+}
+
+.listForm form select,
+.locationInput input {
+  width: 100%;
+  padding: 15px;
+  color: rgba(0, 0, 0, 0.651);
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: 0;
+  transition: border-color 0.3s;
+}
+.dividerLine {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.267);
+  margin: 10px 0;
+}
+.priceEstimate {
+  width: 100%;
+  display: flex;
+  justify-content:flex-end;
+}
+.priceEstimate button {
+  width: 150px px;
+  font-size: 18px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: 200;
+  background-color: #241c61;
+  color: #fff;
+  border: 0;
+}
+
+
+
+/* Responsive for mobile ..../ */
+
+@media screen and (max-width: 990px) {
+    .ListBoat{
+        height: 100vh;
+    }
+.listBoatM{
+    flex-direction: column;
+    padding: 20px 0;
+    position: unset;
+    gap: 10px;
+}
+.listBoatL{
+    width: 100%;
+       padding: 0px;
+       gap: 5px;
+}
+.listBoatL p {
+    color: #fff;
+    line-height: 25px;
+    font-size: 18px;
+}
+.listBoatL h1 {
+font-size: 30px;
+}
+.listBoatR{
+    width: 100%;
+}
+.priceEstimate {
+    flex-direction: column;
+    gap: 20px;
+}
+.listForm{
+    padding: 20px 30px;
+}
+.dividerLine{
+    margin: 0;
+}
+
+}

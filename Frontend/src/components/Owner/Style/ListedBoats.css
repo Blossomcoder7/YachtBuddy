@@ -1,0 +1,53 @@
+.listedBOaTs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+}
+.listedBoatCont{
+    width: 95%;
+    height: 85vh;
+    overflow-Y: scroll;
+}
+.ListedBoatHead{
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+text-align: center;
+justify-content: space-between;
+margin-top: 2px;
+}
+.ListBoatCont{
+    width: calc(17.25% - 10px);
+    background-color: rgba(30, 153, 153, 0.89);
+    font-size: 18px;
+    padding: 10px 0;
+    color: #fff;
+    box-shadow: 0 0 2px 2px rgba(128, 128, 128, 0.055);
+}
+.ListedBoatHeadC .ListBoatCont{
+    color: black !important;
+    font-size: 17px;
+    background-color: rgba(240, 255, 255, 0.568);
+    cursor: pointer;
+
+}
+
+.ListedBoatHeadC .sTatusBtn{
+    /* width: 100%; */
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.ListedBoatHeadC .sTatusBtn button{
+    font-size: 15px;
+    padding: 2px 15px;
+    border-radius: 10px;
+    background-color: tomato;
+    border: 0;    
+}
+.acceptBtn{
+    background-color: rgb(13, 143, 30) !important;
+    color: #fff;
+}

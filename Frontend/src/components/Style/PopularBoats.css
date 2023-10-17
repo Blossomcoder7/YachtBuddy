@@ -1,0 +1,209 @@
+.popularBoats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.popularBoatsUper {
+  width: 100%;
+  display: flex;
+  background-color: #241c61;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  gap: 10px;
+  padding-bottom: 150px;
+}
+
+.popularBoatsUper p {
+  color: #47b7ac;
+  font-size: 22px;
+}
+.popularBoatsUper h1 {
+  color: #fff;
+  font-size: 45px;
+}
+.popularBoatsDown {
+  width: 100%;
+  /* margin: 0 20%; */
+  margin-left: 50px;
+
+}
+.inner-carousel{
+  display: flex;
+  /* background-color: #47b7ac5b; */
+}
+.carousel{
+  cursor: grab;
+  /* overflow: hidden; */
+}
+.popularBoatsCard {
+  min-width: 25rem;
+  overflow: hidden;
+  padding: 40px;
+  margin-top: -140px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  
+}
+
+.popularBoats_cardUp {
+  width: 100%;
+  position: relative;
+}
+.popularBoats_cardUp:hover img {
+  transform: scale(1.2);
+}
+
+.popularBoats_cardUp div {
+  overflow: hidden;
+  cursor: grab;
+}
+.popularBoats_cardUp img {
+  width: 100%;
+  position: relative;
+  display: block;
+  transition: all 700ms ease;
+  cursor: grab;
+  height: 380px;
+  object-fit: cover;
+  pointer-events: none;
+}
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+
+/* .popularBoats_cardUp::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+} */
+
+.popularBoats_cardUp:hover::before {
+  -webkit-animation: shine .75s;
+  animation: shine .75s;
+}
+
+.popularBoats_cardDown {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 10px;
+  padding-bottom: 30px;
+  box-shadow: 1px 2px 4px 0.8px #8b89893f;
+  text-align: left;
+}
+.popularBoats_cardDown h6 {
+  font-size: 20px;
+  text-align: center;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #00000033;
+}
+.staterooms {
+  width: 100%;
+  display: flex;padding-top: 3px;
+}
+.stateroomsL {
+  width: 70%;
+  display: flex;
+  gap: 8px;
+}
+.staterooms p {
+  font-size: 14px;
+}
+.stateroomsR {
+  width: 30%;
+  display: flex;
+  gap: 8px;
+}
+.popularBoats_cardDown button {
+  width: 100%;
+  background-color: #241c61;
+  font-size: 20px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 30px;
+  border: 0;
+  margin-top: 20px;
+}
+.priceTag {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #47b7ac;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -40px;
+  right: 20px;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+  -webkit-animation: pulse2 2s infinite;
+  -o-animation: pulse2 2s infinite;
+  animation: pulse2 2s infinite;
+  z-index: 2;
+}
+@keyframes pulse2 {
+  50% {
+    box-shadow: 0 0 0 5px rgba(2, 37, 73, 0.1), 0 0 0 20px rgba(2, 37, 73, 0.3);
+  }
+}
+.priceTag span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+.priceTag p {
+  color: #ffffffc9;
+  font-size: 12px;
+}
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+  .popularBoatsDown{
+    flex-direction: column;
+    gap: 20px    ;
+    padding: 10px 30px;
+  }
+.popularBoatsCard {
+width: 100%;
+}
+.priceTag{
+  width: 70px;
+  height: 70px;
+  bottom: -30px;
+    right: 15px;
+}
+.popularBoatsUper h1 {
+  font-size: 35px;
+}
+.popularBoats_cardDown {
+  text-align: left;
+  padding: 10px;
+}
+}

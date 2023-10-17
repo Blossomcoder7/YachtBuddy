@@ -1,0 +1,186 @@
+.heroSection {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://cdn.shopify.com/s/files/1/0096/9349/5356/files/Mask_group_1.png?v=1693894954");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.herosection-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.heroSection h1 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+}
+.wrapper.herosection-1>span {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 300;
+}
+.boxShadow{
+    width: 100%;
+    background-color: #ffffff6c;
+
+}
+.boatRequest {
+  width: 100%;
+  border-radius: 20px solid ;
+
+}
+.boatRequest form{
+    width: 100%;
+     display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.inputRequest{
+    width: 25%;
+    display: flex;
+    background-color: #fff;
+    padding: 2px 0px;
+    padding-left: 10px;
+    /* position: relative; */
+}
+.inputRequest input{
+    width: 96%;
+    height: 45px;
+    border: 0;
+    padding: 10px;
+    border-right: 2px solid #CBC0C0;
+    color:#CBC0C0;
+
+}
+.inputRequest.CalaNder {
+  position: relative;
+display: flex;
+align-items: center;
+border-right: 2px solid #CBC0C0;
+padding: 10px;
+gap: 10px;
+}
+.inputRequest.CalaNder span{
+  color: #c0bcbc;;
+  font-size: 14px;
+}
+
+
+.rdrDateRangePickerWrapper.dateRange {
+  position: absolute;
+left:550px;
+bottom: -240px;
+background: #007bff !important;
+
+}
+span.rdrInRange, span.rdrStartEdge, span.rdrEndEdge  {
+  background:#47b7ac;
+}
+
+.boatRequest .inputRequest:nth-child(3) input {
+  border: none;
+}
+.inputRequest button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #241C61;
+    color: #fff;
+    border: 0;
+    /* padding: 0; */
+}
+.inputRequest span{
+    display: flex;
+
+}
+.inputRequest span label{
+    font-size: 14px;
+    color: #AFB4B9;
+}
+.inputRequest1{
+    padding: 0 !important;
+}
+
+
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.custom-calendar {
+  /* Your custom styles here */
+ 
+
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.react-datepicker__day--selected {
+  background-color: #007bff; /* Change the selected date background color */
+  color: #fff; /* Change the text color for selected date */
+}
+
+.react-datepicker__header {
+  background-color: #007bff; /* Change the header background color */
+  color: #fff; /* Change the header text color */
+}
+
+
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+  .heroSection {
+    padding: 2px 20px;
+    height: 80vh;
+    align-items: flex-start;
+  }
+  .herosection-1{
+    gap:15px;
+  align-items: flex-start;
+
+  }
+.heroSection h1{
+  font-size: 32px;
+  text-align: left;
+}
+.herosection-2 > h1{
+  font-size: 30px;
+  text-align: left;
+}
+.heroSection span {
+  font-size: 18px;
+}
+.boatRequest form{
+  display: block;
+  padding: 0;
+}
+
+.inputRequest {
+  width: 100%;
+}
+.boxShadow {
+  width: 100%;
+}
+.boatRequest {
+margin: 0;
+}
+.inputRequest button {
+height: 45px;
+}
+}

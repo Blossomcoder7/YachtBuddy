@@ -1,0 +1,151 @@
+.listingStep {
+  width: 100%;
+  /* background: rgb(71, 183, 172);
+  background: linear-gradient(
+    90deg,
+    rgba(71, 183, 172, 1) 3%,
+    rgba(36, 28, 97, 1) 100%
+  ); */
+  background-image: url("../../images/ListStep3.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.listStepContent {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+}
+.listStepL {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.listStepL h1 {
+  font-size: 50px;
+  color: #fff;
+}
+.listStepL p {
+  color: #fff;
+  font-size: 22px;
+}
+.listcontent ul:after {
+    position: absolute;
+    content: "";
+    height: 80%;
+    width: 1px;
+    background: rgba(14, 120, 115, 0.445) 59.26%;
+    display: inline-block;
+    top: 32px;
+    left: -21px;
+  z-index: 1;
+  /* transform: translateY(50px);
+  animation: wave-animation 1.5s infinite ease-in-out;
+  animation-delay: 0.3s; */
+}
+@keyframes wave-animation {
+    0%, 100% {
+      transform: translateY(50px);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+  }
+
+.listcontent ul {
+  position: relative;
+  margin-top: 20px;
+}
+.listStepR {
+  width: 40%;
+  background-color: #fff;
+  padding: 30px 70px;
+  text-align: left;
+  border-radius: 10px;
+}
+.listcontent ul li {
+  color: #47b7ac;
+  font-size: 20px;
+  text-align: left;
+  padding: 15px 0;
+  list-style: circle;
+}
+.listcontent ul ::marker  {
+  color: #47b7ac;
+  font-size: 30px;
+  
+}
+
+.listStepButton {
+  width: 100%;
+  background-color: rgba(240, 248, 255, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+.listStepButton .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.listStepButton .wrapper>a:nth-child(1) {
+  padding: 15px 20px;
+  border: 2px solid #47b7ac;
+  background-color: #fff;
+}
+.listStepButton .wrapper button {
+  width: 180px;
+  font-size: 18px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: 200;
+  background: linear-gradient(
+    90deg,
+    rgba(71, 183, 172, 1) 3%,
+    rgba(36, 28, 97, 1) 100%
+  );
+  color: #fff;
+  border: 1px solid #fff;
+}
+.listStepButton .wrapper > span:hover {
+  background-color: #47b7ac;
+  color: white !important;
+}
+
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+
+    .listStepContent {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+
+.listStepR {
+    width: 100%;
+    padding: 10px;
+}
+.listStepL {
+    gap: 10px;
+}
+.listStepL h1 {
+    font-size: 30px;
+}
+.listcontent ul li {
+    padding: 8px 0;
+    /* padding-left: 30px; */
+    list-style: none;
+}
+}

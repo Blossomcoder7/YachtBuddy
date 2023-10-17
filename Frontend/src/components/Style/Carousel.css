@@ -1,0 +1,55 @@
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+.carousel-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .popularBoatsDown1 .slick-arrow {
+    position: absolute;
+    top: 34%;
+}
+
+.popularBoatsDown1 {
+    position: relative;
+}
+.slick-slider {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+    z-index: 1;
+  }
+  
+  .popularBoatsDown1  .slick-prev {
+    left: 0px;
+}
+  .popularBoatsDown1  .slick-next {
+    right: 19px;
+  }
+  .popularBoatsDown1 .slick-prev:before,.popularBoatsDown1 .slick-next:before {
+    font-size: 40px;
+    /* opacity: 0.50; */
+  }
+  .gallaryContemt .slick-prev:before, .gallaryContemt .slick-next:before {
+    font-size: 40px;
+    /* opacity: 0.50; */
+  }
+  .gallaryContemt  .slick-prev {
+    left: -17px;
+}
+  .gallaryContemt  .slick-next {
+    right: 5px;
+  }
+ 
+  
+}
+  
+  

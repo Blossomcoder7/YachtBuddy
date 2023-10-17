@@ -1,0 +1,74 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App{
+  overflow: hidden;
+}
+
+  @font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('https://cdn.shopify.com/s/files/1/0096/9349/5356/files/AvenirNextLTPro-Regular.woff2?v=1693917696') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0096/9349/5356/files/AvenirNextLTPro-Regular.woff?v=1693917697') format('woff');
+        font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('https://cdn.shopify.com/s/files/1/0096/9349/5356/files/AvenirNextLTPro-Bold.woff2?v=1693918604') format('woff2'),
+      url('https://cdn.shopify.com/s/files/1/0096/9349/5356/files/AvenirNextLTPro-Bold.woff?v=1693918604') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+body, button, input, select, textarea,p{
+  font-family: 'Avenir Next LT Pro';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+.wrapper{
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input:focus-visible {
+  border: 1px;
+  outline: none;
+  box-shadow: none;
+}
+
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button:hover{
+  background: linear-gradient(90deg, #241C61, #47B7AC); 
+background-size: 200% 100%; 
+animation: backgroundMove 1s linear infinite;
+}
+@keyframes backgroundMove {
+0% {
+  background-position: 100% 0;
+}
+100% {
+  background-position: -100% 0;
+}
+}

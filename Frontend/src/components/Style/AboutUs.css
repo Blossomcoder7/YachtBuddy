@@ -1,0 +1,373 @@
+.aboutUs {
+  width: 100%;
+  background-color: #f5f5f5;
+  margin-top: 100px;
+}
+.aboutMain {
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+.aboutL {
+  width: 70%;
+  border-radius: 20px;
+}
+.aboutL img {
+  width: 100%;
+  border-radius: 20px;
+}
+.aboutR {
+  width: 70%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 20px 1px #0000000d;
+  justify-content: center;
+  margin-left: -120px;
+  background-color: #fff;
+  text-align: left;
+
+}
+.aboutR h2 {
+  font-family: Avenir Next LT Pro;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  color: #241c61;
+}
+.aboutR p {
+  font-family: Avenir Next LT Pro;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0em;
+}
+
+
+
+
+
+/* .........Main About Page.......././ */
+
+.aBoutus{
+  width: 100%;
+}
+.aboutHeader{
+  width: 100%;
+  /* height: 35vh; */
+  padding: 100px 0;
+  background: url('https://demo2.themelexus.com/floaty/wp-content/uploads/2023/01/bg-header-3.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutHeader h1{
+  font-size: 60px;
+  color: #fff;
+
+}
+.ProfesionalPlatform{
+  width: 100%;
+  display: flex;
+  padding: 100px 0;
+
+}
+.ProfesionalPlatformL{
+  text-align: left;
+  padding-right: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.ProfesionalPlatformL h1{
+  font-size: 50px;
+  color: #112543;
+
+}
+.stylishTag{
+  color: #00adee;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 15px 0 -3px;
+    font-family: 'Fuggles', cursive;
+}
+.ProfesionalPlatformL p{
+  font-size: 22px;
+  color: #112543;
+}
+.ProfesionalPlatformR{
+  width: 50%;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.platformContList{
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  text-align: left;
+}
+.rectangle{
+  width: 70px;
+    height: 70px;
+    line-height: 70px;
+    transform: rotate(45deg);
+  border: 3px solid #5191f1;
+  margin-top: 15px;
+}
+.rectangle .rectangleNo{
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+font-size: 20px;
+transform: rotate(-45deg) !important;
+text-align: center;
+font-weight: 700;
+}
+.rectangle:hover{
+  background-color: #5191f1;
+}
+.rectangle .rectangleNo:hover{
+  color: #fff;
+  /* background-color: #112543; */
+}
+.platformContent{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.platformContent h2{
+  font-size: 30px;
+  color: #112543;
+
+}
+.platformContent p{
+  font-size: 18px;
+  color: #112543;
+
+}
+.cHooseus{
+  width: 100%;
+  background: url("https://demo2.themelexus.com/floaty/wp-content/uploads/2023/02/About-background01.jpg");
+  /* height: 30vh; */
+  backface-visibility: 50%;
+  position: relative;
+  padding: 100px 0;
+}
+.cHooseus:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #00000065;
+  z-index: 1;
+}
+.cHooseus>.wrapper{
+  display: flex;
+  color: #fff;
+  z-index: 10;
+  position: relative;
+  
+}
+.cHooseUsL{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 20px;
+  padding-right: 30px;
+}
+.cHooseUsL h1{
+font-size: 55px;
+}
+.cHooseUsL p{
+font-size: 20px;
+}
+.cHooseUsR{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+}
+.webData{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.webData>span{
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+.ourStory{
+  width: 100%;
+  display: flex;
+  }
+  .ourStoryL{
+    width: 50%;
+  }
+  .ourStoryL img{
+    width: 100%;
+  }
+  .ourStoryR{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    padding: 50px 100px;
+  }
+  .ourStoryR h1{
+    font-size: 55px;
+  }
+  .ourStoryR p{
+    font-size: 20px;
+  }
+  .ourStoryR button{
+    width: 25%;
+    padding: 10px ;
+    font-size: 18px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #112543;
+    color: #fff;
+  }
+  
+  .feedBackBtn p{
+    font-size: 25px;
+    line-height: 40px;
+    word-spacing: 2px;
+    padding-top: 20px;
+  }
+  .feedBackBtn h3{
+    font-size: 30px;
+    color: #112543fd;
+  }
+ .feedBackBtn .slick-prev, .feedBackBtn .slick-next {
+      top: 120%;
+      display: none !important;
+    }
+    
+  .slick-dots li button:before {
+    font-size: 10px;
+  color:#47b7ac;
+  }
+  .slick-dots li.slick-active button:before {
+    opacity: 0.75;
+    color: #241c61;
+}
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+
+  .aboutMain {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  .aboutL{
+    width: 100%;
+    /* padding: 0 20px; */
+  }
+  .aboutR {
+ width: 100%; 
+ padding: 0 20px;
+ margin: 0;
+ padding: 20px;
+ /* margin: 0 20px; */
+  }
+  .aboutHeader {
+    height: 20vh !important;
+  }
+  .aboutHeader h1{
+    font-size: 40px;
+  }
+  .ProfesionalPlatform{
+    flex-direction: column;
+  }
+  .ProfesionalPlatformL{
+    width: 100%;
+    padding: 0;
+  }
+  .ProfesionalPlatformL h1 {
+    font-size: 30px;
+ }
+ .ProfesionalPlatformL p {
+  font-size: 16px;
+}
+.ProfesionalPlatformR {
+  padding: 0 10px;
+  width: 100%;
+}
+.platformContent h2 {
+  font-size: 25px;
+}
+.platformContent p {
+  font-size: 16px;
+}
+.ourStory{
+  flex-direction: column;
+  margin-top: 10px;
+}
+.cHooseus{
+  padding: 45px 0;
+}
+.cHooseUsL {
+width: 100%;
+align-items: center;
+text-align: center;
+padding: 0;
+}
+.cHooseUsR {
+  width: 50%;}
+  .cHooseUsL h1 {
+    font-size: 30px;
+}
+.cHooseus>.wrapper {
+flex-direction: column;
+}
+.ourStoryL {
+  width: 100%;
+}
+.ourStoryR{
+  width: 100%;
+  padding: 20px;
+}
+.ourStoryR h1 {
+  font-size: 25px;
+}
+.ourStoryR p {
+  font-size: 16px;
+}
+.stylishTag {
+  font-size: 35px;
+}
+.ourStoryR button {
+  width: 40%;
+  font-size: 16px;
+}
+.feedBackBtn p {
+  line-height: 30px;
+}
+.ourStoryL img {
+  margin-top: 10px;
+}
+}
+ 
