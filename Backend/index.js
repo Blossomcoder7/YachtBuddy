@@ -18,7 +18,10 @@ const app = express();
 app.use(cookieParser());
 // app.use(cors());
 
-app.use(cors());
+cors({
+"origin": "https://yacht-eta.vercel.app/",
+"credentials": true
+})
 // app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 
