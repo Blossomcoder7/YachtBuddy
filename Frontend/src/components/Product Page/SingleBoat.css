@@ -561,16 +561,12 @@
     padding: 12px 0px 8px;
     place-content: center space-between;
     -webkit-box-pack: justify;
-    border-color: rgb(188, 53, 10) !important;
 }
-.kgzSol .sc-5ec5715e-4 {
-    color: rgb(188, 53, 10);
-}
+
 .jxtmnV {
     position: absolute;
 }
 .kfTYNu {
-    color: rgb(188, 53, 10);
     font-weight: 500;
     position: absolute;
     bottom: 0px;
@@ -593,8 +589,8 @@
     padding: 4px 0px 6px;
 }
 .gJcfkx {
-    color: rgb(94, 105, 106);
-    font-size: 12px;
+    color: rgb(11, 11, 11);
+    font-size: 14px;
 }
 .jhNDLd {
     font-size: 16px;
@@ -611,7 +607,6 @@
     padding-top: 8px;
     font-weight: 500;
     font-size: 12px;
-    color: rgb(188, 53, 10);
     bottom: 0px;
 }
 .kAFBlW {
@@ -631,10 +626,7 @@
     padding: 10px 0px 5px;
     border-bottom: unset;
 }
-.jweEUb.hasError {
-    color: rgb(188, 53, 10);
-    border-color: rgb(188, 53, 10);
-}
+
 .EwZPu {
     display: flex;
 }
@@ -675,4 +667,44 @@
     font-weight: bold;
     line-height: 0.79;
     text-transform: inherit;
+}
+.SeLectGrp{
+    width: 100%;
+    position: relative;
+    text-align: left;
+}
+.DuRaTiON{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 20px;
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    top: 60px;
+}
+.duratIonTab{
+    width: calc(50% - 20px);
+    padding: 20px;
+    background-color: #23579b;
+    text-align: center;
+    color: #fff;
+}
+.DatePicker.eeUKug{
+    position: relative;
+}
+.dateRange{
+    position: absolute;
+}
+
+.DatePicker .rdrDateRangePickerWrapper.dateRange {
+    position: absolute;
+    left: -180px;
+    bottom: -355px;
+    z-index: 9999;
+    background: #007bff !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }

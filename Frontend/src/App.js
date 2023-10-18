@@ -40,6 +40,7 @@ import Message from "./components/Admin/Message";
 import CheckOutPage from "./components/Paymants/CheckOutPage";
 import { ImageProvider } from '../src/utils/ImageContext';
 import OwnerBoats from "./components/Owner/OwnerBoats";
+import StartTime from "./components/ListYourBoat/StartTime";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
                 <Route exact path="/singleBoat/:id" element={<SingleBoat />}></Route>
                 <Route exact path="/allBoat/:category" element={<AllBoats/>}></Route>
                 <Route exact path="/checkout/:id" element={<CheckOutPage />}/>
+                <Route exact path="/startTime" element={<StartTime/>}/>
 
 
 

@@ -15,10 +15,10 @@ import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 
 export default function Navbar() {
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [active, setActive] = useState(null);
   const [name, setName] = useState("");
-  const { authToken,logout } = useAuth();
+  const { authToken, logout } = useAuth();
 
 
   const navigate = useNavigate();
@@ -27,7 +27,6 @@ export default function Navbar() {
   const isAuthenticated = !!authToken;
 
   console.log(isAuthenticated)
-  // console.log(user.name)
 
   const handleLogout = () => {
     logout(null);
@@ -58,7 +57,7 @@ export default function Navbar() {
   };
   useEffect(() => {
     handelName();
-  },[user])
+  }, [user])
   const handelName = () => {
     if (user && user.name) {
       setName(user.name);
@@ -67,10 +66,17 @@ export default function Navbar() {
       console.error("User or user name is null");
     }
   }
-
+const handelNavigate = () =>{
+  if(user.role === "owner"){
+navigate("/ownerDashboard");
+  }
+  if(user.role === "admin"){
+    navigate("/dashboard");
+  }
+}
   return (
     <>
-    
+
       <div className="navbar wrapper">
         <NavLink to="/" className="logoOuter">
           <img src={logo} alt=""></img>
@@ -106,8 +112,8 @@ export default function Navbar() {
               >
                 List Your Boat
               </li>
-            </NavLink>):""}
-            
+            </NavLink>) : ""}
+
             <NavLink to="/aboutUs">
               {" "}
               <li
@@ -143,6 +149,7 @@ export default function Navbar() {
           ) : (
             <>
               <div className="profileD">
+                <div class="dropdown">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"                                                             
@@ -157,8 +164,14 @@ export default function Navbar() {
                     />
                   </g>
                 </svg>
+                  <div class="dropdown-content">
+                     <p onClick={handelNavigate}>DashBoard</p>
+                    <NavLink to='/Horticulture'> <p>Edit Profile</p></NavLink>
+                   
+                  </div>
+                </div>
 
-               <p>{name}</p>
+                <p>{name}</p>
                 <button className="signup" onClick={handleLogout}>
                   Log Out
                 </button>
@@ -213,7 +226,7 @@ export default function Navbar() {
                 />
               </g>
             </svg>
-{isAuthenticated ?<p>{name}</p> :<p>Welcome User</p> }
+            {isAuthenticated ? <p>{name}</p> : <p>Welcome User</p>}
           </div>
           <div className="profileDivider"></div>
           <ul>
@@ -234,8 +247,8 @@ export default function Navbar() {
               >
                 List Your Boat
               </li>
-            </NavLink>):""}
-            
+            </NavLink>) : ""}
+
             <NavLink to="/aboutUs">
               {" "}
               <li>About Us</li>
