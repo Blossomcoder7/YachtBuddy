@@ -1,0 +1,41 @@
+.startTime{
+    width: 100%;
+    display: flex;
+}
+.startTimeL{
+    width: 50%;
+    height: 90vh;
+    background-color: aquamarine;
+}
+.startTimeR{
+    width: 50%;
+    height: 90vh;
+display: flex;
+flex-direction: column;
+padding: 10px 3%;
+}
+.weekDays{
+    width: 100%;
+    display: flex;
+    background-color: aqua;
+    justify-content: space-between;
+    padding: 30px 30px;
+    align-items: center;
+}.WeEk{
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+.WeEk input{
+    width: 20px;
+}
+.weAkTiMe{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.weAkTiMe span{
+    font-weight: bold;
+    font-size: 18px;
+}

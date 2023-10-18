@@ -21,6 +21,8 @@ export default function SingleBoat() {
   const { id } = useParams();
   console.log(id)
   const [openDate, setOpenDate] = useState(false);
+  const [openTime, setOpenTime] = useState(false);
+  const [time, setTime] = useState("2 hour");
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -36,8 +38,36 @@ export default function SingleBoat() {
     slidesToScroll: 1,
   };
 
+  const pickTime = (e) => {
+    console.log(e.currentTarget.textContent);
+    setTime(e.currentTarget.textContent)
+  }
+  function generateHalfHourIntervals() {
+    let startTime = '09:00:00';
+    let endTime = '17:00:00';
+    const intervals = [];
+    const interval = 30; // 30 minutes
+  
+    // Convert start and end times to Date objects
+    const startDate = new Date(`2023-10-17T${startTime}`);
+    const endDate = new Date(`2023-10-17T${endTime}`);
+  console.log(startDate)
+    // Loop through the intervals
+    while (startDate < endDate) {
+      const timeString = startDate.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+      intervals.push(timeString);
+      startDate.setMinutes(startDate.getMinutes() + interval);
+    }
+  console.log(intervals)
+    return intervals;
+  }
+
   return (
     <>
+    <p onClick={generateHalfHourIntervals}>CliCk Here  TO Get Time </p>
       <Navbar />
       <div className="singleProductSlider">
         <Slider {...settings}>
@@ -665,15 +695,19 @@ export default function SingleBoat() {
                   </div>
                 </div>
                 <form className="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 sc-11ed60f3-11 kbnFZE goeXEm jpkWIi jLsUKv">
-                  <div className="sc-11ed60f3-7 eeUKug">
+                  <div className="sc-11ed60f3-7 eeUKug DatePicker" onClick={() => setOpenDate(!openDate)}>
                     <div className="sc-11ed60f3-6 hDpGCH">
                       <div className="sc-5ec5715e-5 kgzSol">
                         <div className="sc-5ec5715e-1 ixAPuh">
                           <div className="sc-5ec5715e-4 jxtmnV false">Date</div>
                           <div className="sc-5ec5715e-2 gkpCSo" />
                           <div className="sc-5ec5715e-0 kfTYNu">
-                            Please enter your trip date
+                            {/* Please enter your trip date */}
+                            {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
+
                           </div>
+                          <span >
+                          </span>
                         </div>
                         <div className="sc-5ec5715e-3 gNuYoY">
                           <svg
@@ -691,21 +725,38 @@ export default function SingleBoat() {
                         </div>
                       </div>
                     </div>
+                    {openDate && (
+                      <DateRangePicker
+                        editableDateInputs={true}
+                        moveRangeOnFirstSelection={false}
+                        ranges={date}
+                        onChange={(item) => setDate([item.selection])}
+                        className="dateRange"
+                      />
+                    )}
                     <input type="hidden" name="trip_start" defaultValue="" />
                   </div>
                   <div className="sc-11ed60f3-7 eeUKug">
                     <div>
-                      <div
-                        className="sc-c55a9e21-3 jweEUb null"                       >
+                      <div className="sc-c55a9e21-3 jweEUb null" onClick={() => setOpenTime(!openTime)}>
                         <div className="sc-c55a9e21-4 kAFBlW">
                           <div className="sc-c55a9e21-5 fkXugm">
-                            <div className="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 kbnFZE goeXEm jpkWIi">
+                            <div className="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 kbnFZE goeXEm jpkWIi SeLectGrp">
                               <div className="sc-c55a9e21-7 gLJKxr">
                                 <div className="sc-c55a9e21-8 gJcfkx">
                                   Duration
                                 </div>
-                                <div className="sc-c55a9e21-2 jhNDLd">
-                                  6 hours
+                                <div className="sc-c55a9e21-2 jhNDLd dURaTiOn">
+                                  <p style={{ fontSize: "12px" }}> {time}</p>
+                                  {openTime && (
+                                    <div className="DuRaTiON">
+                                      <div className="duratIonTab" onClick={pickTime}>2 hour</div>
+                                      <div className="duratIonTab" onClick={pickTime}>4 hour</div>
+                                      <div className="duratIonTab" onClick={pickTime}>6 hour</div>
+                                      <div className="duratIonTab" onClick={pickTime}>8 hour</div>
+                                    </div>
+                                  )}
+
                                 </div>
                               </div>
                             </div>

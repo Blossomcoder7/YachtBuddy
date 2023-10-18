@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 import backendURL from "../../AxiosApi";
 import { DateRangePicker } from "react-date-range";
-import {format} from "date-fns";
-import "react-date-range/dist/styles.css"; 
-import "react-date-range/dist/theme/default.css"; 
+import { format } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
@@ -24,14 +24,14 @@ export default function HeroSection() {
   const [reqstData, setReqstData] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
-     {
-       startDate: new Date(),
-       endDate: new Date(),
-       key: "selection",
-     },
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
   ]);
 
-  const { user, setUser } = useContext(UserContext);  
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     AOS.init({ duration: 3000 });
@@ -53,11 +53,11 @@ export default function HeroSection() {
     console.log(date);
     console.log(reqstData)
     if (user) {
-     
+
       try {
         const response = await axios.post(
           `${backendURL}/request/request`,
-         { reqstData, date }
+          { reqstData, date }
         );
         console.log(response);
         if (response.status === 200) {
@@ -93,21 +93,21 @@ export default function HeroSection() {
                   ></input>
                 </div>
                 <div className="inputRequest CalaNder" onClick={() => setOpenDate(!openDate)}>
-              <img src={calander} alt="" />
-              <span >
-                {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate,"MM/dd/yyyy")}`}
-              </span>
-             
-            </div>
-            {openDate && (
-                <DateRangePicker
-                  editableDateInputs={true}
-                  moveRangeOnFirstSelection={false}
-                  ranges={date}
-                  onChange={(item) => setDate([item.selection])}
-                  className="dateRange"
-                />
-              )}
+                  <img src={calander} alt="" />
+                  <span >
+                    {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
+                  </span>
+                  {openDate && (
+                  <DateRangePicker
+                    editableDateInputs={true}
+                    moveRangeOnFirstSelection={false}
+                    ranges={date}
+                    onChange={(item) => setDate([item.selection])}
+                    className="dateRange"
+                  />
+                )}
+                </div>
+               
                 <div className="inputRequest">
                   <img src={user1} alt=""></img>{" "}
                   <input

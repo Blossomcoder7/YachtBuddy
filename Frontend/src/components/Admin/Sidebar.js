@@ -49,11 +49,11 @@ export default function Sidebar() {
               <img src={booked} alt=""></img> <li>Booked Charters</li>
             </span>
           </NavLink>
-          <NavLink>
+          {/* <NavLink>
             <span>
               <img src={clander} alt=""></img> <li>Calendar</li>
             </span>
-          </NavLink>
+          </NavLink> */}
           <NavLink to='/dashboard/message'>
             <span>
               <img src={message} alt=""></img> <li>Messaging</li>
