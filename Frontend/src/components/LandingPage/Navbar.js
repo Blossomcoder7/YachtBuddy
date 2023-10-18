@@ -58,7 +58,7 @@ export default function Navbar() {
   };
   useEffect(() => {
     handelName();
-  },[])
+  },[user])
   const handelName = () => {
     if (user && user.name) {
       setName(user.name);
