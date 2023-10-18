@@ -28,18 +28,27 @@ export default function ListedBoats() {
   };
 
   const handleAcceptClick = async (boat) => {
+    alert("You are confirming the acceptance of the boat");
     try {
-      // Assuming you have a backend server running on ${backendURL}
       await axios.post(`${backendURL}/admin/acceptBoat/${boat._id}`);
-      // Reload the boat listings after accepting
-      fetchData();
-      alert("The Boat Accept Successfully");
+      // Update the accepted status for this boat
+      const updatedData = data.map((item) => {
+        if (item._id === boat._id) {
+          return { ...item, status: "accepted" };
+        }
+        return item;
+      });
+      setData(updatedData);
+      alert("The Boat Accepted Successfully");
     } catch (error) {
       console.error('Error accepting boat:', error);
     }
   };
+  
 
   const handleDeleteClick = async (boat) => {
+    alert("You are confirming the deletion of the boat");
+
     try {
       // Assuming you have a backend server running on ${backendURL}
       await axios.delete(`${backendURL}/admin/deleteBoat/${boat._id}`);
@@ -63,22 +72,27 @@ export default function ListedBoats() {
             <div className="ListBoatCont">Status</div>
           </div>
           {data.map((item) => (
-            <div key={item._id} className="ListedBoatHead ListedBoatHeadC">
-              <div className="ListBoatCont">{item.username}</div>
-              <div className="ListBoatCont">{item.locationType}</div>
-              <div className="ListBoatCont">{item.state}, {item.country}</div>
-              <div className="ListBoatCont">{item.cateogiry}</div>
-              <div className="ListBoatCont view">
-                <span onClick={() => handleViewClick(item)}>View</span>
-              </div>
-              <div className="ListBoatCont sTatusBtn">
-                <button className="acceptBtn" onClick={() => handleAcceptClick(item)}>
-                  Accept
-                </button>
-                <button onClick={() => handleDeleteClick(item)}>Delete</button>
-              </div>
-            </div>
-          ))}
+  <div key={item._id} className="ListedBoatHead ListedBoatHeadC">
+    <div className="ListBoatCont">{item.username}</div>
+    <div className="ListBoatCont">{item.locationType}</div>
+    <div className="ListBoatCont">{item.state}, {item.country}</div>
+    <div className="ListBoatCont">{item.category}</div>
+    <div className="ListBoatCont view">
+      <span onClick={() => handleViewClick(item)}>View</span>
+    </div>
+    <div className="ListBoatCont sTatusBtn">
+      {item.status === "accepted" ? (
+        <p>Accepted</p>
+      ) : (
+        <button onClick={() => handleAcceptClick(item)} className="acceptBtn">
+          Accept
+        </button>
+      )}
+      <button onClick={() => handleDeleteClick(item)}>Delete</button>
+    </div>
+  </div>
+))}
+
           {selectedBoat && <BoatDetails boat={selectedBoat} />}
         </div>
       </div>
