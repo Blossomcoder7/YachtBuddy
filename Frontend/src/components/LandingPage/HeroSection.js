@@ -92,12 +92,16 @@ export default function HeroSection() {
                     onChange={handelInputChange}
                   ></input>
                 </div>
+                
                 <div className="inputRequest CalaNder" onClick={() => setOpenDate(!openDate)}>
                   <img src={calander} alt="" />
                   <span >
                     {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
                   </span>
-                  {openDate && (
+                </div>
+                    
+                <div onClick={() => setOpenDate(!openDate)}>
+                  {openDate &&  (
                   <DateRangePicker
                     editableDateInputs={true}
                     moveRangeOnFirstSelection={false}
