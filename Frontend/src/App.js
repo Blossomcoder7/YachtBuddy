@@ -41,6 +41,7 @@ import CheckOutPage from "./components/Paymants/CheckOutPage";
 import { ImageProvider } from '../src/utils/ImageContext';
 import OwnerBoats from "./components/Owner/OwnerBoats";
 import StartTime from "./components/ListYourBoat/StartTime";
+import SearchProduct from "./components/Product Page/SearchProduct";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
                 <Route exact path="/allBoat/:category" element={<AllBoats/>}></Route>
                 <Route exact path="/checkout/:id" element={<CheckOutPage />}/>
                 <Route exact path="/startTime" element={<StartTime/>}/>
+                <Route exact path="/searchBoaats" element={<SearchProduct/>}/>
 
 
 

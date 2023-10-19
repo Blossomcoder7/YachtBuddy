@@ -5,7 +5,20 @@
 .startTimeL{
     width: 50%;
     height: 90vh;
-    background-color: aquamarine;
+    background: linear-gradient( 90deg, rgba(71, 183, 172, 1) 3%, rgba(36, 28, 97, 1) 100% );
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    padding: 0 5%;
+}
+.startTimeL h1{
+    font-size: 55px;
+    color: #fff;
+}
+.startTimeL p{
+    color: #fff;
+    font-size: 18px;
 }
 .startTimeR{
     width: 50%;
@@ -13,11 +26,17 @@
 display: flex;
 flex-direction: column;
 padding: 10px 3%;
+overflow-y: scroll;
+}
+.startTimeR h4{
+    font-size: larger;
 }
 .weekDays{
     width: 100%;
     display: flex;
-    background-color: aqua;
+    /* background-color:#47b7ac; */
+    background: linear-gradient( 90deg, rgba(71, 183, 172, 1) 3%, rgba(36, 28, 97, 1) 100% );
+
     justify-content: space-between;
     padding: 30px 30px;
     align-items: center;
@@ -38,4 +57,30 @@ padding: 10px 3%;
 .weAkTiMe span{
     font-weight: bold;
     font-size: 18px;
+}
+.TimeInterval{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.interVal{
+    width: calc(33% - 20px);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(225, 235, 235, 0.728);
+    padding: 20px 0;
+
+}
+.interVal>input{
+    width: 20px;
+    height: 20px;
+}
+.DaysWrap{
+    margin: 20px 0;
 }

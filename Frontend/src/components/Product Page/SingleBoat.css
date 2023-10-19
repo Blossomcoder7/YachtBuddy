@@ -624,7 +624,7 @@
 }
 .ebpkmB {
     padding: 10px 0px 5px;
-    border-bottom: unset;
+    border-bottom: 1px solid rgba(219, 223, 229, 0.5);
 }
 
 .EwZPu {
@@ -707,4 +707,49 @@
     z-index: 9999;
     background: #007bff !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.TiMeInTeRvAl{
+    position: relative;
+}
+.StaRtTime{
+    width: 100%;
+    height: 40vh;
+overflow-y: scroll;
+    display: flex;
+    background-color: #fff;
+    position: absolute;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    bottom: -120px;
+    left: 0;
+    z-index: 675;
+    padding: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.StaRtinTerval{
+    width: calc(50% - 20px);
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border: 2px solid rgba(128, 128, 128, 0.121);
+
+    justify-content: center;
+
+}
+.StaRtinTerval>input{
+    width: 20px;
+    height: 20px;
+}
+.paSSanGer{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 12px;
+}
+.paSSanGer>input{
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    border: 0;
 }

@@ -72,7 +72,49 @@ gap: 10px;
   color: #c0bcbc;;
   font-size: 14px;
 }
+.inputRequest.LoCaTion{
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #CBC0C0;
 
+}
+.inputRequest.LoCaTion>p{
+  width: 96%;
+  text-align: left;
+  font-size: 14px;
+  padding-left: 10px;
+  color: rgba(128, 128, 128, 0.66);
+}
+.inputRequest.LoCaTion>img{
+  width: 10%;
+}
+.LoCationValue{
+  width: 30%;
+  height: 30vh;
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  z-index: 888;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: hidden;
+  overflow-y: scroll;
+  }
+  .LoCationValue li{
+    /* color: #007bff; */
+    list-style: none;
+    padding: 8px 10px;
+    z-index: 8888;
+  }
+  .LoCationValue li:hover {
+    background-color: #47b7ac;
+    color: #fff;
+  }
 
 .rdrDateRangePickerWrapper.dateRange {
   position: absolute;

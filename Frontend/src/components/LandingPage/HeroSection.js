@@ -19,10 +19,12 @@ import "react-date-range/dist/theme/default.css";
 // import "react-datepicker/dist/react-datepicker.css";
 
 export default function HeroSection() {
-  const [isFocused, setIsFocused] = useState(false);
   const [inputType, setInputType] = useState("text");
   const [reqstData, setReqstData] = useState("");
   const [openDate, setOpenDate] = useState(false);
+  const [location, setLocation] = useState(false);
+  const [boat,setBoat] = useState();
+  const [selectedlocation, setSelectedLocation] = useState("Location");
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -48,28 +50,67 @@ export default function HeroSection() {
 
   const navigate = useNavigate();
 
+  const clearForm = () => {
+    setReqstData({ passanger: "" });
+    setSelectedLocation("Location");
+    setDate([
+      {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+      },
+    ]);
+  };
   const onsubmit = async (e) => {
     e.preventDefault();
     console.log(date);
     console.log(reqstData)
-    if (user) {
+    
+console.log(
+  { reqstData, date, selectedlocation}
 
+)
       try {
         const response = await axios.post(
           `${backendURL}/request/request`,
-          { reqstData, date }
+          { reqstData, date, selectedlocation}
         );
-        console.log(response);
-        if (response.status === 200) {
-          alert("Your Request Send Successfuly");
+        // console.log(response);
+        if(response.status === 200){
+         setBoat(response.data.boats);
+         navigate("/searchBoaats",{state:{boat:boat}})
+                }
+        if (response.status === 201) {
+          alert("No Boat Found");
+         clearForm();
         }
       } catch (error) {
         console.log(error);
       }
-    } else {
-      alert("Kindly Sign Up Before Proceeding");
-    }
+    
   };
+
+  const setLocations = (e) => {
+    console.log(e.currentTarget.textContent);
+    setSelectedLocation(e.currentTarget.textContent)
+  }
+
+  const locations = [
+    "Dinner Key",
+    "Epic Marina Downtown",
+    "Miami Beach Marina | 300 Alton Rd",
+    "Miami River",
+    "Bayside | 401 Biscayne Blvd Miami, FL 33132 United States",
+    "Epic Hotel",
+    "Haulover | 1975 Ixora Rd, North Miami, FL 33181",
+    "Miami river EPIC (broker adjustments)",
+    "Chamonix Marina",
+    "Venitian Marina",
+    "Miami Beach Marina J",
+    "North Miami Beach",
+    "Fountain Bleu",
+    "River landing"
+  ];
 
   return (
     <>
@@ -82,36 +123,39 @@ export default function HeroSection() {
           <div className="boxShadow" data-aos="fade-down">
             <div className="boatRequest">
               <form action="submit_form.php" method="post">
-                <div className="inputRequest">
+                <div className="inputRequest LoCaTion" onClick={() => setLocation(!location)}>
                   <img src={map} alt=""></img>{" "}
-                  <input
-                    type="text"
-                    placeholder="Location"
-                    name="location"
-                    value={reqstData.location}
-                    onChange={handelInputChange}
-                  ></input>
+
+                  <p style={{ width: "96%" }}>{selectedlocation}</p>
+
                 </div>
-                
+                {location && (
+                  <div className="LoCationValue" onClick={() => setLocation(!location)}>
+                    {locations.map((item, index) => (
+                      <li key={index} onClick={setLocations}>{item}</li>
+                    ))}
+                  </div>
+                )}
+
                 <div className="inputRequest CalaNder" onClick={() => setOpenDate(!openDate)}>
                   <img src={calander} alt="" />
                   <span >
                     {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
                   </span>
                 </div>
-                    
+
                 <div onClick={() => setOpenDate(!openDate)}>
-                  {openDate &&  (
-                  <DateRangePicker
-                    editableDateInputs={true}
-                    moveRangeOnFirstSelection={false}
-                    ranges={date}
-                    onChange={(item) => setDate([item.selection])}
-                    className="dateRange"
-                  />
-                )}
+                  {openDate && (
+                    <DateRangePicker
+                      editableDateInputs={true}
+                      moveRangeOnFirstSelection={false}
+                      ranges={date}
+                      onChange={(item) => setDate([item.selection])}
+                      className="dateRange"
+                    />
+                  )}
                 </div>
-               
+
                 <div className="inputRequest">
                   <img src={user1} alt=""></img>{" "}
                   <input
@@ -124,7 +168,7 @@ export default function HeroSection() {
                 </div>
                 <div className="inputRequest inputRequest1">
                   <button onClick={onsubmit}>
-                    SEND REQ<img src={arrow} alt=""></img>
+                    SEARCH<img src={arrow} alt=""></img>
                   </button>
                 </div>
               </form>
