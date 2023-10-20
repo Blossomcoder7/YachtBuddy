@@ -12,6 +12,7 @@ exports.ListYourBoat = async (req, res) => {
   try {
     console.log(req.body);
     const {
+      bookingType,
       durationPrices,
       advanceNotice,
       availability,
@@ -35,6 +36,7 @@ exports.ListYourBoat = async (req, res) => {
       extras,
       navigation,
       power,
+      customStartDate,
       length,
       passangerCapacity,
       cateogiry,
@@ -70,6 +72,8 @@ exports.ListYourBoat = async (req, res) => {
       allowedOnBoat,
       availability,
       features,
+      customStartDate,
+      bookingType,
       extras,
       navigation,
       boatAddress,

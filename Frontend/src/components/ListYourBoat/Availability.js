@@ -21,8 +21,13 @@ export default function Availability() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const Data = { availability };
+    console.log(availability)
     updateFormData(Data);
-    navigate("/advanceNotice");
+    if(availability === "Default availability"){
+      navigate("/advanceNotice");
+    }else{
+      navigate("/startTime");
+    }
   };
 
   return (

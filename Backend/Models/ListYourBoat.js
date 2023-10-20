@@ -113,7 +113,10 @@ const boatSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  bookingType:{
+    type:String,
+    required:false
+  },
   description: {
     type: String,
     required: true,
@@ -142,7 +145,11 @@ const boatSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  customStartDate: {
+    type: Map,
+    of: [String] ,
+    required:false
+  },
   duration: {
     type: [String],
     required: true,
