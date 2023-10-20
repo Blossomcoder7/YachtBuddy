@@ -137,8 +137,9 @@ export default function Review() {
           updateFormData(imageIds);
           alert("Successfull Submit")
           navigate("/");
-           console.log(imageIds)
-           } else if (response.status === 400) {
+
+        } else if (response.status === 400) {
+
           alert("Invalid form data. Please check your input.");
         } else {
           alert("An error occurred. Please try again later.");

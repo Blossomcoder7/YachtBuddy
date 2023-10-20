@@ -8,12 +8,16 @@ import { useNavigate } from "react-router-dom";
 export default function OperatorBooking() {
   const [checkbox1, setCheckbox1] = useState(true);
   const [checkbox2, setCheckbox2] = useState(false);
+  const [open1, setOpen1] = useState(false);
   const [renter] = useState("Yes");
   const [uscg] = useState("Yes");
   const [pay, setPay] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
   const { formData, updateFormData } = useFormData();
   const [durationPrices, setDurationPrices] = useState({});
+  const [disable1, setDisable1] = useState(false);
+  const [disable2, setDisable2] = useState(false);
+  const [bookingType, setBookingType] = useState("");
 
   const navigate = useNavigate();
 
@@ -54,16 +58,32 @@ export default function OperatorBooking() {
     e.preventDefault();
 
     let Data;
-    if (checkbox1 && checkbox2) {
-      Data = { renter, uscg, checkedItems,durationPrices, pay };
+    if (checkbox1 && checkbox2 ) {
+     Data = { renter, uscg, checkedItems,durationPrices, pay,bookingType };
+
     } else if (checkbox1 === false && checkbox2 === true) {
-      Data = { uscg, checkedItems,durationPrices, pay };
+      Data = { uscg, checkedItems,durationPrices, pay ,bookingType};
     } else {
-      Data = { renter, checkedItems, pay,durationPrices};
+      Data = { renter, checkedItems, pay,durationPrices,bookingType};
     }
 
+    
+console.log(Data);
     updateFormData(Data);
     navigate("/review");
+
+  };
+
+  
+  const handleCheckbox1Change = (event) => {
+    setDisable2(!disable2);
+    setBookingType("Duration");
+
+  };
+
+  const handleCheckbox2Change = (event) => {
+    setDisable1(!disable1);
+    setBookingType("Ask for Quotation");
 
   };
 
@@ -114,28 +134,26 @@ export default function OperatorBooking() {
                 type="checkbox"
                 name="operator"
                 value="USCG-certified captain operates my boat"
-                checked={checkbox2}
+                // checked={checkbox2}
                 onClick={handleCheckbox2Click}
               ></input>
               <p>USCG-certified captain operates my boat</p>
             </span>
           </div>
-          <h6>Select which durations you’d like to offer.</h6>
-          {/* <div className="durationOffer">
-            {checkboxes.map((checkbox) => (
-              <div className="durationOfferT">
-                <input
-                  type="checkbox"
-                  name={checkbox.name}
-                  value={checkbox.name}
-                  checked={checkedItems.includes(checkbox.name)}
-                  onClick={() => handleCheckboxClick(checkbox.name)}
-                ></input>
-                <span>{checkbox.name}</span>
-              </div>
-            ))}
-          </div> */}
-          <div className="durationOffer">
+          <div className="prIceGap">
+            <span className="dUraTionCheck">
+            <input
+          type="checkbox"
+          onChange={handleCheckbox1Change}
+          disabled={disable1}
+          onClick={()=>{setOpen1(!open1);}}
+        />
+              {/* <input type="checkbox" onClick={()=>{setOpen1(!open1);}}></input> */}
+          <h6>Select which durations you’d like to offer.</h6> 
+          </span>      
+          {open1 && (
+            <>
+             <div className="durationOffer">
             {checkboxes.map((checkbox) => (
               <div className="durationOfferT">
                 <input
@@ -156,12 +174,27 @@ export default function OperatorBooking() {
                 <input
                   type="text"
                   placeholder={`${duration} Enter price`}
-                  name={`${duration}-price`}  // Add the name attribute
-                  value={durationPrices[duration] || ""}  // Add the value attribute
+                  name={`${duration}-price`}  
+                  value={durationPrices[duration] || ""}  
                   onChange={(e) => handlePriceChange(duration, e.target.value)}
                 />
               </div>
             ))}
+          </div>
+            </>
+          )}   
+         
+          </div>
+          <div className="prIceGap">
+            <span className="dUraTionCheck">
+            <input
+          type="checkbox"
+          onChange={handleCheckbox2Change}
+          disabled={disable2}
+        />
+          <h6>Ask for Quotation</h6> 
+          </span>         
+         
           </div>
           <h6>Who pays for fuel?</h6>
           <div className="payFuel">
