@@ -1,3 +1,3 @@
-const backendURL = "http://localhost:5000";
+const backendURL = "https://yacht.onrender.com";
 
 export default backendURL;
