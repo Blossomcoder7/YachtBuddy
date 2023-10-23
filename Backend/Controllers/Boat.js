@@ -38,12 +38,12 @@ exports.singleBoat = async (req, res) => {
   try {
     const id = req.params.id;
     console.log(id)
-    const boat = await BoatList.find({ _id: id });
+    const boat = await BoatList.findOne({ _id: id });                  
     if (!boat) {
       return res.status(201).json({ message: 'boat not found' });
     }
     // Return the user's profile
-    console.log(boat)
+    console.log("Boat is found Null",boat)
     return res.status(200).json({ boat });
 
   } catch (error) {
