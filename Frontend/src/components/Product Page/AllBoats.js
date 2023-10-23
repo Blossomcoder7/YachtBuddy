@@ -5,9 +5,14 @@ import Footer from "../LandingPage/Footer";
 import "./AllBoats.css";
 import star from "../../images/star.svg";
 import aboutImg from "../../images/aboutImg.png";
+import backendURL from '../../AxiosApi';
+import axios from "axios";
+
 
 export default function AllBoats() {
   const { category } = useParams();
+  const [data, setData] = useState([]);
+
   console.log(category)
  
   const boatData = [
@@ -152,6 +157,21 @@ export default function AllBoats() {
       setCurrentPage(currentPage - 1);
     }
   };
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${backendURL}/boat/${category}`);
+      setData(response.data.boat);
+      
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -194,9 +214,9 @@ export default function AllBoats() {
         <div className="allBoatLower">
           <h2>Our top {`${category}`}</h2>
           <div className="allBoatCard">
-            {displayedBoats.map((boat, index) => (
-                <Link to={`/singleBoat/${boat.id}`}>
-              <div className="singleBoatCard">
+            {data.map((boat, index) => (
+                <Link to={`/singleBoat/${boat._id}`}>
+              <div className="singleBoatCard" key={index}>
                 <div className="singleBoatCardL">
                   <img
                     src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
@@ -208,14 +228,14 @@ export default function AllBoats() {
                       class="u-mr05"
                       src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
                     />
-                    $75+
+                    ${boat.durationPrices["2 hour"]}
                     <span class="u-textMiddle">/hour</span>
                   </div>
                 </div>
                 <div className="singleBoatCardR">
                   <div className="boatRating">
                     <span class="flex ">
-                      <p style={{ fontSize: "12px" }}>{boat.location}</p>
+                      <p style={{ fontSize: "12px" }}>{boat.boatAddress}</p>
                       <div class="flex star">
                         <img src={star} alt="" />
                         <p>
@@ -223,14 +243,14 @@ export default function AllBoats() {
                         </p>
                       </div>
                     </span>
-                    <h5>{boat.productName}</h5>
+                    <h5>{boat.model}</h5>
                     <div class="u-block BoatCard-features">
-                      <span class="u-fsSm">{boat.hour}</span>
+                      <span class="u-fsSm">{boat.durationPrices[0]}</span>
                       <span class="u-fsSm">{boat.captain}</span>
                     </div>
                     <div class="u-block BoatCard-features">
                       <span class="u-fsSm">
-                        Up to {boat.passanger} passengers
+                        Up to {boat.passangerCapacity} passengers
                       </span>
                     </div>
                   </div>

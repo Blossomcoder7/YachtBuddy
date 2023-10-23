@@ -26,8 +26,6 @@ export default function Navbar() {
   // Check if the user is authenticated
   const isAuthenticated = !!authToken;
 
-  console.log(isAuthenticated)
-
   const handleLogout = () => {
     logout(null);
     localStorage.clear(null);
@@ -37,7 +35,6 @@ export default function Navbar() {
 
   const handleTabClick = (e) => {
     const value = e.currentTarget.id;
-    console.log(value);
     if (active === value) {
       setActive(null);
     } else {
@@ -57,12 +54,13 @@ export default function Navbar() {
   };
   useEffect(() => {
     handelName();
-  }, [user])
+  }, [user]);
+  
   const handelName = () => {
     if (user && user.name) {
+      // console.log(user.name)
       setName(user.name);
     } else {
-      // Handle the case where user or user.name is null
       console.error("User or user name is null");
     }
   }

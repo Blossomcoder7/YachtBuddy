@@ -166,10 +166,11 @@ color: #fff;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  gap: 30px;
   
 }
 .socialButton label{
-    width: 30%;
+    width: 50%;
     display: flex;
 }
 .socialButton label span {
@@ -183,8 +184,8 @@ color: #fff;
   padding: 15px 10px;
   color: #fff;
 }
-.socialButton label:nth-child(3){
-    width: 30%;
+.socialButton label:nth-child(2){
+    width: 50%;
     background-color: #47B7AC;
     padding: 13px;
     border: 0;
@@ -192,12 +193,12 @@ color: #fff;
     display: block;
     color: #fff;
 }
-.haveAcnt{
+/* .haveAcnt{
     display: flex;
     justify-content: center;
     gap: 10px;
     margin: 20px 0;
-}
+} */
 .price{
   width: 100%;
   display: flex;
@@ -214,7 +215,16 @@ color: #fff;
   color:#241c61;
   font-weight: 600;
 }
-
+.qJTHM {
+  width: 100% !important;
+  overflow: visible !important;
+}
+.gooGleBTn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 /* Responsive for mobile ..../ */
 
 @media screen and (max-width: 990px) {

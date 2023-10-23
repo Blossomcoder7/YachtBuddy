@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DateRangePicker } from "react-date-range";
 import { format } from "date-fns";
@@ -16,10 +16,15 @@ import img5 from "../../images/boat5.png";
 import img6 from "../../images/boat6.png";
 import star from "../../images/star.svg";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import backendURL from '../../AxiosApi';
+
 
 export default function SingleBoat() {
   const { id } = useParams();
   console.log(id)
+  const [data, setData] = useState([]);
+
   const [openDate, setOpenDate] = useState(false);
   const [openTime, setOpenTime] = useState(false);
   const [time, setTime] = useState("2 hour");
@@ -43,20 +48,16 @@ export default function SingleBoat() {
   };
 
   const pickTime = (e) => {
-    console.log(e.currentTarget.textContent);
     setTime(e.currentTarget.textContent)
   }
   function generateHalfHourIntervals() {
     let startTime = '09:00:00';
     let endTime = '17:00:00';
     const intervals = [];
-    const interval = 30; // 30 minutes
+    const interval = 30; 
   
-    // Convert start and end times to Date objects
     const startDate = new Date(`2023-10-17T${startTime}`);
     const endDate = new Date(`2023-10-17T${endTime}`);
-  console.log(startDate)
-    // Loop through the intervals
     while (startDate < endDate) {
       const timeString = startDate.toLocaleTimeString('en-US', {
         hour: '2-digit',
@@ -65,14 +66,24 @@ export default function SingleBoat() {
       intervals.push(timeString);
       startDate.setMinutes(startDate.getMinutes() + interval);
     }
-  // console.log(intervals)
   setInterval(intervals);
     return intervals;
   }
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${backendURL}/boat/${id}`);
+      setData(response.data.boat);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
+  useEffect(() => {
+    fetchData();
+  }, [] );
   return (
     <>
-    <p onClick={generateHalfHourIntervals}>CliCk Here  TO Get Time </p>
       <Navbar />
       <div className="singleProductSlider">
         <Slider {...settings}>

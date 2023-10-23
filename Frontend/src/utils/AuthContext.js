@@ -9,6 +9,10 @@ export function AuthProvider({ children }) {
     setAuthToken(token);
     localStorage.setItem('authToken', token);
   };
+  const googleLogin = (token) => {
+    setAuthToken(token);
+    localStorage.setItem('authToken', token);
+  };
 
   const logout = () => {
     setAuthToken(null);
@@ -23,7 +27,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authToken, login, logout }}>
+    <AuthContext.Provider value={{ authToken, login, logout, googleLogin }}>
       {children}
     </AuthContext.Provider>
   );

@@ -41,12 +41,14 @@ import CheckOutPage from "./components/Paymants/CheckOutPage";
 import { ImageProvider } from '../src/utils/ImageContext';
 import OwnerBoats from "./components/Owner/OwnerBoats";
 import StartTime from "./components/ListYourBoat/StartTime";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import SearchProduct from "./components/Product Page/SearchProduct";
 
 
 function App() {
   return (
     <div className="App">
+      <GoogleOAuthProvider clientId="184628421959-fddbic6ghenvjo4od9km4g04ss9db1m3.apps.googleusercontent.com">
       <AuthProvider>
         <UserProvider>
           <FormDataProvider>
@@ -115,6 +117,7 @@ function App() {
           </FormDataProvider>
         </UserProvider>
       </AuthProvider>
+      </GoogleOAuthProvider>
     </div>
   );
 }

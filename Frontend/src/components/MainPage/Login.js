@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../Style/SignUp.css";
 import { UserContext } from "../../utils/UserContext";
@@ -12,11 +12,12 @@ import fb from "../../images/fb.svg";
 import google from "../../images/google+.svg";
 import { useNavigate } from "react-router-dom";
 import backendURL from "../../AxiosApi";
+import { GoogleLogin } from '@react-oauth/google';
 
 
 export default function Login() {
   const { setUser } = useContext(UserContext);
-  const { login } = useAuth();
+  const { login, googleLogin } = useAuth();
 
   const [data, setData] = useState({
     email: "",
@@ -31,14 +32,14 @@ export default function Login() {
       ...prevData,
       [name]: value,
     }));
-  }; 
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${backendURL}/user/login`,data);
+      const response = await axios.post(`${backendURL}/user/login`, data);
       const logedInuser = response?.data?.data?.user;
-console.log(response.data)
+      console.log(response.data)
       if (response.status === 200 && logedInuser) {
         const authToken = response.data.authToken;
         console.log(authToken);
@@ -46,13 +47,13 @@ console.log(response.data)
         localStorage.setItem("authToken", authToken);
         login(authToken);
 
-       axios.interceptors.request.use(
+        axios.interceptors.request.use(
           (config) => {
-    console.log(authToken)
+            console.log(authToken)
             if (authToken) {
               config.headers.Authorization = `Bearer ${authToken}`;
-            }    
-            return config;  
+            }
+            return config;
           },
           (error) => {
             return Promise.reject(error);
@@ -62,12 +63,12 @@ console.log(response.data)
           navigate("/");
           setUser(logedInuser);
         }
-        
+
         if (logedInuser.role === "owner") {
           navigate("/ownerDashboard");
           setUser(logedInuser);
         }
-        
+
         if (logedInuser.role === "admin") {
           navigate("/dashboard");
           setUser(logedInuser);
@@ -78,6 +79,30 @@ console.log(response.data)
     }
   };
 
+
+
+  const googleOnSuccess = (response) => {
+    console.log("Google Response Here", response);
+    if (response.credential) {
+      const GoogleauthToken = response.credential;
+      localStorage.setItem("GoogleauthToken", GoogleauthToken);
+      googleLogin(GoogleauthToken);
+
+      axios.interceptors.request.use(
+        (config) => {
+          console.log(GoogleauthToken)
+          if (GoogleauthToken) {
+            config.headers.Authorization = `Bearer ${GoogleauthToken}`;
+          }
+          return config;
+        },
+        (error) => {
+          return Promise.reject(error);
+        }
+      );
+      navigate("/");
+    }
+  }
   return (
     <>
       <div className="signupPage">
@@ -135,14 +160,23 @@ console.log(response.data)
                   </div>
                   <span style={{ backgroundColor: "#3B5998" }}>Facebook</span>
                 </label>
-                <label>
+                {/* <label className="gogleBTN" onSuccess={googleOnSuccess}>
                   <div style={{ backgroundColor: "#DB4437" }}>
                     <img src={google} alt=""></img>
-                  </div>
-                  <span style={{ backgroundColor: "#CC3333" }}>Google +</span>
-                </label>
+                  </div> 
+                   <span style={{ backgroundColor: "#CC3333" }}>Google +</span>
+                    </label> */}
+                    
                 <label>Sign Up</label>
               </div>
+              <div className="gooGleBTn">
+              <GoogleLogin className="GoOgLeBtN"
+                    onSuccess={googleOnSuccess}
+                    onError={() => {
+                      console.log('Login Failed');
+                    }}
+                  />
+                  </div>
               <div className="haveAcnt">
                 <p>Don't have an account?</p>
                 <p style={{ color: "#47B7AC" }}>Sign Up</p>
