@@ -21,6 +21,8 @@ app.use(cookieParser());
 
 const corsOptions = {
   origin: 'https://yacht-eta.vercel.app',
+  credentials: true
+
   };
 
 app.use(cors({ corsOptions }));
