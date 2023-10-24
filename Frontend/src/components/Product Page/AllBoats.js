@@ -14,7 +14,7 @@ export default function AllBoats() {
   const [data, setData] = useState([]);
 
   console.log(category)
- 
+
   const boatData = [
     {
       location: "ST.CLAIR SHORES, MI",
@@ -24,7 +24,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:1
+      id: 1
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -34,7 +34,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:2
+      id: 2
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -44,7 +44,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:3
+      id: 3
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -54,7 +54,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:4
+      id: 4
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -64,7 +64,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:5
+      id: 5
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -74,7 +74,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:6
+      id: 6
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -84,7 +84,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:7
+      id: 7
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -94,7 +94,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:8
+      id: 8
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -104,7 +104,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:9
+      id: 9
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -114,7 +114,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:10
+      id: 10
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -124,7 +124,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:11
+      id: 11
     },
     {
       location: "ST.CLAIR SHORES, MI",
@@ -134,7 +134,7 @@ export default function AllBoats() {
       hour: "6-8",
       captain: "No Captain",
       passanger: "8",
-      id:12
+      id: 12
     },
   ];
   const pageSize = 18;
@@ -162,7 +162,8 @@ export default function AllBoats() {
     try {
       const response = await axios.get(`${backendURL}/boat/${category}`);
       setData(response.data.boat);
-      
+      console.log(response.data.boat)
+
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -214,50 +215,63 @@ export default function AllBoats() {
         <div className="allBoatLower">
           <h2>Our top {`${category}`}</h2>
           <div className="allBoatCard">
-            {data.map((boat, index) => (
-                <Link to={`/singleBoat/${boat._id}`}>
-              <div className="singleBoatCard" key={index}>
-                <div className="singleBoatCardL">
-                  <img
-                    src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
-                    alt=""
-                  ></img>
-                  <div class="BoatPrice-tag">
-                    <img
-                      alt="Icon"
-                      class="u-mr05"
-                      src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
-                    />
-                    ${boat.durationPrices["2 hour"]}
-                    <span class="u-textMiddle">/hour</span>
-                  </div>
-                </div>
-                <div className="singleBoatCardR">
-                  <div className="boatRating">
-                    <span class="flex ">
-                      <p style={{ fontSize: "12px" }}>{boat.boatAddress}</p>
-                      <div class="flex star">
-                        <img src={star} alt="" />
-                        <p>
-                          {boat.rating} ({boat.bookings}bookings)
-                        </p>
+            {data.length > 0 ? (
+              data.map((boat, index) => (
+                <Link to={`/singleBoat/${boat._id}`} key={index}>
+                  <div className="singleBoatCard">
+                    <div className="singleBoatCardL">
+                      <img
+                        src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
+                        alt=""
+                      ></img>
+                      <div class="BoatPrice-tag">
+                        <img
+                          alt="Icon"
+                          class="u-mr05"
+                          src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
+                        />
+                        {boat.durationPrices && boat.durationPrices.length > 0 ? (
+                          boat.durationPrices.map((duration) => (
+                            <div key={duration.duration}>
+                              ${duration.price}
+                              <span className="u-textMiddle">/hour for {duration.duration}</span>
+                            </div>
+                          ))
+                        ) : (
+                          <span>No pricing information available</span>
+                        )}
                       </div>
-                    </span>
-                    <h5>{boat.model}</h5>
-                    <div class="u-block BoatCard-features">
-                      <span class="u-fsSm">{boat.durationPrices[0]}</span>
-                      <span class="u-fsSm">{boat.captain}</span>
                     </div>
-                    <div class="u-block BoatCard-features">
-                      <span class="u-fsSm">
-                        Up to {boat.passangerCapacity} passengers
-                      </span>
+                    <div className="singleBoatCardR">
+                      <div className="boatRating">
+                        <span class="flex ">
+                          <p style={{ fontSize: "12px" }}>{boat.boatAddress}</p>
+                          <div class="flex star">
+                            <img src={star} alt="" />
+                            <p>
+                              {boat.rating} ({boat.bookings} bookings)
+                            </p>
+                          </div>
+                        </span>
+                        <h5>{boat.model}</h5>
+                        {boat.durationPrices && <div class="u-block BoatCard-features">
+                          <span class="u-fsSm">{boat.durationPrices[0]}</span>
+                          <span class="u-fsSm">{boat.captain}</span>
+                        </div>}
+                        
+                        <div class="u-block BoatCard-features">
+                          <span class="u-fsSm">
+                            Up to {boat.passangerCapacity} passengers
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            ) : (
+              <p>No boats available.</p>
+            )}
           </div>
           <div className="pagination">
             <svg
@@ -357,7 +371,7 @@ export default function AllBoats() {
 
           <div className="lineDivider"></div>
 
-<div className=""></div>
+          <div className=""></div>
         </div>
       </div>
       <Footer />

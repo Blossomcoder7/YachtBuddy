@@ -8,7 +8,6 @@ exports.allBoat = async (req, res) => {
     if (!boat) {
       return res.status(404).json({ message: 'boats not found' });
     }
-    console.log(boat);
     // Return the user's profile
     return res.status(200).json({ boat });
 
@@ -17,34 +16,31 @@ exports.allBoat = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
 exports.categriseBoat = async (req, res) => {
   try {
     const category = req.params.category;
-    console.log(category)
-    const boat = await BoatList.find({ cateogiry: category });
+    const boat = await BoatList.find({ cateogiry: category, status:"accepted" });
     if (!boat) {
       return res.status(201).json({ message: 'boats not found' });
     }
-    // Return the user's profile
-    console.log(boat)
-    return res.status(200).json({ boat });
+    return res.status(200).json({message:"CATEGORY BOAT RESPONSE HERE", boat });
 
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 };
-exports.singleBoat = async (req, res) => {
+exports.  singleBoat = async (req, res) => {
   try {
     const id = req.params.id;
-    console.log(id)
-    const boat = await BoatList.findOne({ _id: id });                  
+    const boat = await BoatList.findOne({ _id: id });   
     if (!boat) {
       return res.status(201).json({ message: 'boat not found' });
     }
     // Return the user's profile
-    console.log("Boat is found Null",boat)
-    return res.status(200).json({ boat });
+    console.log("Boat is found",boat)
+    return res.status(200).json({message : "Single Boat Response", boat });
 
   } catch (error) {
     console.error(error);

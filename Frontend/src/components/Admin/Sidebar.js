@@ -34,7 +34,7 @@ export default function Sidebar() {
               <img src={dashboard} alt=""></img> <li>Home</li>
             </span>
           </NavLink>
-          <NavLink>
+          <NavLink to="/dashboard/inquiry">
             <span>
               <img src={inquires} alt=""></img> <li>Inquiries</li>
             </span>

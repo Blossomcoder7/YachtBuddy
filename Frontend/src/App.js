@@ -43,6 +43,7 @@ import OwnerBoats from "./components/Owner/OwnerBoats";
 import StartTime from "./components/ListYourBoat/StartTime";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import SearchProduct from "./components/Product Page/SearchProduct";
+import Inquiry from "./components/Admin/Inquiry";
 
 
 function App() {
@@ -109,6 +110,7 @@ function App() {
                   <Route exact path="boatDEtails" element={<BoatDetails />} />
                   <Route exact path="guestProfile" element={<GuestProfile />} />
                   <Route exact path="message" element={<Message />} />
+                  <Route exact path="inquiry" element={<Inquiry />} />
                 </Route>
 
               </Routes>

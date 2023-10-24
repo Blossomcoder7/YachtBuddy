@@ -48,43 +48,43 @@ export default function OperatorBooking() {
     { name: "4 hour", key: "4Hour" },
     { name: "6 hour", key: "6Hour" },
     { name: "8 hour", key: "8Hour" },
-    { name: "1 day",  key: "1day" },
+    { name: "1 day", key: "1day" },
   ];
+
   const handlePriceChange = (duration, price) => {
-    setDurationPrices({ ...durationPrices, [duration]: price });
+    // Create a copy of the existing durationPrices object
+    const updatedPrices = { ...durationPrices };
+    // Update the price for the specified duration
+    updatedPrices[duration] = price;
+    // Update the state with the new durationPrices
+    setDurationPrices(updatedPrices);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     let Data;
-    if (checkbox1 && checkbox2 ) {
-     Data = { renter, uscg, checkedItems,durationPrices, pay,bookingType };
-
+    if (checkbox1 && checkbox2) {
+      Data = { renter, uscg, checkedItems, durationPrices, pay, bookingType };
     } else if (checkbox1 === false && checkbox2 === true) {
-      Data = { uscg, checkedItems,durationPrices, pay ,bookingType};
+      Data = { uscg, checkedItems, durationPrices, pay, bookingType };
     } else {
-      Data = { renter, checkedItems, pay,durationPrices,bookingType};
+      Data = { renter, checkedItems, pay, durationPrices, bookingType };
     }
 
-    
-console.log(Data);
+    console.log(Data);
     updateFormData(Data);
     navigate("/review");
-
   };
 
-  
   const handleCheckbox1Change = (event) => {
     setDisable2(!disable2);
     setBookingType("Duration");
-
   };
 
   const handleCheckbox2Change = (event) => {
     setDisable1(!disable1);
     setBookingType("Ask for Quotation");
-
   };
 
   return (
@@ -134,7 +134,6 @@ console.log(Data);
                 type="checkbox"
                 name="operator"
                 value="USCG-certified captain operates my boat"
-                // checked={checkbox2}
                 onClick={handleCheckbox2Click}
               ></input>
               <p>USCG-certified captain operates my boat</p>
@@ -142,59 +141,57 @@ console.log(Data);
           </div>
           <div className="prIceGap">
             <span className="dUraTionCheck">
-            <input
-          type="checkbox"
-          onChange={handleCheckbox1Change}
-          disabled={disable1}
-          onClick={()=>{setOpen1(!open1);}}
-        />
-              {/* <input type="checkbox" onClick={()=>{setOpen1(!open1);}}></input> */}
-          <h6>Select which durations you’d like to offer.</h6> 
-          </span>      
-          {open1 && (
-            <>
-             <div className="durationOffer">
-            {checkboxes.map((checkbox) => (
-              <div className="durationOfferT">
-                <input
-                  type="checkbox"
-                  name={checkbox.key}
-                  value={checkbox.name}
-                  checked={checkedItems.includes(checkbox.name)}
-                  onClick={() => handleCheckboxClick(checkbox.name)}
-                />
-                <span>{checkbox.name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="durationPriCe">
-            {checkedItems.map((duration) => (
-              <div className="durationPriceInput">
-                {/* <span>{duration}</span> */}
-                <input
-                  type="text"
-                  placeholder={`${duration} Enter price`}
-                  name={`${duration}-price`}  
-                  value={durationPrices[duration] || ""}  
-                  onChange={(e) => handlePriceChange(duration, e.target.value)}
-                />
-              </div>
-            ))}
-          </div>
-            </>
-          )}   
-         
+              <input
+                type="checkbox"
+                onChange={handleCheckbox1Change}
+                disabled={disable1}
+                onClick={() => {
+                  setOpen1(!open1);
+                }}
+              />
+              <h6>Select which durations you’d like to offer.</h6>
+            </span>
+            {open1 && (
+              <>
+                <div className="durationOffer">
+                  {checkboxes.map((checkbox) => (
+                    <div className="durationOfferT">
+                      <input
+                        type="checkbox"
+                        name={checkbox.key}
+                        value={checkbox.name}
+                        checked={checkedItems.includes(checkbox.name)}
+                        onClick={() => handleCheckboxClick(checkbox.name)}
+                      />
+                      <span>{checkbox.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="durationPriCe">
+                  {checkedItems.map((duration) => (
+                    <div className="durationPriceInput">
+                      <input
+                        type="text"
+                        placeholder={`${duration} Enter price`}
+                        name={`${duration}-price`}
+                        value={durationPrices[duration] || ""}
+                        onChange={(e) => handlePriceChange(duration, e.target.value)}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
           <div className="prIceGap">
             <span className="dUraTionCheck">
-            <input
-          type="checkbox"
-          onChange={handleCheckbox2Change}
-          disabled={disable2}
-        />
-          <h6>Ask for Quotation</h6> 
-          </span>         
-         
+              <input
+                type="checkbox"
+                onChange={handleCheckbox2Change}
+                disabled={disable2}
+              />
+              <h6>Ask for Quotation</h6>
+            </span>
           </div>
           <h6>Who pays for fuel?</h6>
           <div className="payFuel">
@@ -243,25 +240,32 @@ console.log(Data);
           </div>
         </div>
       </div>
-      <div className="listStepButton">
+      {/* <div className="listStepButton">
         <div className="wrapper">
-          {/* <NavLink to="/boatImages"> */}
-          <span>
-            <svg
-              fill="#0e7873 "
-              height="22"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1008 1008"
-            >
-              <path d="M658.6 875.4c-6.6 0-13.2-4-17.2-7.9L295.2 521.2c-4-4-7.9-11.9-7.9-17.2 0-6.6 4-13.2 7.9-17.2l346.3-346.3c4-4 10.6-7.9 17.2-7.9 5.3 0 13.2 4 17.2 7.9l37 37c4 4 7.9 10.6 7.9 17.2 0 5.3-4 13.2-7.9 17.2L420.8 504.1l292.1 292.1c4 4 7.9 11.9 7.9 17.2 0 6.6-4 13.2-7.9 17.2l-37 37c-4.1 3.8-12 7.8-17.3 7.8z"></path>
-            </svg>
-          </span>
-          {/* </NavLink> */}
-          {/* <NavLink to="/availability  "> */}
           <button onClick={handleSubmit}>Continue</button>
-          {/* </NavLink> */}
         </div>
-      </div>
+      </div> */}
+       <div className="listStepButton">
+          <div className="wrapper">
+            {/* <NavLink to="/advanceNotice"> */}
+              {" "}
+              <span>
+                <svg
+                  fill="#0e7873 "
+                  height="22"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1008 1008"
+                >
+                  <path d="M658.6 875.4c-6.6 0-13.2-4-17.2-7.9L295.2 521.2c-4-4-7.9-11.9-7.9-17.2 0-6.6 4-13.2 7.9-17.2l346.3-346.3c4-4 10.6-7.9 17.2-7.9 5.3 0 13.2 4 17.2 7.9l37 37c4 4 7.9 10.6 7.9 17.2 0 5.3-4 13.2-7.9 17.2L420.8 504.1l292.1 292.1c4 4 7.9 11.9 7.9 17.2 0 6.6-4 13.2-7.9 17.2l-37 37c-4.1 3.8-12 7.8-17.3 7.8z"></path>
+                </svg>
+              </span>
+            {/* </NavLink> */}
+            {/* <NavLink to="/operatorBooking"> */}
+              {" "}
+              <button onClick={handleSubmit}>Continue</button>
+            {/* </NavLink> */}
+          </div>
+        </div>
     </>
   );
 }

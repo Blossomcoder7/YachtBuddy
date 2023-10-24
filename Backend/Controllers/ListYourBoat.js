@@ -4,7 +4,7 @@ const User = require("../Models/User");
 const { uploadImages } = require("./Image");
 const fs = require('fs');
 const path = require('path');
-// const verifyToken = require('./../Utils/jwtVerify');
+const verifyToken = require('./../Utils/jwtVerify');
 const uuid = require('uuid'); // You can use a UUID library
 
 
@@ -45,7 +45,7 @@ exports.ListYourBoat = async (req, res) => {
       uscg,
       pay,
     } = req.body.formData;
-
+console.log(req.name)
     // Upload images
     const base64Images = req.body.images;
     const uploadedFiles = base64Images.map((base64, index) => {

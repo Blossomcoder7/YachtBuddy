@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const boatSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
+ 
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -143,7 +140,7 @@ const boatSchema = new mongoose.Schema({
   },
   pay: {
     type: String,
-    required: true,
+    required: false,
   },
   customStartDate: {
     type: Map,

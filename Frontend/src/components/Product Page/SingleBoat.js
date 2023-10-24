@@ -22,13 +22,14 @@ import backendURL from '../../AxiosApi';
 
 export default function SingleBoat() {
   const { id } = useParams();
-  console.log(id)
   const [data, setData] = useState([]);
 
   const [openDate, setOpenDate] = useState(false);
   const [openTime, setOpenTime] = useState(false);
   const [time, setTime] = useState("2 hour");
+  const [passanger, setPassanger] = useState({ passanger: "" });
   const [open, setOpen] = useState(false);
+  const [requestButton, setRequestButton] = useState();
   const [openPasanger, setOpenPasanger] = useState(false);
   const [interval, setInterval] = useState([]);
   const [startTime, setStartTime] = useState("Please enter start time");
@@ -54,8 +55,8 @@ export default function SingleBoat() {
     let startTime = '09:00:00';
     let endTime = '17:00:00';
     const intervals = [];
-    const interval = 30; 
-  
+    const interval = 30;
+
     const startDate = new Date(`2023-10-17T${startTime}`);
     const endDate = new Date(`2023-10-17T${endTime}`);
     while (startDate < endDate) {
@@ -66,14 +67,14 @@ export default function SingleBoat() {
       intervals.push(timeString);
       startDate.setMinutes(startDate.getMinutes() + interval);
     }
-  setInterval(intervals);
+    setInterval(intervals);
     return intervals;
   }
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${backendURL}/boat/${id}`);
+      const response = await axios.get(`${backendURL}/boat/singleBoat/${id}`);
       setData(response.data.boat);
-      console.log(data);
+      setRequestButton(response.data.boat.bookingType);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -81,7 +82,29 @@ export default function SingleBoat() {
 
   useEffect(() => {
     fetchData();
-  }, [] );
+  }, []);
+
+  const inquiryHandel = async (e) => {
+    e.preventDefault();
+    const inquiry = { date, time, startTime, passanger };
+    try {
+      const response = await axios.post(`${backendURL}/inquiry/send`, inquiry);
+      console.log(response.data);
+
+      alert("Your Quote Send Successfully")
+
+
+    } catch (error) {
+      console.log("The Server Error", error)
+    }
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPassanger((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   return (
     <>
       <Navbar />
@@ -844,7 +867,7 @@ export default function SingleBoat() {
                   <div className="sc-11ed60f3-7 ebpkmB">
                     <div>
                       <div
-                        className="sc-c55a9e21-3 jweEUb hasError null TiMeInTeRvAl" onClick={()=>{
+                        className="sc-c55a9e21-3 jweEUb hasError null TiMeInTeRvAl" onClick={() => {
                           generateHalfHourIntervals();
                           setOpen(!open);
                         }}>
@@ -875,38 +898,37 @@ export default function SingleBoat() {
                           </div>
                         </div>
                       </div>
-                        {open && (
-                      <div className="StaRtTime" onClick={()=>{
-                        setOpen(!open);
-                        setOpenPasanger(!openPasanger)
+                      {open && (
+                        <div className="StaRtTime" onClick={() => {
+                          setOpen(!open);
+                          setOpenPasanger(!openPasanger)
                         }} >
-                           {interval.map((item,index)=>(
-                            <span className="StaRtinTerval" onClick={(e)=>{
+                          {interval.map((item, index) => (
+                            <span className="StaRtinTerval" onClick={(e) => {
                               setStartTime(e.currentTarget.querySelector('p').textContent)
-                                  }}>
-                            <input type="checkbox"></input>
-                            <p>{item}</p>
-                          </span>
+                            }}>
+                              <input type="checkbox"></input>
+                              <p>{item}</p>
+                            </span>
                           ))}
-                      </div> 
+                        </div>
 
-                        )}                      
-                    </div>                    
+                      )}
+                    </div>
                   </div>
                   {openPasanger && (
- <div className="paSSanGer">
-  <div class="sc-c55a9e21-4 kAFBlW">
-    <div class="sc-c55a9e21-5 fkXugm">
-      <div class="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 kbnFZE goeXEm jpkWIi">
-        <div style={{fontSize:"16px"}}>Passangers</div>
-        </div><div class="sc-c55a9e21-1 cOZJMe">
-          {/* <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6728 9.67914H7.99576C7.6777 9.67914 7.41395 9.41538 7.41395 9.09732V5.42802C7.41395 5.10996 7.6777 4.8462 7.99576 4.8462C8.31382 4.8462 8.57758 5.10996 8.57758 5.42802V8.51551H11.6651C11.9831 8.51551 12.2469 8.77926 12.2469 9.09732C12.2469 9.41538 11.9909 9.67914 11.6728 9.67914ZM16.2188 8.50002C16.2188 4.24113 12.7589 0.78125 8.5 0.78125C4.24111 0.78125 0.78125 4.24889 0.78125 8.50002C0.78125 12.7589 4.24887 16.2187 8.5 16.2187C12.7511 16.2187 16.2188 12.7589 16.2188 8.50002ZM15.0551 8.50002C15.0551 12.115 12.115 15.0551 8.5 15.0551C4.88499 15.0551 1.94488 12.115 1.94488 8.50002C1.94488 4.885 4.88499 1.94488 8.5 1.94488C12.1073 1.93713 15.0551 4.885 15.0551 8.50002Z" fill="#5E696A"></path></svg> */}
-          </div></div><div class="sc-c55a9e21-0 cDSRqQ">10:30 AM</div></div>
- <input type="Number" placeholder="No. Of Passangers" ></input>
-</div>
+                    <div className="paSSanGer">
+                      <div class="sc-c55a9e21-4 kAFBlW">
+                        <div class="sc-c55a9e21-5 fkXugm">
+                          <div class="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 kbnFZE goeXEm jpkWIi">
+                            <div style={{ fontSize: "16px" }}>Passangers</div>
+                          </div><div class="sc-c55a9e21-1 cOZJMe">
+                            {/* <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6728 9.67914H7.99576C7.6777 9.67914 7.41395 9.41538 7.41395 9.09732V5.42802C7.41395 5.10996 7.6777 4.8462 7.99576 4.8462C8.31382 4.8462 8.57758 5.10996 8.57758 5.42802V8.51551H11.6651C11.9831 8.51551 12.2469 8.77926 12.2469 9.09732C12.2469 9.41538 11.9909 9.67914 11.6728 9.67914ZM16.2188 8.50002C16.2188 4.24113 12.7589 0.78125 8.5 0.78125C4.24111 0.78125 0.78125 4.24889 0.78125 8.50002C0.78125 12.7589 4.24887 16.2187 8.5 16.2187C12.7511 16.2187 16.2188 12.7589 16.2188 8.50002ZM15.0551 8.50002C15.0551 12.115 12.115 15.0551 8.5 15.0551C4.88499 15.0551 1.94488 12.115 1.94488 8.50002C1.94488 4.885 4.88499 1.94488 8.5 1.94488C12.1073 1.93713 15.0551 4.885 15.0551 8.50002Z" fill="#5E696A"></path></svg> */}
+                          </div></div><div class="sc-c55a9e21-0 cDSRqQ">10:30 AM</div></div>
+                      <input type="Number" placeholder="No.Of Passangers" name="passanger" value={passanger.passanger} onChange={handleChange}></input>
+                    </div>
                   )}
-                 
-                  <div className="sc-11ed60f3-3 blhwGp">
+                  {requestButton === "Duration" ? (<div className="sc-11ed60f3-3 blhwGp">
                     <div className="sc-70c53a93-2 EwZPu">
                       <button
                         type="submit"
@@ -915,7 +937,26 @@ export default function SingleBoat() {
                         <span className="buttonText">Request to book</span>
                       </button>
                     </div>
-                  </div>
+                  </div>) : (<div className="sc-11ed60f3-3 blhwGp" >
+                    <div className="sc-70c53a93-2 EwZPu" >
+                      <button
+                        className="sc-4eb7135f-0 bRkdOl button renterBg   uppercase    sc-70c53a93-0 tmTCU"
+                        onClick={inquiryHandel}
+                      >
+                        <span className="buttonText" >Get A Quotation</span>
+                      </button>
+                    </div>
+                  </div>)}
+                  {/* <div className="sc-11ed60f3-3 blhwGp">
+                    <div className="sc-70c53a93-2 EwZPu">
+                      <button
+                        type="submit"
+                        className="sc-4eb7135f-0 bRkdOl button renterBg   uppercase    sc-70c53a93-0 tmTCU"
+                      >
+                        <span className="buttonText">Request to book</span>
+                      </button>
+                    </div>
+                  </div> */}
                 </form>
                 <div className="sc-7f3d6a85-2 juXcyw">
                   You won't be charged yet

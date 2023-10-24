@@ -76,7 +76,7 @@ export default function ListedBoats() {
     <div className="ListBoatCont">{item.username}</div>
     <div className="ListBoatCont">{item.locationType}</div>
     <div className="ListBoatCont">{item.state}, {item.country}</div>
-    <div className="ListBoatCont">{item.category}</div>
+    <div className="ListBoatCont">{item.cateogiry}</div>
     <div className="ListBoatCont view">
       <span onClick={() => handleViewClick(item)}>View</span>
     </div>

@@ -12,6 +12,7 @@ const messageRoutes = require('./Routers/Message');
 const boatRoutes = require('./Routers/boat');
 const paypalRoutes = require('./Routers/paypal');
 const imgRoutes = require('./Routers/Images');
+const inquiryRoutes = require('./Routers/inquiry');
 
 
 const app = express();
@@ -19,11 +20,10 @@ app.use(cookieParser());
 // app.use(cors());
 
 const corsOptions = {
-  origin: 'https://yacht-eta.vercel.app',
+  origin: "http://localhost:3000",
 };
 
-app.use(cors(corsOptions));
-// app.use(bodyParser.json());
+app.use(cors({ corsOptions }));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 
 const db = require("./mongoose");
@@ -46,6 +46,7 @@ app.use('/chat', messageRoutes);
 app.use('/boat', boatRoutes);
 app.use('/checkout', paypalRoutes);
 app.use('/img', imgRoutes);
+app.use('/inquiry', inquiryRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

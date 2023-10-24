@@ -1,7 +1,6 @@
 // const User = require('../Models/User');
 const Boat = require("../Models/ListYourBoat");
 const User = require("../Models/User");
-const expressAsyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const jwtSecret = "qwertyuioasdfghjklzxcvbnmklkjsf";
