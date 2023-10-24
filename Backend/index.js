@@ -20,6 +20,7 @@ app.use(cookieParser());
 // app.use(cors());
 
 const corsOptions = {
+  origin: 'https://yacht-eta.vercel.app',
   origin: "http://localhost:3000",
 };
 
