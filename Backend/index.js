@@ -21,8 +21,7 @@ app.use(cookieParser());
 
 const corsOptions = {
   origin: 'https://yacht-eta.vercel.app',
-  origin: "http://localhost:3000",
-};
+  };
 
 app.use(cors({ corsOptions }));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
