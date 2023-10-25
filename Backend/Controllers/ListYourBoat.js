@@ -44,8 +44,8 @@ exports.ListYourBoat = async (req, res) => {
       renter,
       uscg,
       pay,
+      checkedItems,
     } = req.body.formData;
-console.log(req.name)
     // Upload images
     const base64Images = req.body.images;
     const uploadedFiles = base64Images.map((base64, index) => {
@@ -99,7 +99,8 @@ console.log(req.name)
       uscg,
       pay,
       passangerCapacity,
-      images: savedImages, // Assign saved images to the boat listing
+      images: savedImages, 
+      timePeriod:checkedItems,
     });
 
     // Save the boat to the database

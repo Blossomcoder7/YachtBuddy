@@ -630,6 +630,9 @@
 .EwZPu {
     display: flex;
 }
+.EwZPu>a{
+    width: 100%;
+}
 .bRkdOl.renterBg {
     background: rgb(7, 81, 194);
     color: white !important;
@@ -702,8 +705,8 @@
 
 .DatePicker .rdrDateRangePickerWrapper.dateRange {
     position: absolute;
-    left: -180px;
-    bottom: -355px;
+    left: 30px;
+    bottom: 50px;
     z-index: 9999;
     background: #007bff !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -752,4 +755,51 @@ overflow-y: scroll;
     padding: 10px;
     font-size: 12px;
     border: 0;
+}
+.CaLaNder {
+    width: 700px;
+    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: #fff;
+    position: absolute;
+    left: -250px;
+    bottom: -550px;
+    border-radius: 10px;
+    z-index: 9999;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.calenderBtn{
+    width: 100%;
+    display: flex;
+        justify-content: center;
+    gap: 50px;
+    padding: 20px 0;
+}
+.calenderBtn button{
+    font-size: 16px;
+    width: 150px;
+    padding: 10px;
+    border: 0;
+    background-color: #47b7ac;
+    border-radius: 10px;
+    color: #fff;
+}
+.rdrCalendarWrapper {
+    color: #000000;
+    font-size: 15px !important;
+}
+.dateApply{
+    position: absolute;
+    bottom: 15px;
+    right: 50px;
+    width: 100px;
+    font-size: 16px;
+    padding: 5px;
+    border: 0;
+    background-color: #241c61;
+    color: #fff;
+    border-radius: 15px;
 }

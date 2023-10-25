@@ -71,7 +71,6 @@ export default function OperatorBooking() {
     } else {
       Data = { renter, checkedItems, pay, durationPrices, bookingType };
     }
-
     console.log(Data);
     updateFormData(Data);
     navigate("/review");
@@ -191,7 +190,7 @@ export default function OperatorBooking() {
                 disabled={disable2}
               />
               <h6>Ask for Quotation</h6>
-            </span>
+            </span> 
           </div>
           <h6>Who pays for fuel?</h6>
           <div className="payFuel">

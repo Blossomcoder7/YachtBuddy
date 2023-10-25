@@ -110,7 +110,7 @@ function App() {
                   <Route exact path="boatDEtails" element={<BoatDetails />} />
                   <Route exact path="guestProfile" element={<GuestProfile />} />
                   <Route exact path="message" element={<Message />} />
-                  <Route exact path="inquiry" element={<Inquiry />} />
+                  <Route exact path="inquiry" element={<Inquiry/>} />
                 </Route>
 
               </Routes>

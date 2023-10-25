@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { DateRangePicker } from "react-date-range";
-import { format } from "date-fns";
+import { DateRange } from 'react-date-range';
+import { format, differenceInDays } from 'date-fns';
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import Navbar from "../LandingPage/Navbar";
@@ -19,12 +20,14 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import backendURL from '../../AxiosApi';
 
-
 export default function SingleBoat() {
   const { id } = useParams();
   const [data, setData] = useState([]);
-
+  const currentDate = new Date();
   const [openDate, setOpenDate] = useState(false);
+  const [numberDays, setNumberDays] = useState(1);
+  const [multiDay, setMultiDay] = useState(false);
+  const [singleDay, setSingleDay] = useState(true);
   const [openTime, setOpenTime] = useState(false);
   const [time, setTime] = useState("2 hour");
   const [passanger, setPassanger] = useState({ passanger: "" });
@@ -40,6 +43,8 @@ export default function SingleBoat() {
       key: "selection",
     },
   ]);
+
+
   const settings = {
     dots: false,
     infinite: true,
@@ -105,6 +110,72 @@ export default function SingleBoat() {
       [name]: value,
     }));
   };
+  const handleSelect = (ranges) => {
+    if (ranges.selection.startDate !== ranges.selection.endDate) {
+      // User selected a range, reset the endDate to match startDate
+      setDate([{
+        startDate: ranges.selection.startDate,
+        endDate: ranges.selection.startDate,
+        key: 'selection',
+      }]);
+    } else {
+      // User selected a single day
+      setDate([ranges.selection]);
+    }
+  };
+  function formatDateToDDMMYYYY(date) {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  }
+
+  const calculatePrice = (e) => {
+    e.preventDefault();
+
+  }
+  const calculateDay = (e) => {
+    e.preventDefault();
+    try {
+      const formattedData = date.map((item) => ({
+        date: {
+          startDate: formatDateToDDMMYYYY(item.startDate),
+          endDate: formatDateToDDMMYYYY(item.endDate),
+        },
+      }));
+
+      const startDateString = formattedData[0].date.startDate;
+      const endDateString = formattedData[0].date.endDate;
+
+      const startDateParts = startDateString.split("/");
+      const endDateParts = endDateString.split("/");
+
+      const NumberOfDays = ((endDateParts[0] - startDateParts[0]) + 1);
+      console.log(NumberOfDays);
+      setNumberDays(NumberOfDays);
+      setOpenDate(!openDate);
+
+    } catch (error) {
+      console.log("The Error is", error);
+
+    }
+
+
+
+  }
+  const handleSingleDayClick = (e) => {
+    e.preventDefault();
+    setSingleDay(true);
+    setMultiDay(false);
+  };
+
+  const handleMultiDayClick = (e) => {
+    e.preventDefault();
+    setSingleDay(false);
+    setMultiDay(true);
+  };
+
   return (
     <>
       <Navbar />
@@ -728,20 +799,19 @@ export default function SingleBoat() {
             <div id="bookingWidget" className="sc-31598d9d-0 sc-617d572c-0 sc-786c3322-2 kbnFZE goeXEm">
               <div className="sc-7f3d6a85-5 bcKqiW">
                 <div className="sc-31598d9d-0 sc-617d572c-0 sc-7f3d6a85-1 kbnFZE fvhGND dslQIJ">
-                  <div className="sc-7f3d6a85-3 dLSlgt">$600</div>
+                <div className="sc-7f3d6a85-3 dLSlgt">{data.durationPrices?.[time]}</div>
                   <div className="sc-7f3d6a85-4 gZXmHD">
-                    /6 hr (excl. fees)
+                    /{time} (excl. fees)
                   </div>
                 </div>
                 <form className="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 sc-11ed60f3-11 kbnFZE goeXEm jpkWIi jLsUKv">
-                  <div className="sc-11ed60f3-7 eeUKug DatePicker" onClick={() => setOpenDate(!openDate)}>
-                    <div className="sc-11ed60f3-6 hDpGCH">
+                  <div className="sc-11ed60f3-7 eeUKug DatePicker" >
+                    <div className="sc-11ed60f3-6 hDpGCH" onClick={() => setOpenDate(!openDate)}>
                       <div className="sc-5ec5715e-5 kgzSol">
-                        <div className="sc-5ec5715e-1 ixAPuh">
+                        <div className="sc-5ec5715e-1 ixAPuh" >
                           <div className="sc-5ec5715e-4 jxtmnV false">Date</div>
                           <div className="sc-5ec5715e-2 gkpCSo" />
                           <div className="sc-5ec5715e-0 kfTYNu">
-                            {/* Please enter your trip date */}
                             {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
 
                           </div>
@@ -765,13 +835,54 @@ export default function SingleBoat() {
                       </div>
                     </div>
                     {openDate && (
-                      <DateRangePicker
-                        editableDateInputs={true}
-                        moveRangeOnFirstSelection={false}
-                        ranges={date}
-                        onChange={(item) => setDate([item.selection])}
-                        className="dateRange"
-                      />
+                      <>
+                        {data.multiBooking === "yes" ? (
+                          <div className="CaLaNder">
+                            <div className="calenderBtn">
+                              <button onClick={handleSingleDayClick}>One Day</button>
+                              <button onClick={handleMultiDayClick}>Multiple Day</button>
+                            </div>
+                            {singleDay && (
+                              <DateRange
+                                minDate={currentDate}
+                                editableDateInputs={false}
+                                moveRangeOnFirstSelection={false}
+                                ranges={date}
+                                onChange={handleSelect}
+                              />
+                            )}
+
+                            {multiDay && (
+                              <DateRangePicker
+                                minDate={currentDate}
+                                editableDateInputs={true}
+                                moveRangeOnFirstSelection={false}
+                                ranges={date}
+                                onChange={(item) => setDate([item.selection])}
+                                className="dateRange"
+                              />
+                            )}
+                            <button className="dateApply" onClick={(e) => {
+                              e.preventDefault();
+                              calculateDay(e);
+                            }}>Apply</button>
+
+                          </div>
+                        ) : (
+                          <>
+                            <DateRange
+                              minDate={currentDate}
+                              editableDateInputs={false}
+                              moveRangeOnFirstSelection={false}
+                              ranges={date}
+                              onChange={handleSelect}
+                            />
+                            <button className="dateApply" onClick={calculateDay}>Apply</button>
+                          </>
+                        )}
+
+
+                      </>
                     )}
                     <input type="hidden" name="trip_start" defaultValue="" />
                   </div>
@@ -786,15 +897,22 @@ export default function SingleBoat() {
                                   Duration
                                 </div>
                                 <div className="sc-c55a9e21-2 jhNDLd dURaTiOn">
-                                  <p style={{ fontSize: "12px" }}> {time}</p>
-                                  {openTime && (
-                                    <div className="DuRaTiON">
-                                      <div className="duratIonTab" onClick={pickTime}>2 hour</div>
-                                      <div className="duratIonTab" onClick={pickTime}>4 hour</div>
-                                      <div className="duratIonTab" onClick={pickTime}>6 hour</div>
-                                      <div className="duratIonTab" onClick={pickTime}>8 hour</div>
-                                    </div>
+                                  {numberDays === 1 ? (
+                                    <>
+                                    <p style={{ fontSize: "12px" }}> {time}</p>
+                                    {openTime && data.timePeriod && (
+                                      <div className="DuRaTiON">
+                                        {data.timePeriod.map((item) => (
+                                          <div className="duratIonTab" onClick={pickTime}>{item}</div>
+                                        ))}
+                                      </div>
+                                    )}
+                                    </>
+                                  ) : (
+                                    <p style={{ fontSize: "12px" }}> {numberDays} days</p>
+
                                   )}
+                                
 
                                 </div>
                               </div>
@@ -930,9 +1048,8 @@ export default function SingleBoat() {
                   )}
                   {requestButton === "Duration" ? (<div className="sc-11ed60f3-3 blhwGp">
                     <div className="sc-70c53a93-2 EwZPu">
-                      <button
-                        type="submit"
-                        className="sc-4eb7135f-0 bRkdOl button renterBg   uppercase    sc-70c53a93-0 tmTCU"
+                      <button type="submit" className="sc-4eb7135f-0 bRkdOl button renterBg uppercase sc-70c53a93-0 tmTCU"
+                        onClick={calculatePrice}
                       >
                         <span className="buttonText">Request to book</span>
                       </button>
