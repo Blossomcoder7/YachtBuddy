@@ -27,14 +27,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 
-const db = mongoose.connection;
-
-db.on("error", console.error.bind(console, "Error connecting to MongoDB"));
-db.once("open", function () {
-  console.log("Connected to Database: MongoDB");
-});
-
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -53,6 +46,19 @@ app.use('/checkout', paypalRoutes);
 app.use('/img', imgRoutes);
 app.use('/inquiry', inquiryRoutes);
 
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+mongoose.connect(process.env.MONGO_DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
+});
+
+mongoose.connection.on("open", () => {
+  console.log("Connected to Database: MongoDB");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
