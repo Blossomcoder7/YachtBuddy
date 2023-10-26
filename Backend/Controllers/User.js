@@ -2,8 +2,8 @@ const User = require('../Models/User');
 const expressAsyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const jwtSecret = process.env.JWT_SECRET;
-
+const jwtSecret = "qwertyuioasdfghjklzxcvbnmklkjsf" ;
+// console.log(jwtSecret);
 // Register a new user
 exports.register = expressAsyncHandler(async (req, res) => {
   const salt = await bcrypt.genSalt(10);
