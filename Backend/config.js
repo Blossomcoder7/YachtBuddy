@@ -9,10 +9,10 @@ paypal.configure({
 
 module.exports = {
   // Secret key for JWT authentication (replace with your own secret)
-  jwtSecret: process.env.JWT_SECRET,
+  jwtSecret: 'your-secret-key',
 
   // MongoDB connection URI
-  mongoURI:  process.env.MONGO_DB,
+  mongoURI:  "mongodb+srv://blossomdev:blossom@cluster0.31ciwjn.mongodb.net/",
   
   // Other configuration variables
   // ...
