@@ -3,7 +3,7 @@ const Boat = require("../Models/ListYourBoat");
 const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const jwtSecret = "qwertyuioasdfghjklzxcvbnmklkjsf";
+const jwtSecret = process.env.JWT_SECRET;
 
 
 

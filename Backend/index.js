@@ -13,24 +13,28 @@ const boatRoutes = require('./Routers/boat');
 const paypalRoutes = require('./Routers/paypal');
 const imgRoutes = require('./Routers/Images');
 const inquiryRoutes = require('./Routers/inquiry');
-
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 app.use(cookieParser());
-// app.use(cors());
 
 const corsOptions = {
-  origin: 'https://yacht-eta.vercel.app',
+  origin: 'https://localhost:3000',
   credentials: true
+};
 
-  };
-
-app.use(cors({ corsOptions }));
+app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 
-const db = require("./mongoose");
+const db = mongoose.connection;
 
-const port = 5000;
+db.on("error", console.error.bind(console, "Error connecting to MongoDB"));
+db.once("open", function () {
+  console.log("Connected to Database: MongoDB");
+});
+
+const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -39,7 +43,6 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
 app.use("/request", requestRouter);
@@ -51,6 +54,5 @@ app.use('/img', imgRoutes);
 app.use('/inquiry', inquiryRoutes);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server is listening on port ${port}`);
 });
-
