@@ -1,4 +1,4 @@
-const jwtSecret = "qwertyuioasdfghjklzxcvbnmklkjsf";
+const jwtSecret = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
 
 module.exports.verifyToken = function (req, res, next) {
