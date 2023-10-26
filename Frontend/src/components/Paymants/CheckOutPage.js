@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../Paymants/CheckOutPage.css";
 import img from "../../images/boat5.png";
@@ -12,11 +12,31 @@ export default function CheckOutPage() {
   const { id } = useParams();
   const [expiryDate, setExpiryDate] = useState("");
   const [hasPromoCode, setHasPromoCode] = useState(false);
+  const [data, setData] = useState();
 
   const product = {
     description: "Paypal CheckOut Page",
     price: 19
   };
+
+
+  useEffect(() => {
+    const getProductDetail = () => {
+      try {
+        const setproductDetail = localStorage.getItem("productDetail");
+        if (setproductDetail) {
+          const productDetail = JSON.parse(setproductDetail);
+          setData(productDetail);
+        } else {
+          console.log("No product detail found in localStorage.");
+        }
+      } catch (error) {
+        console.error("Error while fetching product details:", error);
+      }
+    };
+
+    getProductDetail();
+  }, []);
 
   const handleExpiryDateChange = (e) => {
     setExpiryDate(e.target.value);
@@ -39,11 +59,11 @@ export default function CheckOutPage() {
       // like product skus and quantities
       body: JSON.stringify({
         cart:
-          {
-            sku: "skuCode",
-            quantity: "2",
-            price: "19.00"
-          },
+        {
+          sku: "skuCode",
+          quantity: "2",
+          price: "19.00"
+        },
       }),
     })
       .then((response) => response.json())
@@ -343,20 +363,24 @@ export default function CheckOutPage() {
             <h4>Pricing Information</h4>
             <span>
               <p>Boat price</p>
-              <p>$750.00</p>
+              {/* <p>${data.price}.00</p> */}
+              {data && data.price && <p>${data.price}.00</p>}
             </span>
             <span>
               <p>Service fee</p>
-              <p>$102.50</p>
+              {data && data.price && (<p>${(data.price * 0.2).toFixed(2)}</p>)}
             </span>
             <div className="limeDivider"></div>
             <span>
               <p>Booking total</p>
-              <p>$852.50</p>
-            </span>
+              <p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>
+                          </span>
             <span>
               <h4>Total</h4>
-              <h4>$852.50</h4>
+              {data && data.price && (
+                <h4>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</h4>
+              )}
+
             </span>
             <div className="limeDivider"></div>
             <PayPalScriptProvider options={initialOptions}>

@@ -19,6 +19,9 @@ import star from "../../images/star.svg";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import backendURL from '../../AxiosApi';
+import { useNavigate } from "react-router-dom";
+import CheckOutPage from "../Paymants/CheckOutPage";
+
 
 export default function SingleBoat() {
   const { id } = useParams();
@@ -29,7 +32,7 @@ export default function SingleBoat() {
   const [multiDay, setMultiDay] = useState(false);
   const [singleDay, setSingleDay] = useState(true);
   const [openTime, setOpenTime] = useState(false);
-  const [time, setTime] = useState("2 hour");
+  const [time, setTime] = useState("1 hour");
   const [passanger, setPassanger] = useState({ passanger: "" });
   const [open, setOpen] = useState(false);
   const [requestButton, setRequestButton] = useState();
@@ -43,6 +46,7 @@ export default function SingleBoat() {
       key: "selection",
     },
   ]);
+  const navigate = useNavigate();
 
 
   const settings = {
@@ -133,8 +137,23 @@ export default function SingleBoat() {
 
   const calculatePrice = (e) => {
     e.preventDefault();
+    try {
+      const productDetail = {
+        id: id,
+        price: data.durationPrices?.[time],
+        time: time,
+        date: date,
+        duration: numberDays,
+      };
 
+      localStorage.setItem("productDetail", JSON.stringify(productDetail));
+      navigate("/checkout");
+    } catch (error) {
+      // Handle any errors here
+      console.error(error);
+    }
   }
+
   const calculateDay = (e) => {
     e.preventDefault();
     try {
@@ -329,7 +348,7 @@ export default function SingleBoat() {
               id="boatInfo"
               className="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-19 sc-1c3fc0c7-0 kbnFZE goeXEm fJYdpT idtAGw"
             >
-              <div className="sc-31598d9d-0 sc-617d572c-17 kbnFZE cJjwwp">
+              <div className="sc-31598d9d-0 sc-617d572c-17 kbnFZE cJ  jwwp">
                 <h2 className="sc-3eb0d354-1 cGikrv">The boat</h2>
                 <div className="sc-1c3fc0c7-1 gqfTeg">
                   <p>
@@ -799,7 +818,7 @@ export default function SingleBoat() {
             <div id="bookingWidget" className="sc-31598d9d-0 sc-617d572c-0 sc-786c3322-2 kbnFZE goeXEm">
               <div className="sc-7f3d6a85-5 bcKqiW">
                 <div className="sc-31598d9d-0 sc-617d572c-0 sc-7f3d6a85-1 kbnFZE fvhGND dslQIJ">
-                <div className="sc-7f3d6a85-3 dLSlgt">{data.durationPrices?.[time]}</div>
+                  <div className="sc-7f3d6a85-3 dLSlgt">{(data.durationPrices?.[time])}</div>
                   <div className="sc-7f3d6a85-4 gZXmHD">
                     /{time} (excl. fees)
                   </div>
@@ -899,20 +918,20 @@ export default function SingleBoat() {
                                 <div className="sc-c55a9e21-2 jhNDLd dURaTiOn">
                                   {numberDays === 1 ? (
                                     <>
-                                    <p style={{ fontSize: "12px" }}> {time}</p>
-                                    {openTime && data.timePeriod && (
-                                      <div className="DuRaTiON">
-                                        {data.timePeriod.map((item) => (
-                                          <div className="duratIonTab" onClick={pickTime}>{item}</div>
-                                        ))}
-                                      </div>
-                                    )}
+                                      <p style={{ fontSize: "12px" }}> {time}</p>
+                                      {openTime && data.timePeriod && (
+                                        <div className="DuRaTiON">
+                                          {data.timePeriod.map((item) => (
+                                            <div className="duratIonTab" onClick={pickTime}>{item}</div>
+                                          ))}
+                                        </div>
+                                      )}
                                     </>
                                   ) : (
                                     <p style={{ fontSize: "12px" }}> {numberDays} days</p>
 
                                   )}
-                                
+
 
                                 </div>
                               </div>
@@ -1019,11 +1038,12 @@ export default function SingleBoat() {
                       {open && (
                         <div className="StaRtTime" onClick={() => {
                           setOpen(!open);
-                          setOpenPasanger(!openPasanger)
+
                         }} >
                           {interval.map((item, index) => (
                             <span className="StaRtinTerval" onClick={(e) => {
                               setStartTime(e.currentTarget.querySelector('p').textContent)
+                              setOpenPasanger(!openPasanger)
                             }}>
                               <input type="checkbox"></input>
                               <p>{item}</p>
@@ -1876,6 +1896,7 @@ export default function SingleBoat() {
           </div>
         </div>
       </div>
+      {/* <CheckOutPage /> */}
       <Footer />
     </>
   );
