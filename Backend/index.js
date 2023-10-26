@@ -20,7 +20,7 @@ const app = express();
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: 'https://localhost:3000',
+  origin: 'https://yacht-eta.vercel.app/',
   credentials: true
 };
 
