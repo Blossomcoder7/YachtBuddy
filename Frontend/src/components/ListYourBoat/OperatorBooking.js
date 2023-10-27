@@ -13,7 +13,7 @@ export default function OperatorBooking() {
   const [uscg] = useState("Yes");
   const [pay, setPay] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
-  const { formData, updateFormData } = useFormData();
+  const {updateFormData } = useFormData();
   const [durationPrices, setDurationPrices] = useState({});
   const [disable1, setDisable1] = useState(false);
   const [disable2, setDisable2] = useState(false);

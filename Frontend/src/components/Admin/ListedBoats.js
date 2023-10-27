@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Style/ListedBoats.css";
 import axios from "axios";
 import BoatDetails from "./BoatDetails";
-import { NavLink } from "react-router-dom";
 import backendURL from "../../AxiosApi";
 
 export default function ListedBoats() {

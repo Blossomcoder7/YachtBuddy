@@ -49,7 +49,7 @@ export default function StartTime() {
 
 
     const handleCheckboxClick = (dayIndex, timeIndex) => {
-        const checkboxValue = intervals[dayIndex][timeIndex];
+        // const checkboxValue = intervals[dayIndex][timeIndex];
     
         // Create a copy of the selectedCheckboxes and selectedPValues arrays
         const newSelectedCheckboxes = selectedCheckboxes.map((dayCheckboxes) => [...dayCheckboxes]);

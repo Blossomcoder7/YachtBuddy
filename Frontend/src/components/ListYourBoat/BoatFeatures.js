@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../utils/FormDataContext";
-import backendURL from "../../AxiosApi";
 
 
 export default function BoatFeatures() {

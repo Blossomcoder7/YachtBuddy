@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import "../Paymants/CheckOutPage.css";
 import img from "../../images/boat5.png";
 import Navbar from "../LandingPage/Navbar";
@@ -9,15 +8,11 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 export default function CheckOutPage() {
-  const { id } = useParams();
   const [expiryDate, setExpiryDate] = useState("");
   const [hasPromoCode, setHasPromoCode] = useState(false);
   const [data, setData] = useState();
 
-  const product = {
-    description: "Paypal CheckOut Page",
-    price: 19
-  };
+ 
 
 
   useEffect(() => {

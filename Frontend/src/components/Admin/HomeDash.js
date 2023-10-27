@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
 import Chart from 'react-apexcharts';
 import './Style/HomeDash.css'
 
@@ -13,7 +13,7 @@ export default function HomeDash() {
     { name: "Female", value: 300 },
 
   ];
-  const [bar, setBar] = useState({
+  const [bar] = useState({
 
     series: [{
       name: 'Application',
@@ -79,7 +79,7 @@ export default function HomeDash() {
       }
     },
   })
-  const [spline, setSpline] = useState({
+  const [spline] = useState({
 
     series: [{
       name: 'series1',
@@ -108,7 +108,7 @@ export default function HomeDash() {
     },
 
   })
-  const [timeline1, setTimeline1] = useState({
+  const [timeline1] = useState({
 
 
     series: [70],
@@ -127,7 +127,7 @@ export default function HomeDash() {
       labels: ['Total'],
     },
   })
-  const [timeline2, setTimeline2] = useState({
+  const [timeline2] = useState({
 
 
     series: [65],
@@ -146,7 +146,7 @@ export default function HomeDash() {
       labels: ['ShortList'],
     },
   })
-  const [timeline3, setTimeline3] = useState({
+  const [timeline3] = useState({
 
 
     series: [30],

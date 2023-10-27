@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { DateRangePicker } from "react-date-range";
 import { DateRange } from 'react-date-range';
-import { format, differenceInDays } from 'date-fns';
+import { format} from 'date-fns';
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import Navbar from "../LandingPage/Navbar";
@@ -20,7 +20,6 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import backendURL from '../../AxiosApi';
 import { useNavigate } from "react-router-dom";
-import CheckOutPage from "../Paymants/CheckOutPage";
 
 
 export default function SingleBoat() {

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Link} from "react-router-dom";
 import Navbar from "../LandingPage/Navbar";
 import Footer from "../LandingPage/Footer";
 import "./AllBoats.css";
@@ -7,7 +7,6 @@ import star from "../../images/star.svg";
 import aboutImg from "../../images/aboutImg.png";
 
 export default function SearchProduct() {
-    const location = useLocation();
 //   const boats = location.state.boats;
    
     const boatData = [

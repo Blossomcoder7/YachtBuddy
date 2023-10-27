@@ -19,25 +19,25 @@ export default function Specification() {
   }
   // const categoryOptions= ["", "Airboat", "Aluminium Fishing", "Angler","Bow rider", "Bass boat", "Catamarn", "CEnter console","Clasic", "Commercial", "Convertible", "Cruiser", "Cuddy cabin", "Deck boat", "Dive boat", "Downeast", "Dual console", "Duck boat", "Elecctric", "Express Cruiser","Fish and ski", "Flats boat", "Flybridge", "HouseBoat", "Inflatable outboard", "Jet Boat", "Jet ski / personal water craft", "Jon Boat", "<ega yacht", "Motor yacht", "Offshore sport fishing", "Performance", "Performance fishing", "Pilothouse", "Ponton", "Rigid inflatable", "Runabout","Saltwater fishing", "Ski and wakeboard","skiff", "Trawler","Walkaround","Weekender","Other"];
 const categoryOptions = ["Cishing Charter", "Pontoon", "Bachleor Party","Party Boats", "YAcht Rental", "Sailing", "Luxury Yacht", "Cruising"];
-  const options = {
-    bayliner: ["Dx2000", "Dx2050", "Dx2200", "Dx2250", "Element E18"],
-    beneteauUSA: [
-      "Gran Turismo 32lb",
-      "Gran Turismo 32 Joystick",
-      "Gran Turismo 36 lb",
-      "Gran Turismo 36 lb Joystick",
-      "Gran Turismo 41 Joystick",
-    ],
-    catalina: ["12.5 Expo", "14.2", "14.2 Expo", "16.5", "22 Capri"],
-    seaRayBoats: ["Sdx 250", "Sdx 250 oB", "Sdx 270", "Sdx 270 Ob", "Sdx 290"],
-    yamaha: [
-      "190 Fish Deluxe",
-      "190  Fish Sport",
-      "195 Fish DEluxe",
-      "195 Fish Sport",
-      "195s",
-    ],
-  };
+  // const options = {
+  //   bayliner: ["Dx2000", "Dx2050", "Dx2200", "Dx2250", "Element E18"],
+  //   beneteauUSA: [
+  //     "Gran Turismo 32lb",
+  //     "Gran Turismo 32 Joystick",
+  //     "Gran Turismo 36 lb",
+  //     "Gran Turismo 36 lb Joystick",
+  //     "Gran Turismo 41 Joystick",
+  //   ],
+  //   catalina: ["12.5 Expo", "14.2", "14.2 Expo", "16.5", "22 Capri"],
+  //   seaRayBoats: ["Sdx 250", "Sdx 250 oB", "Sdx 270", "Sdx 270 Ob", "Sdx 290"],
+  //   yamaha: [
+  //     "190 Fish Deluxe",
+  //     "190  Fish Sport",
+  //     "195 Fish DEluxe",
+  //     "195 Fish Sport",
+  //     "195s",
+  //   ],
+  // };
 
   const handleSelectChange4 = (e) => {
     setPower(e.target.value);

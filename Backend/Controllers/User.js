@@ -60,6 +60,8 @@ exports.register = expressAsyncHandler(async (req, res) => {
 
 // User login
 exports.login = expressAsyncHandler(async (req, res) => {
+  console.log("aa gya")
+  
   try {
     const { email, password } = req.body;
 

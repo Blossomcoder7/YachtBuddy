@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Slider from 'react-slick';
@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import "../Style/Carousel.css";
 import "../Style/PopularBoats.css";
 import "../Style/YachtRental.css";
-import wheel from "../../images/steering-wheel 1.svg";
+// import wheel from "../../images/steering-wheel 1.svg";
 import img1 from "../../images/boat1.png";
 import img2 from "../../images/boat2.png";
 import img3 from "../../images/boat3.png";

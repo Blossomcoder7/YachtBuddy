@@ -8,7 +8,6 @@ import map from "../../images/map-marker-alt.svg";
 import user from "../../images/length.svg";
 import arrow from "../../images/Group 6.svg";
 import price from "../../images/price.svg";
-import arrow1 from "../../images/Arrow 4.svg";
 import backendURL from "../../AxiosApi";
 
 

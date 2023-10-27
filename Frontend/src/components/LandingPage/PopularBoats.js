@@ -3,17 +3,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../Style/PopularBoats.css";
 import wheel from "../../images/steering-wheel 1.svg";
-import img from "../../images/IMG_8153 1.png";
-import boat from "../../images/boat 1.svg";
-import user from "../../images/boat 2.svg";
-import axios from "axios";
-import backendURL from "../../AxiosApi";
+// import img from "../../images/IMG_8153 1.png";
+// import boat from "../../images/boat 1.svg";
+// import user from "../../images/boat 2.svg";
+// import axios from "axios";
+// import backendURL from "../../AxiosApi";
 import {motion} from "framer-motion"
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function PopularBoats() {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 

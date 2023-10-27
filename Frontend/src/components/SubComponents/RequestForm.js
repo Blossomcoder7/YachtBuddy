@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "../Style/SignUp.css";
 import logo from "../../images/logo.svg";
 import facebook from "../../images/Group 45.svg";
 import youtube from "../../images/Group 44.svg";
 import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
-import fb from "../../images/fb.svg";
-import google from "../../images/google+.svg";
-import backendURL from "../../AxiosApi";
 
 
 export default function RequestForm() {
