@@ -27,7 +27,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
