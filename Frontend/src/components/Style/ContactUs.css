@@ -33,7 +33,7 @@
     width: 40%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
  }
  .contactR-c{
     display: flex;
@@ -87,11 +87,6 @@
 .contactL p {
     font-size: 16px;
 }
-
-.contactR img {
-    /* height: 45px !important; */
-}
-
 .contactR {
 width: 100%;
 justify-content: start;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import AOS from "aos";
+// import AOS from "aos";
 import "aos/dist/aos.css";
 import "../Style/PopularBoats.css";
 import wheel from "../../images/steering-wheel 1.svg";
@@ -62,10 +62,10 @@ export default function PopularBoats() {
               <motion.div drag="x"               
               dragConstraints={{right:0, left: -width}}
               className="inner-carousel">
-              {categories.map((item) => {
+              {categories.map((item,index) => {
                return( 
-              <>
-              <motion.div className="popularBoatsCard" key={item._id}>
+             
+              <motion.div className="popularBoatsCard" key={index}>
                 <div className="popularBoats_cardUp">
                   <div>
                     <img src={item.ImgUrl} alt=""></img>
@@ -79,7 +79,8 @@ export default function PopularBoats() {
                   <div className="line"></div>
                  </div>
               </motion.div>
-              </>)}
+            
+              )}
             )}
               </motion.div>
             </motion.div>

@@ -76,7 +76,7 @@ export default function MultipleBooking() {
         </div>
         <div className="insauranceTypeR">
           <label className="insauraanceRow">
-            <div class="ins-main--wrap ins-main--wrap1">
+            <div className="ins-main--wrap ins-main--wrap1">
               <input
                 type="radio"
                 name="multipleBooking"

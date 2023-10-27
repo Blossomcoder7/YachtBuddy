@@ -25,7 +25,7 @@ export default function InsauranceType() {
         <div className="insauranceTypeR">
           {/* <div style={{display:"flex", justifyContent:"center", flexDirection:"column", alignItems:"center"}}> */}
             <label className="insauraanceRow">
-                <div class="ins-main--wrap">
+                <div className="ins-main--wrap">
                 <input
                 type="radio"
                 name="insurance"

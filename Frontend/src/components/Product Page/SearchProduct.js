@@ -134,23 +134,23 @@ export default function SearchProduct() {
     const pageSize = 18;
     const totalPages = Math.ceil(boatData.length / pageSize);
   
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage] = useState(1);
   
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
     const displayedBoats = boatData.slice(startIndex, endIndex);
   
-    const handleNextPage = () => {
-      if (currentPage < totalPages) {
-        setCurrentPage(currentPage + 1);
-      }
-    };
+    // const handleNextPage = () => {
+    //   if (currentPage < totalPages) {
+    //     setCurrentPage(currentPage + 1);
+    //   }
+    // };
   
-    const handlePrevPage = () => {
-      if (currentPage > 1) {
-        setCurrentPage(currentPage - 1);
-      }
-    };
+    // const handlePrevPage = () => {
+    //   if (currentPage > 1) {
+    //     setCurrentPage(currentPage - 1);
+    //   }
+    // };
   return (
     <>
     <Navbar />
@@ -201,21 +201,21 @@ export default function SearchProduct() {
                   src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
                   alt=""
                 ></img>
-                <div class="BoatPrice-tag">
+                <div className="BoatPrice-tag">
                   <img
                     alt="Icon"
-                    class="u-mr05"
+                    className="u-mr05"
                     src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
                   />
                   $75+
-                  <span class="u-textMiddle">/hour</span>
+                  <span className="u-textMiddle">/hour</span>
                 </div>
               </div>
               <div className="singleBoatCardR">
                 <div className="boatRating">
-                  <span class="flex ">
+                  <span className="flex ">
                     <p style={{ fontSize: "12px" }}>{boat.location}</p>
-                    <div class="flex star">
+                    <div className="flex star">
                       <img src={star} alt="" />
                       <p>
                         {boat.rating} ({boat.bookings}bookings)
@@ -223,12 +223,12 @@ export default function SearchProduct() {
                     </div>
                   </span>
                   <h5>{boat.productName}</h5>
-                  <div class="u-block BoatCard-features">
-                    <span class="u-fsSm">{boat.hour}</span>
-                    <span class="u-fsSm">{boat.captain}</span>
+                  <div className="u-block BoatCard-features">
+                    <span className="u-fsSm">{boat.hour}</span>
+                    <span className="u-fsSm">{boat.captain}</span>
                   </div>
-                  <div class="u-block BoatCard-features">
-                    <span class="u-fsSm">
+                  <div className="u-block BoatCard-features">
+                    <span className="u-fsSm">
                       Up to {boat.passanger} passengers
                     </span>
                   </div>
@@ -248,7 +248,7 @@ export default function SearchProduct() {
             <path
               fill="currentColor"
               d="M18 2a16 16 0 1 0 16 16A16 16 0 0 0 18 2Zm8 15.57a1.43 1.43 0 0 1-2 0L19.4 13v14.14a1.4 1.4 0 0 1-2.8 0v-14l-4.43 4.43a1.4 1.4 0 0 1-2-2l7.91-7.87L26 15.59a1.4 1.4 0 0 1 0 1.98Z"
-              class="clr-i-solid clr-i-solid-path-1"
+              className="clr-i-solid clr-i-solid-path-1"
             />
             <path fill="none" d="M0 0h36v36H0z" />
           </svg>
@@ -265,18 +265,18 @@ export default function SearchProduct() {
             <path
               fill="currentColor"
               d="M18 2a16 16 0 1 0 16 16A16 16 0 0 0 18 2Zm8 15.57a1.43 1.43 0 0 1-2 0L19.4 13v14.14a1.4 1.4 0 0 1-2.8 0v-14l-4.43 4.43a1.4 1.4 0 0 1-2-2l7.91-7.87L26 15.59a1.4 1.4 0 0 1 0 1.98Z"
-              class="clr-i-solid clr-i-solid-path-1"
+              className="clr-i-solid clr-i-solid-path-1"
             />
             <path fill="none" d="M0 0h36v36H0z" />
           </svg>
         </div>
         <div className="lineDivider"></div>
 
-        <div class="Container">
+        <div className="Container">
           <h2>How to rent a party boat?</h2>
-          <div class="Grid">
-            <div class="Grid-cell">
-              <span class="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
+          <div className="Grid">
+            <div className="Grid-cell">
+              <span className="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
                 1
               </span>
               <h3>Find the perfect boat</h3>
@@ -285,8 +285,8 @@ export default function SearchProduct() {
                 party boats.
               </p>
             </div>
-            <div class="Grid-cell">
-              <span class="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
+            <div className="Grid-cell">
+              <span className="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
                 2
               </span>
               <h3>Select a captain</h3>
@@ -294,8 +294,8 @@ export default function SearchProduct() {
                 Choose to drive yourself or select a USCG licensed captain.
               </p>
             </div>
-            <div class="Grid-cell">
-              <span class="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
+            <div className="Grid-cell">
+              <span className="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
                 3
               </span>
               <h3>Book with ease</h3>
@@ -303,8 +303,8 @@ export default function SearchProduct() {
                 Connect with your boat owner and complete your booking online.
               </p>
             </div>
-            <div class="Grid-cell">
-              <span class="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
+            <div className="Grid-cell">
+              <span className="Circle Circle--sm Circle--blackBorder u-mb1 u-style1 u-textSemiBold">
                 4
               </span>
               <h3>Set sail</h3>

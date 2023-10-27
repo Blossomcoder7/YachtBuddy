@@ -20,7 +20,7 @@ import TitleDescription from "./components/ListYourBoat/TitleDescription";
 import CancelationPolicy from "./components/ListYourBoat/CancelationPolicy";
 import AllowedOnBoat from "./components/ListYourBoat/AllowedOnBoat";
 import BoatFeatures from "./components/ListYourBoat/BoatFeatures";
-import BoatPhotos from "./components/ListYourBoat/BoatPhotos";
+// import BoatPhotos from "./components/ListYourBoat/BoatPhotos";
 import Specification from "./components/ListYourBoat/Specification";
 import Availability from "./components/ListYourBoat/Availability";
 import AdvanceNotice from "./components/ListYourBoat/AdvanceNotice";
@@ -85,7 +85,7 @@ function App() {
                 <Route exact path="/cancelPolicy" element={<Authenticate role={Roles.USER}><CancelationPolicy /></Authenticate> }/>
                 <Route exact path="/alowedOnBoat" element={<Authenticate role={Roles.USER}><AllowedOnBoat /></Authenticate>}/>
                 <Route exact path="/boatFeature" element={<Authenticate role={Roles.USER}><BoatFeatures /></Authenticate>}/>
-                <Route exact path="/boatImages" element={<Authenticate role={Roles.USER}><BoatPhotos /></Authenticate>}/>                
+                {/* <Route exact path="/boatImages" element={<Authenticate role={Roles.USER}><BoatPhotos /></Authenticate>}/>                 */}
                 <Route exact path="/boatSpecification" element={<Authenticate role={Roles.USER}><Specification /></Authenticate>}/>                
                 <Route exact path="/boatSpecification" element={<Authenticate role={Roles.USER}><Specification /></Authenticate>}/>
                 <Route exact path="/availability" element={<Authenticate role={Roles.USER}><Availability /></Authenticate>}/>

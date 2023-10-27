@@ -8,11 +8,11 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 export default function CheckOutPage() {
-  const [expiryDate, setExpiryDate] = useState("");
+  // const [expiryDate, setExpiryDate] = useState("");
   const [hasPromoCode, setHasPromoCode] = useState(false);
   const [data, setData] = useState();
 
- 
+
 
 
   useEffect(() => {
@@ -33,9 +33,9 @@ export default function CheckOutPage() {
     getProductDetail();
   }, []);
 
-  const handleExpiryDateChange = (e) => {
-    setExpiryDate(e.target.value);
-  };
+  // const handleExpiryDateChange = (e) => {
+  //   setExpiryDate(e.target.value);
+  // };
 
   const initialOptions = {
     clientId: "AcbZfLMOatDo0kT1k3isgHk6i9ckW6QEG-X-Ak6ZdkLrHn-LjW7rDSK4MeJ1BUj8w9I8wqvZzuyPlZmi",
@@ -133,7 +133,7 @@ export default function CheckOutPage() {
                         </linearGradient>
                       </defs>
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M6.998 10.493a.397.397 0 0 0-.462 0l-2.952 2.105a.397.397 0 0 1-.614-.43l1.01-3.667a.397.397 0 0 0-.132-.413L.962 5.728a.397.397 0 0 1 .238-.704L4.813 4.9a.397.397 0 0 0 .363-.268L6.39 1.094a.397.397 0 0 1 .752 0l1.215 3.538a.397.397 0 0 0 .363.268l3.613.124a.397.397 0 0 1 .238.705L9.686 8.088a.397.397 0 0 0-.132.413l1.01 3.668c.1.36-.31.646-.614.429l-2.952-2.105Z"
                         fill="url(#grad100)"
@@ -171,7 +171,7 @@ export default function CheckOutPage() {
                         </linearGradient>
                       </defs>
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M6.998 10.493a.397.397 0 0 0-.462 0l-2.952 2.105a.397.397 0 0 1-.614-.43l1.01-3.667a.397.397 0 0 0-.132-.413L.962 5.728a.397.397 0 0 1 .238-.704L4.813 4.9a.397.397 0 0 0 .363-.268L6.39 1.094a.397.397 0 0 1 .752 0l1.215 3.538a.397.397 0 0 0 .363.268l3.613.124a.397.397 0 0 1 .238.705L9.686 8.088a.397.397 0 0 0-.132.413l1.01 3.668c.1.36-.31.646-.614.429l-2.952-2.105Z"
                         fill="url(#grad100)"
@@ -209,7 +209,7 @@ export default function CheckOutPage() {
                         </linearGradient>
                       </defs>
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M6.998 10.493a.397.397 0 0 0-.462 0l-2.952 2.105a.397.397 0 0 1-.614-.43l1.01-3.667a.397.397 0 0 0-.132-.413L.962 5.728a.397.397 0 0 1 .238-.704L4.813 4.9a.397.397 0 0 0 .363-.268L6.39 1.094a.397.397 0 0 1 .752 0l1.215 3.538a.397.397 0 0 0 .363.268l3.613.124a.397.397 0 0 1 .238.705L9.686 8.088a.397.397 0 0 0-.132.413l1.01 3.668c.1.36-.31.646-.614.429l-2.952-2.105Z"
                         fill="url(#grad100)"
@@ -247,7 +247,7 @@ export default function CheckOutPage() {
                         </linearGradient>
                       </defs>
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M6.998 10.493a.397.397 0 0 0-.462 0l-2.952 2.105a.397.397 0 0 1-.614-.43l1.01-3.667a.397.397 0 0 0-.132-.413L.962 5.728a.397.397 0 0 1 .238-.704L4.813 4.9a.397.397 0 0 0 .363-.268L6.39 1.094a.397.397 0 0 1 .752 0l1.215 3.538a.397.397 0 0 0 .363.268l3.613.124a.397.397 0 0 1 .238.705L9.686 8.088a.397.397 0 0 0-.132.413l1.01 3.668c.1.36-.31.646-.614.429l-2.952-2.105Z"
                         fill="url(#grad100)"
@@ -285,7 +285,7 @@ export default function CheckOutPage() {
                         </linearGradient>
                       </defs>
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M6.998 10.493a.397.397 0 0 0-.462 0l-2.952 2.105a.397.397 0 0 1-.614-.43l1.01-3.667a.397.397 0 0 0-.132-.413L.962 5.728a.397.397 0 0 1 .238-.704L4.813 4.9a.397.397 0 0 0 .363-.268L6.39 1.094a.397.397 0 0 1 .752 0l1.215 3.538a.397.397 0 0 0 .363.268l3.613.124a.397.397 0 0 1 .238.705L9.686 8.088a.397.397 0 0 0-.132.413l1.01 3.668c.1.36-.31.646-.614.429l-2.952-2.105Z"
                         fill="url(#grad100)"
@@ -369,7 +369,7 @@ export default function CheckOutPage() {
             <span>
               <p>Booking total</p>
               <p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>
-                          </span>
+            </span>
             <span>
               <h4>Total</h4>
               {data && data.price && (
