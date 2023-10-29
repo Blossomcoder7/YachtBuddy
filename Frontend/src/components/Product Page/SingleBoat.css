@@ -697,17 +697,11 @@
 .DatePicker.eeUKug{
     position: relative;
 }
-.dateRange{
-    position: absolute;
-}
+
 
 .DatePicker .rdrDateRangePickerWrapper.dateRange {
-    position: absolute;
-    left: 30px;
-    bottom: 50px;
     z-index: 9999;
     background: #007bff !important;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .TiMeInTeRvAl{
@@ -755,15 +749,14 @@ overflow-y: scroll;
     border: 0;
 }
 .CaLaNder {
-    width: 700px;
+    width: min-content;
     height: 72vh;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     background-color: #fff;
     position: absolute;
-    left: -250px;
+    right: 0px;
     bottom: -550px;
     border-radius: 10px;
     z-index: 9999;

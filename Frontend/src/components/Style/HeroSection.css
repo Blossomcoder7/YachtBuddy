@@ -116,7 +116,7 @@ gap: 10px;
     color: #fff;
   }
 
-.rdrDateRangePickerWrapper.dateRange {
+.boatRequest .rdrDateRangePickerWrapper.dateRange {
   position: absolute;
 left:550px;
 bottom: -240px;
