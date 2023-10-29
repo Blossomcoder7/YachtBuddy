@@ -20,7 +20,7 @@ const app = express();
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: 'http:\\localhost:3000',
+  origin: ['https://theyachtbuddy.com', 'https://www.theyachtbuddy.com'],
   credentials: true
 };
 
