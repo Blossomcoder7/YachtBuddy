@@ -20,7 +20,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ['https://theyachtbuddy.com', 'https://www.theyachtbuddy.com'],
+  origin: 'http://localhost:3000',
   credentials: true
 };
 

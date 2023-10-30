@@ -21,12 +21,12 @@ export default function Review() {
   const [selectedImage4, setSelectedImage4] = useState(null);
   const [selectedImage5, setSelectedImage5] = useState(null);
   const [selectedImage6, setSelectedImage6] = useState(null);
-  const [setImage1] = useState(null);
-  const [setImage2] = useState(null);
-  const [setImage3] = useState(null);
-  const [setImage4] = useState(null);
-  const [setImage5] = useState(null);
-  const [setImage6] = useState(null);
+  const [image1,setImage1] = useState(null);
+  const [image2, setImage2] = useState(null);
+  const [image3, setImage3] = useState(null);
+  const [image4, setImage4] = useState(null);
+  const [image5, setImage5] = useState(null);
+  const [image6, setImage6] = useState(null);
 
   const navigate = useNavigate();
 
