@@ -18,14 +18,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-app.use(cookieParser());
 
 const corsOptions = {
-<<<<<<< HEAD
   origin: ['https://theyachtbuddy.com', 'https://www.theyachtbuddy.com'],
-=======
-  origin: 'http://localhost:3000',
->>>>>>> 64e6b9dad67eca92aacfba5e718928899d78f2ba
   credentials: true
 };
 
