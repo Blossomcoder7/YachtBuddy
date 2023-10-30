@@ -164,7 +164,7 @@ export default function Navbar() {
                   </svg>
                   <div className="dropdown-content">
                     <p onClick={handelNavigate}>DashBoard</p>
-                    <NavLink to='/Horticulture'> <p>Edit Profile</p></NavLink>
+                    <NavLink to='/'> <p>Edit Profile</p></NavLink>
 
                   </div>
                 </div>

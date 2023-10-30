@@ -169,9 +169,17 @@ color: #fff;
   gap: 30px;
   
 }
-.socialButton label{
+.socialButton a, .socialButton label{
     width: 50%;
     display: flex;
+}
+.socialButton a label{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  background-color: #47B7AC;
 }
 .socialButton label span {
     width: 70%;
@@ -193,12 +201,7 @@ color: #fff;
     display: block;
     color: #fff;
 }
-/* .haveAcnt{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-} */
+
 .price{
   width: 100%;
   display: flex;

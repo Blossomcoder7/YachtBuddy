@@ -15,137 +15,16 @@ export default function AllBoats() {
 
   console.log(category)
 
-  const boatData = [
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 1
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 2
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 3
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 4
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 5
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 6
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 7
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 8
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 9
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 10
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 11
-    },
-    {
-      location: "ST.CLAIR SHORES, MI",
-      rating: "5.0",
-      bookings: "10",
-      productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-      hour: "6-8",
-      captain: "No Captain",
-      passanger: "8",
-      id: 12
-    },
-  ];
+ 
   const pageSize = 18;
-  const totalPages = Math.ceil(boatData.length / pageSize);
+  const totalPages = Math.ceil(data.length / pageSize);
 
   const [currentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   // const displayedBoats =
-   boatData.slice(startIndex, endIndex);
+   data.slice(startIndex, endIndex);
 
   // const handleNextPage = () => {
   //   if (currentPage < totalPages) {
@@ -205,7 +84,6 @@ export default function AllBoats() {
                   <option>13 Passangers</option>
                   <option>13+ Passangers</option>
                 </select>
-                {/* <input type="button" placeholder="Search"></input> */}
                 <button> Search</button>
               </form>
             </div>

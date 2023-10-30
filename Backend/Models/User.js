@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
   mobileNo: { type: Number, required: true },
   password: { type: String, required: true },
   role: {type:String, required:true, default:"user"},
+  resetToken: { type: String }, 
+  resetTokenExpiry: { type: Date },
   createdAt: { type: Date, default: Date.now },
 });
 

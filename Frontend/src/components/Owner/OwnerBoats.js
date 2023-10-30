@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import backendURL from "../../AxiosApi";
+import { Link } from 'react-router-dom';
+import star from "../../images/star.svg";
+
 
 
 export default function OwnerBoats() {
@@ -55,29 +58,67 @@ export default function OwnerBoats() {
     <>
 <div className='AllBoat'>
 <h2>Boats Listed by Owner</h2>
-      {boats && boats.length > 0 ? (
-            boats.map((boat) => (
-              <>
-              <p>{boat._id}</p>
-                <h3>{boat.name}</h3>
-                <p>{boat.description}</p>
-                </>
-
-            ))
-          ) : (
-            <li>No boats found</li>
-          )}
+<div className="allBoatCard">
+            {boats.length > 0 ? (
+              boats.map((boat, index) => (
+                <Link to={`/singleBoat/${boat._id}`} key={index}>
+                  <div className="singleBoatCard">
+                    <div className="singleBoatCardL">
+                      <img
+                        src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
+                        alt=""
+                      ></img>
+                      <div className="BoatPrice-tag">
+                        <img
+                          alt="Icon"
+                          className="u-mr05"
+                          src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
+                        />
+                        {boat.durationPrices && boat.durationPrices.length > 0 ? (
+                          boat.durationPrices.map((duration) => (
+                            <div key={duration.duration}>
+                              ${duration.price}
+                              <span className="u-textMiddle">/hour for {duration.duration}</span>
+                            </div>
+                          ))
+                        ) : (
+                          <span>No pricing information available</span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="singleBoatCardR">
+                      <div className="boatRating">
+                        <span className="flex ">
+                          <p style={{ fontSize: "12px" }}>{boat.boatAddress}</p>
+                          <div className="flex star">
+                            <img src={star} alt="" />
+                            <p>
+                              {boat.rating} ({boat.bookings} bookings)
+                            </p>
+                          </div>
+                        </span>
+                        <h5>{boat.model}</h5>
+                        {boat.durationPrices && <div className="u-block BoatCard-features">
+                          <span className="u-fsSm">{boat.durationPrices[0]}</span>
+                          <span className="u-fsSm">{boat.captain}</span>
+                        </div>}
+                        
+                        <div className="u-block BoatCard-features">
+                          <span className="u-fsSm">
+                            Up to {boat.passangerCapacity} passengers
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p>No boats available.</p>
+            )}
+          </div>
     </div>    
-      {image && image.length > 0 ? (
-            image.map((img) => (
-              <>
-              <img key={img._id} src={`http://localhost:5000/uploads/${img}`} alt="boat" style={{width: "300px"}}/>
-                </>
-
-            ))
-          ) : (
-            <li>No boats found</li>
-          )}
+      
     </>
 )
 }

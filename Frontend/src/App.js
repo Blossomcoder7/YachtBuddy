@@ -20,7 +20,6 @@ import TitleDescription from "./components/ListYourBoat/TitleDescription";
 import CancelationPolicy from "./components/ListYourBoat/CancelationPolicy";
 import AllowedOnBoat from "./components/ListYourBoat/AllowedOnBoat";
 import BoatFeatures from "./components/ListYourBoat/BoatFeatures";
-// import BoatPhotos from "./components/ListYourBoat/BoatPhotos";
 import Specification from "./components/ListYourBoat/Specification";
 import Availability from "./components/ListYourBoat/Availability";
 import AdvanceNotice from "./components/ListYourBoat/AdvanceNotice";
@@ -44,6 +43,7 @@ import StartTime from "./components/ListYourBoat/StartTime";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import SearchProduct from "./components/Product Page/SearchProduct";
 import Inquiry from "./components/Admin/Inquiry";
+import ForgetPassword from "./components/MainPage/ForgetPassword";
 
 
 function App() {
@@ -65,6 +65,7 @@ function App() {
                 <Route exact path="/support" element={<Support />}></Route>
                 <Route exact path="/signup" element={<SignUp />}></Route>
                 <Route exact path="/login" element={<Login />}></Route>
+                <Route exact path="/forgetPassword" element={<ForgetPassword/>}></Route>
                 <Route exact path="/request" element={<RequestForm />}></Route>
                 <Route exact path="/renterSupport" element={<RenterCategiorySuport />}></Route>
                 <Route exact path="/singleBoat/:id" element={<SingleBoat />}></Route>
@@ -85,7 +86,6 @@ function App() {
                 <Route exact path="/cancelPolicy" element={<Authenticate role={Roles.USER}><CancelationPolicy /></Authenticate> }/>
                 <Route exact path="/alowedOnBoat" element={<Authenticate role={Roles.USER}><AllowedOnBoat /></Authenticate>}/>
                 <Route exact path="/boatFeature" element={<Authenticate role={Roles.USER}><BoatFeatures /></Authenticate>}/>
-                {/* <Route exact path="/boatImages" element={<Authenticate role={Roles.USER}><BoatPhotos /></Authenticate>}/>                 */}
                 <Route exact path="/boatSpecification" element={<Authenticate role={Roles.USER}><Specification /></Authenticate>}/>                
                 <Route exact path="/boatSpecification" element={<Authenticate role={Roles.USER}><Specification /></Authenticate>}/>
                 <Route exact path="/availability" element={<Authenticate role={Roles.USER}><Availability /></Authenticate>}/>

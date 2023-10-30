@@ -1,9 +1,11 @@
-const jwtSecret = process.env.JWT_SECRET;
+const dotenv = require('dotenv');
+dotenv.config();
+const jwtSecret = process.env.JWT_SECRET_TOKEN;
 const jwt = require("jsonwebtoken");
 
 module.exports.verifyToken = function (req, res, next) {
-  let { authorization } = req.headers; // Change to lowercase "authorization"
-  console.log("Authorization Header:", authorization); // Log the header to ensure it's correct
+  let { authorization } = req.headers; 
+  console.log("Authorization Header:", authorization); 
 
   if (!authorization) return res.status(400).send({ message: "No token provided." });
 
@@ -11,9 +13,11 @@ module.exports.verifyToken = function (req, res, next) {
   if (authorization.startsWith("Bearer ")) {
     authorization = authorization.slice(7); // Remove the first 7 characters ("Bearer ")
   }
-
+  console.log("Authorization",authorization);
+console.log(jwtSecret)
   jwt.verify(authorization, jwtSecret, function (err, decoded) {
     if (err || !decoded) {
+      console.log("Yha tk to aaya")
       return res.status(401).send({
         message: "User session expired or token is invalid. Please login again!",
       });

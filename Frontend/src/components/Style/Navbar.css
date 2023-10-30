@@ -26,6 +26,10 @@
   z-index: 1;
   /* margin-top: 1px; */
 }
+.dropdown-content-1{
+  left: -200px !important;
+
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -190,6 +194,7 @@
 
   .navbar span.hamburger {
     display: block;
+
   }
   .profile {
     width: 100%;

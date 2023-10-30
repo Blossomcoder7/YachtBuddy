@@ -90,7 +90,7 @@ export default function SingleBoat() {
 
   useEffect(() => {
     fetchData();
-  });
+  },[]);
 
   const inquiryHandel = async (e) => {
     e.preventDefault();

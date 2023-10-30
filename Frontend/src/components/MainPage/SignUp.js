@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../Style/SignUp.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../utils/UserContext';
 import { useAuth } from "../../utils/AuthContext";
 import logo from "../../images/logo.svg";
@@ -10,14 +10,15 @@ import youtube from "../../images/Group 44.svg";
 import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 import fb from "../../images/fb.svg";
-import google from "../../images/google+.svg";
+// import google from "../../images/google+.svg";
 import backendURL from "../../AxiosApi";
+import { GoogleLogin } from '@react-oauth/google';
 
 
 
 export default function SignUp() {
   const { setUser } = useContext(UserContext);
-  const { login } = useAuth();
+  const { login, googleLogin } = useAuth();
 
   const [data, setData] = useState({
     name: "",
@@ -87,6 +88,28 @@ export default function SignUp() {
       console.error("API request error:", error);
     }
   };
+  const googleOnSuccess = (response) => {
+    console.log("Google Response Here", response);
+    if (response.credential) {
+      const GoogleauthToken = response.credential;
+      localStorage.setItem("GoogleauthToken", GoogleauthToken);
+      googleLogin(GoogleauthToken);
+
+      axios.interceptors.request.use(
+        (config) => {
+          console.log(GoogleauthToken)
+          if (GoogleauthToken) {
+            config.headers.Authorization = `Bearer ${GoogleauthToken}`;
+          }
+          return config;
+        },
+        (error) => {
+          return Promise.reject(error);
+        }
+      );
+      navigate("/");
+    }
+  }
   return (
     <>
       <div className="signupPage">
@@ -158,19 +181,21 @@ export default function SignUp() {
                     <img src={fb} alt=""></img>
                   </div>
                   <span style={{ backgroundColor: "#3B5998" }}>Facebook</span>
-                </label>
-                <label>
-                  <div style={{ backgroundColor: "#DB4437" }}>
-                    <img src={google} alt=""></img>
-                  </div>
-                  <span style={{ backgroundColor: "#CC3333" }}>Google +</span>
-                </label>
-           <NavLink to="/login"><label>Log In</label></NavLink>
+                </label>                    
+              <Link to="/signup">  <label>Sign Up</label></Link>
               </div>
+              <div className="gooGleBTn">
+              <GoogleLogin className="GoOgLeBtN"
+                    onSuccess={googleOnSuccess}
+                    onError={() => {
+                      console.log('Login Failed');
+                    }}
+                  />
+                  </div>
               <div className="haveAcnt">
                 <p>You Have an Account ?</p>
-                <p style={{ color: "#47B7AC" }}>Sign In</p>
-              </div>
+               <Link to="/login"> <p style={{ color: "#47B7AC" }}>Sign In</p></Link>
+              </div> 
             </div>
           </div>
           {/* </div> */}

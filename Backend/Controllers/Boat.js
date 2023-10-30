@@ -53,7 +53,7 @@ exports.ownerBoat = async (req, res) => {
     console.log(req.id);
     const userId = req.id;
     console.log(userId);
-    const boat = await BoatList.find({ userId: userId })
+    const boat = await BoatList.find({ userId: req.id })
       .sort({ createdAt: -1 });
     if (!boat) {
       return res.json({ message: 'boats not found' });

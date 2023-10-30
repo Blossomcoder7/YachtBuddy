@@ -13,6 +13,7 @@ const boatRoutes = require('./Routers/boat');
 const paypalRoutes = require('./Routers/paypal');
 const imgRoutes = require('./Routers/Images');
 const inquiryRoutes = require('./Routers/inquiry');
+const authRoutes = require('./Routers/authRoutes');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -26,7 +27,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
-
+app.use(require('./Middlewares/errorMiddleware'));
 const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -45,6 +46,7 @@ app.use('/boat', boatRoutes);
 app.use('/checkout', paypalRoutes);
 app.use('/img', imgRoutes);
 app.use('/inquiry', inquiryRoutes);
+app.use('/auth', authRoutes );
 
 mongoose.connect(process.env.MONGO_DB, {
   useNewUrlParser: true,

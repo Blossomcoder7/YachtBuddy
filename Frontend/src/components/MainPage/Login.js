@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import "../Style/SignUp.css";
 import { UserContext } from "../../utils/UserContext";
@@ -9,8 +9,7 @@ import youtube from "../../images/Group 44.svg";
 import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 import fb from "../../images/fb.svg";
-import google from "../../images/google+.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import backendURL from "../../AxiosApi";
 import { GoogleLogin } from '@react-oauth/google';
 
@@ -145,7 +144,7 @@ export default function Login() {
                   <input type="checkbox"></input>
                   <p>Keep me logged in</p>
                 </span>
-                <p>Forgot Password</p>
+              <Link to="/forgetPassword"><p>Forgot Password</p></Link>
               </div>
               <button onClick={handleSubmit}>Log In</button>
               <div className="lineOr">
@@ -159,15 +158,8 @@ export default function Login() {
                     <img src={fb} alt=""></img>
                   </div>
                   <span style={{ backgroundColor: "#3B5998" }}>Facebook</span>
-                </label>
-                {/* <label className="gogleBTN" onSuccess={googleOnSuccess}>
-                  <div style={{ backgroundColor: "#DB4437" }}>
-                    <img src={google} alt=""></img>
-                  </div> 
-                   <span style={{ backgroundColor: "#CC3333" }}>Google +</span>
-                    </label> */}
-                    
-                <label>Sign Up</label>
+                </label>                    
+              <Link to="/signup">  <label>Sign Up</label></Link>
               </div>
               <div className="gooGleBTn">
               <GoogleLogin className="GoOgLeBtN"
@@ -179,7 +171,7 @@ export default function Login() {
                   </div>
               <div className="haveAcnt">
                 <p>Don't have an account?</p>
-                <p style={{ color: "#47B7AC" }}>Sign Up</p>
+            <Link to="/signup">    <p style={{ color: "#47B7AC" }}>Sign Up</p></Link>
               </div>
             </div>
           </div>

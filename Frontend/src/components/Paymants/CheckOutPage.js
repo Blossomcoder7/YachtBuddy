@@ -8,7 +8,6 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 export default function CheckOutPage() {
-  // const [expiryDate, setExpiryDate] = useState("");
   const [hasPromoCode, setHasPromoCode] = useState(false);
   const [data, setData] = useState();
 
@@ -369,6 +368,7 @@ export default function CheckOutPage() {
             <span>
               <p>Booking total</p>
               <p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>
+
             </span>
             <span>
               <h4>Total</h4>
