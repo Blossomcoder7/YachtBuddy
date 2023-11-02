@@ -45,7 +45,7 @@ app.use('/boat', boatRoutes);
 app.use('/checkout', paypalRoutes);
 app.use('/img', imgRoutes);
 app.use('/inquiry', inquiryRoutes);
-app.use('/auth', authRoutes );
+app.use('/auth', authRoutes);
 
 mongoose.connect(process.env.MONGO_DB, {
   useNewUrlParser: true,

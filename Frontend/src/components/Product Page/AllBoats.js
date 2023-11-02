@@ -15,7 +15,7 @@ export default function AllBoats() {
 
   console.log(category)
 
- 
+
   const pageSize = 18;
   const totalPages = Math.ceil(data.length / pageSize);
 
@@ -24,7 +24,7 @@ export default function AllBoats() {
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   // const displayedBoats =
-   data.slice(startIndex, endIndex);
+  data.slice(startIndex, endIndex);
 
   // const handleNextPage = () => {
   //   if (currentPage < totalPages) {
@@ -51,7 +51,7 @@ export default function AllBoats() {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   return (
     <>
@@ -96,57 +96,59 @@ export default function AllBoats() {
           <div className="allBoatCard">
             {data.length > 0 ? (
               data.map((boat, index) => (
-                <Link to={`/singleBoat/${boat._id}`} key={index}>
-                  <div className="singleBoatCard">
-                    <div className="singleBoatCardL">
-                      <img
-                        src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
-                        alt=""
-                      ></img>
-                      <div className="BoatPrice-tag">
+                <>
+                  <Link to={`/singleBoat/${boat._id}`} key={index}>
+                    <div className="singleBoatCard">
+                      <div className="singleBoatCardL">
                         <img
-                          alt="Icon"
-                          className="u-mr05"
-                          src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
-                        />
-                        {boat.durationPrices && boat.durationPrices.length > 0 ? (
-                          boat.durationPrices.map((duration) => (
-                            <div key={duration.duration}>
-                              ${duration.price}
-                              <span className="u-textMiddle">/hour for {duration.duration}</span>
-                            </div>
-                          ))
-                        ) : (
-                          <span>No pricing information available</span>
-                        )}
+                          src={boat.images[0].path}
+                          alt=""
+                        ></img>
+                        <div className="BoatPrice-tag">
+                          <img
+                            alt="Icon"
+                            className="u-mr05"
+                            src="//www.boatsetter.com/assets/instant-black-67d25d7eb46a5a44b8ab863215dbfbee3ecfc67677710e3b631ee7087b6d0083.png"
+                          />
+                          {boat.durationPrices && boat.durationPrices.length > 0 ? (
+                            boat.durationPrices.map((duration) => (
+                              <div key={duration.duration}>
+                                ${duration.price}
+                                <span className="u-textMiddle">/hour for {duration.duration}</span>
+                              </div>
+                            ))
+                          ) : (
+                            <span>No pricing information available</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    <div className="singleBoatCardR">
-                      <div className="boatRating">
-                        <span className="flex ">
-                          <p style={{ fontSize: "12px" }}>{boat.boatAddress}</p>
-                          <div className="flex star">
-                            <img src={star} alt="" />
-                            <p>
-                              {boat.rating} ({boat.bookings} bookings)
-                            </p>
-                          </div>
-                        </span>
-                        <h5>{boat.model}</h5>
-                        {boat.durationPrices && <div className="u-block BoatCard-features">
-                          <span className="u-fsSm">{boat.durationPrices[0]}</span>
-                          <span className="u-fsSm">{boat.captain}</span>
-                        </div>}
-                        
-                        <div className="u-block BoatCard-features">
-                          <span className="u-fsSm">
-                            Up to {boat.passangerCapacity} passengers
+                      <div className="singleBoatCardR">
+                        <div className="boatRating">
+                          <span className="flex ">
+                            <p style={{ fontSize: "12px" }}>{boat.boatAddress}</p>
+                            <div className="flex star">
+                              <img src={star} alt="" />
+                              <p>
+                                {boat.rating} ({boat.bookings} bookings)
+                              </p>
+                            </div>
                           </span>
+                          <h5>{boat.model}</h5>
+                          {boat.durationPrices && <div className="u-block BoatCard-features">
+                            <span className="u-fsSm">{boat.durationPrices[0]}</span>
+                            <span className="u-fsSm">{boat.captain}</span>
+                          </div>}
+
+                          <div className="u-block BoatCard-features">
+                            <span className="u-fsSm">
+                              Up to {boat.passangerCapacity} passengers
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </>
               ))
             ) : (
               <p>No boats available.</p>

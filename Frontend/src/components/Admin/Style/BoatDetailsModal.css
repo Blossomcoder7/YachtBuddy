@@ -1,0 +1,40 @@
+.modal-Inquiry, .modal-content-Inquiry{
+    width: 100%;
+}
+.modal-content-Inquiry h2{
+    text-align: center;
+    padding: 20px 0;
+}
+.inquiryDetail{
+    width: 100%;
+    display: flex;
+    padding: 10px 50px;
+}
+.inquiryLeft{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.inquiryLeft ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.inquiryLeft ul li{
+    list-style: none;
+}
+.boatCaRd{
+    min-width: 250px;
+    min-height: 350px;
+    margin-left: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.uperBoatCard{
+    width: 100%;
+}
+.uperBoatCard img{
+    width: 250px;
+}
+.lowerBoatCard{
+    padding: 20px;
+}

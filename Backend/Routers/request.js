@@ -7,7 +7,7 @@ const { verifyToken } = require("../Utils/jwtVerify");
 const router = express.Router();
 // router.use(verifyToken);
 
-router.post("/request", requestController.createRequest);
+router.get("/request", requestController.createRequest);
 
 
 module.exports = router;

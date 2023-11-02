@@ -46,6 +46,7 @@ exports.ListYourBoat = async (req, res) => {
       pay,
       checkedItems,
     } = req.body.formData;
+
     // Upload images
     const base64Images = req.body.images;
     const uploadedFiles = base64Images.map((base64, index) => {
@@ -60,14 +61,11 @@ exports.ListYourBoat = async (req, res) => {
       };
     });
 
-    const savedImages = await Image.insertMany(uploadedFiles);
-    const objectIds = savedImages.map((image) => image._id);
-
-    // Create a new boat instance
+    // Create a new boat instance with images and other data
     const newBoat = new Boat({
-      username: req.name,
       userId: req.id,
-      durationPrices,
+      images: uploadedFiles,
+      username: req.name,
       advanceNotice,
       allowedOnBoat,
       availability,
@@ -99,8 +97,8 @@ exports.ListYourBoat = async (req, res) => {
       uscg,
       pay,
       passangerCapacity,
-      images: savedImages, 
-      timePeriod:checkedItems,
+      timePeriod: checkedItems,
+      durationPrices,
     });
 
     // Save the boat to the database
@@ -109,12 +107,14 @@ exports.ListYourBoat = async (req, res) => {
       res.status(401).json({ message: 'Boat Location Not Saved' });
     }
 
+    // Send the complete boat object in the response
     res.status(200).json(savedBoatListing);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 
 

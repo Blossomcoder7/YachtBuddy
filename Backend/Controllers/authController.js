@@ -6,12 +6,13 @@
 
   // Create a reusable transporter object using Nodemailer
   const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.ethereal.email',
+    port: 587,
     auth: {
-      user: 'yachtbuddyhosting@gmail.com',
-      pass: 'letsrentayacht1!',
-    },
-  });
+        user: 'judy62@ethereal.email',
+        pass: 'n8xry9WMKhTfjrUr8C'
+    }
+});
 
   // Generate a random reset token
   function generateToken() {
@@ -35,7 +36,7 @@
       user.resetTokenExpiry = Date.now() + 3600000;
 
       await user.save();
-
+console.log(token)
       const resetLink = `http://localhost:3000/reset-password/${token}`;
       const mailOptions = {
         from: 'yachtbuddyhosting@gmail.com',
@@ -43,7 +44,7 @@
         subject: 'Password Reset Request',
         text: `Click this link to reset your password: ${resetLink}`,
       };
-
+console.log(mailOptions)
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.log(error);

@@ -4,6 +4,7 @@ import img from "../../images/boat5.png";
 import Navbar from "../LandingPage/Navbar";
 import profile from "../../images/profile.png";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import axios from "axios";
 
 
 
@@ -44,31 +45,32 @@ export default function CheckOutPage() {
 
 
   const createOrder = async (data) => {
-    return await fetch("http://localhost:5000/checkout/create_order", {
-      method: "POST",
-      headers: {
-        'content-type': 'application/json',
-      },
-      // use the "body" param to optionally pass additional order information
-      // like product skus and quantities
-      body: JSON.stringify({
-        cart:
-        {
+    try {
+      const response = await axios.post('http://localhost:5000/checkout/create_order', {
+        cart: {
           sku: "skuCode",
-          quantity: "2",
-          price: "19.00"
-        },
-      }),
-    })
-      .then((response) => response.json())
-      .then((order) => order.id);
+          quantity: "1",
+          price: "10.00"
+        }
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+  
+      return response.data.id;
+    } catch (error) {
+      // Handle any errors here
+      console.error(error);
+      throw error;
+    }
   };
 
   const onApprove = (data) => {
     // Order is captured on the server
     return fetch("http://localhost:5000/checkout/aprove_order", {
       method: "POST",
-      headers: {
+      headers: {  
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -367,7 +369,7 @@ export default function CheckOutPage() {
             <div className="limeDivider"></div>
             <span>
               <p>Booking total</p>
-              <p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>
+             {data && data.price && (<p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>)} 
 
             </span>
             <span>

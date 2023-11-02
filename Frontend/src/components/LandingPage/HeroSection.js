@@ -8,7 +8,7 @@ import map from "../../images/map-marker-alt.svg";
 import user1 from "../../images/users.svg";
 import arrow from "../../images/Group 6.svg";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../utils/UserContext";
+// import { UserContext } from "../../utils/UserContext";
 import backendURL from "../../AxiosApi";
 import { DateRangePicker } from "react-date-range";
 import { format } from "date-fns";
@@ -19,11 +19,11 @@ import "react-date-range/dist/theme/default.css";
 // import "react-datepicker/dist/react-datepicker.css";
 
 export default function HeroSection() {
-  const [inputType, setInputType] = useState("text");
+  // const [inputType, setInputType] = useState("text");
   const [reqstData, setReqstData] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [location, setLocation] = useState(false);
-  const [boat,setBoat] = useState();
+  const [boat, setBoat] = useState();
   const [selectedlocation, setSelectedLocation] = useState("Location");
   const [date, setDate] = useState([
     {
@@ -33,7 +33,7 @@ export default function HeroSection() {
     },
   ]);
 
-  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     AOS.init({ duration: 3000 });
@@ -65,29 +65,28 @@ export default function HeroSection() {
     e.preventDefault();
     console.log(date);
     console.log(reqstData)
-    
-console.log(
-  { reqstData, date, selectedlocation}
 
-)
-      try {
-        const response = await axios.post(
-          `${backendURL}/request/request`,
-          { reqstData, date, selectedlocation}
-        );
-        // console.log(response);
-        if(response.status === 200){
-         setBoat(response.data.boats);
-         navigate("/searchBoaats",{state:{boat:boat}})
-                }
-        if (response.status === 201) {
-          alert("No Boat Found");
-         clearForm();
-        }
-      } catch (error) {
-        console.log(error);
+    await console.log({ reqstData, date, selectedlocation })
+    try {
+      const response = await axios.get(
+        `${backendURL}/request/request`,
+        { reqstData, date, selectedlocation }
+      );
+      // console.log(response);
+      if (response.status === 200) {
+        setBoat(response.data.boats);
+        navigate("/searchBoaats", { state: { boat: boat } })
       }
-    
+      if (response.status === 201) {
+        // alert("No Boat Found");
+        console.log(selectedlocation);
+        //  clearForm();
+
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
   };
 
   const setLocations = (e) => {

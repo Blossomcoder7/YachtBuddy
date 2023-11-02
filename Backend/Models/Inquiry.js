@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const messageSchema = new mongoose.Schema({
+  boatId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Boat',
+  },
   date: [{
     startDate: Date,
     endDate: Date,

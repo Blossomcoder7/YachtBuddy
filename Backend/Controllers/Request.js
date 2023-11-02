@@ -3,18 +3,21 @@ const Boat = require("../Models/ListYourBoat");
 
 exports.createRequest = async (req, res) => {
   try {
+    console.log(req.body)
     // Destructure reqstData and date from req.body
     const { reqstData, date, selectedlocation } = req.body;
-    let startDate = date.startDate;
-    let endDate = date.endDate;
-    console.log({ startDate, endDate });
+    // let startDate = date.startDate;
+    // let endDate = date.endDate;
+    // console.log({ startDate, endDate }); 
+    // Dinner Key
+    console.log(selectedlocation)
 
     const requested = await Boat.find({
-      location: selectedlocation,
-      passangerCapacity: { $gte: reqstData.passanger },
-      availableDates: {
-        $elemMatch: { $gte: new Date(startDate), $lte: new Date(endDate) }
-      }
+      boatAddress: selectedlocation,
+      // passangerCapacity: { $gte: reqstData.passanger },
+      // availableDates: {
+        // $elemMatch: { $gte: new Date(startDate), $lte: new Date(endDate) }
+      // }
     });
 
     console.log(requested);

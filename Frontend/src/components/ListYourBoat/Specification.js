@@ -18,7 +18,7 @@ export default function Specification() {
     years.push(year);
   }
   // const categoryOptions= ["", "Airboat", "Aluminium Fishing", "Angler","Bow rider", "Bass boat", "Catamarn", "CEnter console","Clasic", "Commercial", "Convertible", "Cruiser", "Cuddy cabin", "Deck boat", "Dive boat", "Downeast", "Dual console", "Duck boat", "Elecctric", "Express Cruiser","Fish and ski", "Flats boat", "Flybridge", "HouseBoat", "Inflatable outboard", "Jet Boat", "Jet ski / personal water craft", "Jon Boat", "<ega yacht", "Motor yacht", "Offshore sport fishing", "Performance", "Performance fishing", "Pilothouse", "Ponton", "Rigid inflatable", "Runabout","Saltwater fishing", "Ski and wakeboard","skiff", "Trawler","Walkaround","Weekender","Other"];
-const categoryOptions = ["Cishing Charter", "Pontoon", "Bachleor Party","Party Boats", "YAcht Rental", "Sailing", "Luxury Yacht", "Cruising"];
+const categoryOptions = ["Cishing Charter", "Pontoon Boats Rental", "Bachelor Party Boat Rental","Party Boats", "Yacht Rental", "Sailing", "Luxury Yacht", "Cruising","Boat rentals","Bachelorette Party"];
   // const options = {
   //   bayliner: ["Dx2000", "Dx2050", "Dx2200", "Dx2250", "Element E18"],
   //   beneteauUSA: [

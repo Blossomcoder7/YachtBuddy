@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { DateRangePicker } from "react-date-range";
 import { DateRange } from 'react-date-range';
-import { format} from 'date-fns';
+import { format } from 'date-fns';
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import Navbar from "../LandingPage/Navbar";
@@ -90,11 +90,11 @@ export default function SingleBoat() {
 
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
 
   const inquiryHandel = async (e) => {
     e.preventDefault();
-    const inquiry = { date, time, startTime, passanger };
+    const inquiry = { date, time, startTime, passanger,id };
     try {
       const response = await axios.post(`${backendURL}/inquiry/send`, inquiry);
       console.log(response.data);

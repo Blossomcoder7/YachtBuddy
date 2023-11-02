@@ -6,15 +6,14 @@ const boatSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
-  images: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Image',
-    },
-  ],
+  images: [{
+    originalName: String,
+  filename: String,
+  path: String,
+  }],
   username: {
     type: String,
-    required: true,
+    // required: true,
   },
   status: {
     type: String,
@@ -23,76 +22,76 @@ const boatSchema = new mongoose.Schema({
   },
   advanceNotice: {
     type: String,
-    required: true,
+    // required: true,
   },
   allowedOnBoat: {
     type:  [String],
-    required: true,
+    // required: true,
   },
   availability: {
     type: String,
-    required: true,
+    // required: true,
   },
   features: {
     type:  [String],
-    required: true,
+    // required: true,
   },
   extras: {
     type:  [String],
-    required: true,
+    // required: true,
   },
   navigation: {
     type:  [String],
-    required: true,
+    // required: true,
   },
   boatAddress: {
     type: String,
-    required: true,
+    // required: true,
   },
   year: {
     type: Number,
-    required: true,
+    // required: true,
   },
   
   make: {
     type: String,
-    required: true,
+    // required: true,
   },
   passangerCapacity: {
     type: String,
-    required: true,
+    // required: true,
   },
   model: {
     type: String, 
-    required: true,
+    // required: true,
   },
   locationType: {
     type: String,
-    required: true,
+    // required: true,
   },
   zipCode: {
     type: Number,
-    required: true,
+    // required: true,
   },
   
   country: {
     type: String,
-    required: true,
+    // required: true,
   },
   address1: {
     type: String, 
-    required: true,
+    // required: true,
   },
   address2: {
     type: String, 
-    required: true,
+    // required: true,
   },
   state: {
     type: String,
   },
   city: {
     type: String,
-    required: true,
+    // required: true,
   },
    power: {
     type: String,
@@ -108,7 +107,7 @@ const boatSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    required: true,
+    // required: true,
   },
   bookingType:{
     type:String,
@@ -116,15 +115,15 @@ const boatSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
+    // required: true,
   },
   policy: {
     type: String,
-    required: true,
+    // required: true,
   },
   multiBooking: {
     type: String,
-    required: true,
+    // required: true,
   },
   time: {
     type: String,
@@ -149,7 +148,7 @@ const boatSchema = new mongoose.Schema({
   },
   duration: {
     type: [String],
-    required: true,
+    // required: true,
   },
   durationPrices: {
     type: mongoose.Schema.Types.Mixed, 

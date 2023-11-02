@@ -2,9 +2,9 @@ const Inquiry = require("../Models/Inquiry");
 
 module.exports.SaveInquiry = async (req, res) => {
     try {
-        const {date,time,startTime,passanger} = req.body;
-        console.log(req.body.passanger.passanger)
-     const inquiry = new Inquiry({date, duration:time, startTime, passenger:req.body.passanger.passanger,username:req.name});
+        const {date,time,startTime,passanger,id} = req.body;
+        console.log(req.body.id)
+     const inquiry = new Inquiry({boatId:id, date, duration:time, startTime, passenger:req.body.passanger.passanger,username:req.name});
      
      if(!inquiry){
         return res.status(201).json("Inquiry Not send");

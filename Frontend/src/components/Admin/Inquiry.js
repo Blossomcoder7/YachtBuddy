@@ -2,9 +2,20 @@ import React, { useEffect, useState } from 'react';
 import "./Style/ListedBoats.css";
 import axios from 'axios';
 import backendURL from "../../AxiosApi";
+import BoatDetailsModal from './BoatDetailsModal'; 
 
 export default function Inquiry() {
   const [data, setData] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const openModal = (item) => {
+    console.log(selectedItem)
+    setSelectedItem(item);
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+  };
 
   // Function to format the date as DD/MM/YYYY
   const formatDate = (dateString) => {
@@ -52,11 +63,17 @@ export default function Inquiry() {
               <div className="ListBoatCont">{item.passenger}</div>
               <div className="ListBoatCont">{item.duration}</div>
               <div className="ListBoatCont view">
-                <span >View</span>
+              <button onClick={() => openModal(item)}>View</button>
               </div>
             </div>
           ))}
-        </div>
+        {selectedItem && (
+        <BoatDetailsModal
+          item={selectedItem}
+          closeModal={closeModal}
+        />
+      )}
+        </div>       
       </div>
     </>
   );
