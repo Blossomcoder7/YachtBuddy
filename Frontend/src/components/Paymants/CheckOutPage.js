@@ -5,6 +5,7 @@ import Navbar from "../LandingPage/Navbar";
 import profile from "../../images/profile.png";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from "axios";
+import backendURL from '../../AxiosApi';
 
 
 
@@ -46,7 +47,7 @@ export default function CheckOutPage() {
 
   const createOrder = async (data) => {
     try {
-      const response = await axios.post('http://localhost:5005/checkout/create_order', {
+      const response = await axios.post(`${backendURL}/checkout/create_order`, {
         cart: {
           sku: "skuCode",
           quantity: "1",
@@ -68,7 +69,7 @@ export default function CheckOutPage() {
 
   const onApprove = (data) => {
     // Order is captured on the server
-    return fetch("http://localhost:5005/checkout/aprove_order", {
+    return fetch(`${backendURL}/checkout/aprove_order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
