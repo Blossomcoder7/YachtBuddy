@@ -46,7 +46,7 @@ export default function CheckOutPage() {
 
   const createOrder = async (data) => {
     try {
-      const response = await axios.post('http://localhost:5000/checkout/create_order', {
+      const response = await axios.post('http://localhost:5005/checkout/create_order', {
         cart: {
           sku: "skuCode",
           quantity: "1",
@@ -57,20 +57,20 @@ export default function CheckOutPage() {
           'Content-Type': 'application/json',
         }
       });
-  
+      console.log(response.data.id);
       return response.data.id;
     } catch (error) {
       // Handle any errors here
-      console.error(error);
+      console.error("Create Order Error", error);
       throw error;
     }
   };
 
   const onApprove = (data) => {
     // Order is captured on the server
-    return fetch("http://localhost:5000/checkout/aprove_order", {
+    return fetch("http://localhost:5005/checkout/aprove_order", {
       method: "POST",
-      headers: {  
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -369,7 +369,7 @@ export default function CheckOutPage() {
             <div className="limeDivider"></div>
             <span>
               <p>Booking total</p>
-             {data && data.price && (<p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>)} 
+              {data && data.price && (<p>${(Number(data.price) + Number(data.price) * 0.2).toFixed(2)}</p>)}
 
             </span>
             <span>
@@ -381,7 +381,11 @@ export default function CheckOutPage() {
             </span>
             <div className="limeDivider"></div>
             <PayPalScriptProvider options={initialOptions}>
-              <PayPalButtons createOrder={(data, actions) => createOrder(data, actions)} onApprove={(data, actions) => onApprove(data, actions)} />
+              <PayPalButtons
+                style={{ color: "silver", layout: "horizontal", height: 48, tagline: "false", shape: "pill" }}
+                createOrder={(data, actions) => createOrder(data, actions)}
+                onApprove={(data, actions) => onApprove(data, actions)}
+              />
             </PayPalScriptProvider>
           </div>
         </div>

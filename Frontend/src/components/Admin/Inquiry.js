@@ -63,7 +63,7 @@ export default function Inquiry() {
               <div className="ListBoatCont">{item.passenger}</div>
               <div className="ListBoatCont">{item.duration}</div>
               <div className="ListBoatCont view">
-              <button onClick={() => openModal(item)}>View</button>
+              <button onClick={() => openModal(item)} style={{fontSize:"18px",border:"0",background:"transparent",cursor:"pointer"}}>View</button>
               </div>
             </div>
           ))}

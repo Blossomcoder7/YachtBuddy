@@ -54,7 +54,7 @@ const BoatDetailsModal = ({ item, closeModal }) => {
                 </div>
             </div>
             <div className="modal-actions-Inquiry">
-                <button onClick={closeModal}>Close</button>
+                <button onClick={closeModal} >Close</button>
             </div>
         </div>
     );

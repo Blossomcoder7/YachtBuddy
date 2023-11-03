@@ -38,3 +38,16 @@
 .lowerBoatCard{
     padding: 20px;
 }
+.modal-actions-Inquiry button{
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 0;
+    background-color: blue;
+    color: #fff;
+    border-radius: 10px;
+    align-items: center;
+    display: block;
+    margin: 0 auto;
+
+
+}
