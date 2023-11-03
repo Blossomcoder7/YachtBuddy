@@ -12,7 +12,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { user } = useContext(UserContext);
-  const {logout } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -34,13 +34,13 @@ export default function Navbar() {
           <img src={profile} alt=''></img>
           {user ? <p>{user.name}</p> : ""}
           <div className='dropdown'>
-          <img src={arrow} alt='' className='prfArrow'></img>
-          <div className="dropdown-content dropdown-content-1">
-                    <p >DashBoard</p>
-                    <NavLink to='/'> <p>Edit Profile</p></NavLink>
-                    <p onClick={handleLogout}>Log Out</p>
+            <img src={arrow} alt='' className='prfArrow'></img>
+            <div className="dropdown-content dropdown-content-1">
+              <NavLink to='/'> <p >DashBoard</p></NavLink>
+              <p>Edit Profile</p>
+              <p onClick={handleLogout}>Log Out</p>
 
-                  </div>
+            </div>
           </div>
         </div>
       </div>

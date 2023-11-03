@@ -5,6 +5,9 @@ const messageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Boat',
   },
+  email:{
+    type:String,
+  },
   date: [{
     startDate: Date,
     endDate: Date,

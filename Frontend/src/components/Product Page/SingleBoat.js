@@ -898,8 +898,6 @@ export default function SingleBoat() {
                             <button className="dateApply" onClick={calculateDay}>Apply</button>
                           </>
                         )}
-
-
                       </>
                     )}
                     <input type="hidden" name="trip_start" defaultValue="" />
@@ -915,7 +913,8 @@ export default function SingleBoat() {
                                   Duration
                                 </div>
                                 <div className="sc-c55a9e21-2 jhNDLd dURaTiOn">
-                                  {numberDays === 1 ? (
+                                 
+                                  {numberDays === 1 && requestButton === "Duration"? (
                                     <>
                                       <p style={{ fontSize: "12px" }}> {time}</p>
                                       {openTime && data.timePeriod && (
@@ -929,7 +928,7 @@ export default function SingleBoat() {
                                   ) : (
                                     <p style={{ fontSize: "12px" }}> {numberDays} days</p>
 
-                                  )}
+                                  )} 
 
 
                                 </div>
