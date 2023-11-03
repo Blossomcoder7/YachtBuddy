@@ -20,11 +20,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-<<<<<<< HEAD
-  origin: ['http://localhost:3000', 'https://www.sandbox.paypal.com'],
-=======
-  origin: ['https://theyachtbuddy.com','theyachtbuddy.com'],
->>>>>>> 280b0a7 (forget password)
+  origin: ['https://theyachtbuddy.com','theyachtbuddy.com','https://www.sandbox.com'],
   credentials: true
 };
 
