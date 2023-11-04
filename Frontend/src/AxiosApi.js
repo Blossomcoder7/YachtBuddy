@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import axios from "axios";
 
 
 const  backendURL = process.env.REACT_APP_BACKEND_URL;
 // const backendURL = "http://localhost:5000";
+=======
+const backendURL = process.env.REACT_APP_BACKEND_URL;
+
+console.log(backendURL)
+export default backendURL;
+>>>>>>> 4a99af9794136ea40ece508f89025e0bf9b11223
 
 export default  backendURL;
 
