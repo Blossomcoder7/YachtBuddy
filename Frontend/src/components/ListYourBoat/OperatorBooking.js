@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../LandingPage/Navbar";
 import "../Style/OperatorBooking.css";
-import axios from "axios";
 import { useFormData } from "../../utils/FormDataContext";
 import { useNavigate } from "react-router-dom";
 
@@ -52,11 +51,8 @@ export default function OperatorBooking() {
   ];
 
   const handlePriceChange = (duration, price) => {
-    // Create a copy of the existing durationPrices object
     const updatedPrices = { ...durationPrices };
-    // Update the price for the specified duration
     updatedPrices[duration] = price;
-    // Update the state with the new durationPrices
     setDurationPrices(updatedPrices);
   };
 

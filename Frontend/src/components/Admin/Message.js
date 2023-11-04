@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Style/Message.css";
 import axios from "axios";
 import { UserContext } from '../../utils/UserContext';
-import backendURL from "../../AxiosApi";
+import backendURL, { httpAPI } from "../../AxiosApi";
 
 
 export default function Message() {
@@ -15,8 +15,8 @@ export default function Message() {
   console.log(user.id)
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `${backendURL}/admin/guestProfile`
+      const response = await httpAPI.get(
+        `/admin/guestProfile`
       );
       setData(response.data);
       console.log(response.data);
@@ -40,8 +40,8 @@ export default function Message() {
     try {
       console.log("The Compile Coming Here");
       console.log(receiverId);
-      const response = await axios.post(
-        `${backendURL}/chat/newConversation`,
+      const response = await httpAPI.post(
+        `/chat/newConversation`,
         {
          receiver: receiverId, 
          sender: senderId,
@@ -66,7 +66,7 @@ export default function Message() {
   const handelSend = async () => {
     try {
       // setSender(user.id);
-      const response = await axios.post(`${backendURL}/chat/messages`, {
+      const response = await httpAPI.post(`/chat/messages`, {
         text,
         receiver,
       });

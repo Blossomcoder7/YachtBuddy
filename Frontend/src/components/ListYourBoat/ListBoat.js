@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "../LandingPage/Navbar";
-// import Footer from "../LandingPage/Footer";
 import "../Style/ListBoat.css";
 import map from "../../images/map-marker-alt.svg";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../utils/FormDataContext";
-import backendURL from "../../AxiosApi";
 
 export default function ListBoat() {
   const [selectedValue, setSelectedValue] = useState("");
@@ -60,7 +57,6 @@ export default function ListBoat() {
     e.preventDefault();
 
     
-  // Validate form data
   if (!formData.boatAddress) {
     alert("Please enter a Boat Address.");
     return;

@@ -5,8 +5,7 @@ import Footer from "../LandingPage/Footer";
 import "./AllBoats.css";
 import star from "../../images/star.svg";
 import aboutImg from "../../images/aboutImg.png";
-import backendURL from '../../AxiosApi';
-import axios from "axios";
+import  { httpAPI } from '../../AxiosApi';
 
 
 export default function AllBoats() {
@@ -40,7 +39,7 @@ export default function AllBoats() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${backendURL}/boat/${category}`);
+      const response = await httpAPI.get(`/boat/${category}`);
       setData(response.data.boat);
       console.log(response.data.boat)
 

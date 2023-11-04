@@ -17,8 +17,7 @@ import img5 from "../../images/boat5.png";
 import img6 from "../../images/boat6.png";
 import star from "../../images/star.svg";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
-import backendURL from '../../AxiosApi';
+import  { httpAPI } from '../../AxiosApi';
 import { useNavigate } from "react-router-dom";
 
 
@@ -80,7 +79,7 @@ export default function SingleBoat() {
   }
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${backendURL}/boat/singleBoat/${id}`);
+      const response = await httpAPI.get(`/boat/singleBoat/${id}`);
       setData(response.data.boat);
       setRequestButton(response.data.boat.bookingType);
     } catch (error) {
@@ -96,7 +95,7 @@ export default function SingleBoat() {
     e.preventDefault();
     const inquiry = { date, time, startTime, passanger,id };
     try {
-      const response = await axios.post(`${backendURL}/inquiry/send`, inquiry);
+      const response = await httpAPI.post(`/inquiry/send`, inquiry);
       console.log(response.data);
 
       alert("Your Quote Send Successfully")

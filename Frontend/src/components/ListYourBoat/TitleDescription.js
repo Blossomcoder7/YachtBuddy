@@ -3,15 +3,13 @@ import "../Style/TitleDescription.css";
 import Navbar from "../LandingPage/Navbar";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
 import { useFormData } from '../../utils/FormDataContext';
 
-import backendURL from "../../AxiosApi";
 
 export default function TitleDescription() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState('');
-  const maxCharCount = 100; // Set your desired character limit here
+  const maxCharCount = 100; 
   const { updateFormData } = useFormData();
 
   
@@ -34,7 +32,6 @@ export default function TitleDescription() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate form data
  
   if (!title) {
     alert("Please Add Title.");
@@ -50,24 +47,6 @@ export default function TitleDescription() {
     updateFormData(formData);
         navigate("/cancelPolicy");
   
-
-    // try {
-    //   const response = await axios.post(
-    //     `${backendURL}/listYourBoat/boatTitle`,
-    //     formData
-    //   );
-    //   if (response.status === 200) {
-    //     navigate("/cancelPolicy");
-    //   } else if (response.status === 400) {
-    //     // Handle validation errors (e.g., invalid form data)
-    //     alert("Invalid form data. Please check your input.");
-    //   } else {
-    //     // Handle other error cases
-    //     alert("An error occurred. Please try again later.");
-    //   }
-    // } catch (error) {
-    //   console.error("Error logging in:", error);
-    // }
   };
 
   return (

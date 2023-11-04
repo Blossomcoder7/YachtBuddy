@@ -23,7 +23,6 @@ export default function InsauranceType() {
           </p>
         </div>
         <div className="insauranceTypeR">
-          {/* <div style={{display:"flex", justifyContent:"center", flexDirection:"column", alignItems:"center"}}> */}
             <label className="insauraanceRow">
                 <div className="ins-main--wrap">
                 <input
@@ -55,7 +54,6 @@ export default function InsauranceType() {
             </div>
             </label>
             
-          {/* </div> */}
 
           <label className="insauraanceRow">
             <input
@@ -69,7 +67,6 @@ export default function InsauranceType() {
               <h4>I have commercial charter insurance </h4>
               <p>Select this if you run a boat rental or charter business.</p>
             </span>
-            {/* <label style={{ opacity: "0" }}>Most common</label> */}
           </label>
         </div>
         <div className="listStepButton">

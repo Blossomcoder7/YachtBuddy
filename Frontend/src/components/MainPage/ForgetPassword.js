@@ -4,7 +4,7 @@ import youtube from "../../images/Group 44.svg";
 import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 import logo from "../../images/logo.svg";
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import backendURL from "../../AxiosApi";
 

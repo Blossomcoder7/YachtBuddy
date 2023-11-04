@@ -1,5 +1,4 @@
-import axios from 'axios';
-import backendURL from '../../AxiosApi';
+import { httpAPI } from '../../AxiosApi';
 import React, { useEffect, useState } from 'react';
 import img from "../../images/boat1.png";
 import "./Style/BoatDetailsModal.css";
@@ -8,7 +7,7 @@ const BoatDetailsModal = ({ item, closeModal }) => {
     const [data, setData] = useState();
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${backendURL}/boat/singleBoat/${item.boatId}`);
+            const response = await httpAPI.get(`/boat/singleBoat/${item.boatId}`);
             setData(response.data.boat);
             console.log(response.data.boat);
         } catch (error) {

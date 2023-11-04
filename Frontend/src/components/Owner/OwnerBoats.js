@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import backendURL from "../../AxiosApi";
+import backendURL, { httpAPI } from "../../AxiosApi";
 import { Link } from 'react-router-dom';
 import star from "../../images/star.svg";
 
@@ -13,7 +13,7 @@ export default function OwnerBoats() {
 
   const fetchBoats = async () => {
     try {
-      const response = await axios.get(`${backendURL}/boat/ownerBoat`);
+      const response = await httpAPI.get(`/boat/ownerBoat`);
       console.log(response.data.boat)
       if (response.status === 200) {
         setBoats(response.data.boat);

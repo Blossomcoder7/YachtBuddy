@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Style/ListedBoats.css";
-import axios from 'axios';
-import backendURL from "../../AxiosApi";
+import  { httpAPI } from "../../AxiosApi";
 import BoatDetailsModal from './BoatDetailsModal'; 
 
 export default function Inquiry() {
@@ -25,7 +24,7 @@ export default function Inquiry() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${backendURL}/inquiry/allInquiry`);
+      const response = await httpAPI.get(`/inquiry/allInquiry`);
       const formattedData = response.data.inquiry.map((item) => ({
         ...item,
         date: {

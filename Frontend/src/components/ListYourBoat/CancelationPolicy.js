@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../utils/FormDataContext";
-import backendURL from "../../AxiosApi";
 
 
 export default function CancelationPolicy() {
@@ -31,27 +30,6 @@ export default function CancelationPolicy() {
   updateFormData(formData);
   navigate("/alowedOnBoat");
 
-
-
-
-  
-  //  try {
-  //     const response = await axios.post(
-  //       `${backendURL}/listYourBoat/cancelPolicy`,
-  //       formData
-  //     );
-  //     if (response.status === 200) {
-  //       navigate("/alowedOnBoat");
-  //     } else if (response.status === 400) {
-  //       // Handle validation errors (e.g., invalid form data)
-  //       alert("Invalid form data. Please check your input.");
-  //     } else {
-  //       // Handle other error cases
-  //       alert("An error occurred. Please try again later.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error logging in:", error);
-  //   }
   };
   return (
     <>

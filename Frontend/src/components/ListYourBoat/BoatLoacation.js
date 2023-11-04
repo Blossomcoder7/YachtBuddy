@@ -4,10 +4,8 @@ import Navbar from "../LandingPage/Navbar";
 import "../Style/ListingStep.css";
 import { NavLink } from "react-router-dom";
 import countries from "./Countries";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../utils/FormDataContext";
-import backendURL from "../../AxiosApi";
 
 
 export default function BoatLoacation() {
@@ -33,7 +31,6 @@ export default function BoatLoacation() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  // Validate form data
  
   if (!formData.locationType) {
     alert("Please select a Location Type.");
@@ -66,27 +63,6 @@ export default function BoatLoacation() {
   }
   updateFormData(formData);
   navigate("/boatDescription");
-
-
-
-
-    // try {
-    //   const response = await axios.post(
-    //     `${backendURL}/listYourBoat/boatLocation`,
-    //     formData
-    //   );
-    //   if (response.status === 200) {
-    //     navigate("/boatDescription");
-    //   }else if (response.status === 400) {
-    //     // Handle validation errors (e.g., invalid form data)
-    //     alert("Invalid form data. Please check your input.");
-    //   } else {
-    //     // Handle other error cases
-    //     alert("An error occurred. Please try again later.");
-    //   }
-    // } catch (error) {
-    //   console.error("Error logging in:", error);
-    // }
   };
   const handleCountry = (e) => {
     handleCountryChange(e);

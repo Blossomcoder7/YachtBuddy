@@ -39,12 +39,10 @@ export default function AboutUs() {
     <>
       <Navbar />
       <div className="aBoutus">
-        {/* ...Header of About Us//... */}
         <div className="aboutHeader">
           <h1>About Us</h1>
         </div>
 
-        {/* ..,.Professional Summary..,. */}
         <div className="wrapper">
           <div className="ProfesionalPlatform">
             <div className="ProfesionalPlatformL">

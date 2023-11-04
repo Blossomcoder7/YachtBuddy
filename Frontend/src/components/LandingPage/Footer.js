@@ -5,6 +5,7 @@ import facebook from "../../images/Group 45.svg";
 import youtube from "../../images/Group 44.svg";
 import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -22,10 +23,10 @@ export default function Footer() {
           <div className="footerU-1">
             <h4>Quick Links</h4>
             <ul>
-              <li>Charter</li>
-              <li>List Your Boat</li>
-              <li>About Us</li>
-              <li>Support</li>
+              <Link to="/charter">   <li>Charter</li></Link>
+              <Link to="/listYourBoat"> <li>List Your Boat</li></Link>
+              <Link to="/aboutUs"> <li>About Us</li></Link>
+              <Link to="/support"> <li>Support</li></Link>
             </ul>
           </div>
           <div className="footerU-1">
@@ -33,7 +34,7 @@ export default function Footer() {
             <h4>Community</h4>
             <ul>
               <li>Search Boat</li>
-              <li>List Your Boat</li>
+              <Link to="/listYourBoat">  <li>List Your Boat</li></Link>
               <li>Blog</li>
               <li>Boating Guides</li>
               <li>Safety Tips</li>

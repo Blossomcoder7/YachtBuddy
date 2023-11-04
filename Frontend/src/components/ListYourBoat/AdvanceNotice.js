@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import Navbar from "../LandingPage/Navbar";
 import "../Style/AdvanceNotice.css";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {useFormData } from "../../utils/FormDataContext";
-// import { localhost } from "../../Route";
 
 export default function AdvanceNotice() {
   const [advanceNotice, setAdvanceNotice] = useState("");
@@ -25,24 +23,7 @@ export default function AdvanceNotice() {
 
     navigate("/multiBooking");
 
-    //  try {
-    //     const response = await axios.post(
-    //       `${localhost}/listYourBoat/advanceNotice`,
-    //       formData
-    //     );
-    //     if (response.status === 200) {
-    //       navigate("/multiBooking");
-    //     } else if (response.status === 400) {
-    //       // Handle validation errors (e.g., invalid form data)
-    //       alert("Invalid form data. Please check your input.");
-    //     } else {
-    //       // Handle other error cases
-    //       alert("An error occurred. Please try again later.");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error logging in:", error);
-    //   }
-  };
+      };
 
   return (
     <>

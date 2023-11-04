@@ -49,19 +49,14 @@ export default function StartTime() {
 
 
     const handleCheckboxClick = (dayIndex, timeIndex) => {
-        // const checkboxValue = intervals[dayIndex][timeIndex];
     
-        // Create a copy of the selectedCheckboxes and selectedPValues arrays
         const newSelectedCheckboxes = selectedCheckboxes.map((dayCheckboxes) => [...dayCheckboxes]);
         const newSelectedPValues = [...selectedPValues];
     
-        // Toggle the checkbox
         newSelectedCheckboxes[dayIndex][timeIndex] = !newSelectedCheckboxes[dayIndex][timeIndex];
     
-        // Get the value of the associated <p> tag
         const pValue = intervals[dayIndex][timeIndex]; // Modify this based on how you're associating checkboxes and <p> tags
     
-        // If the checkbox is checked, store the <p> tag value, otherwise remove it
         if (newSelectedCheckboxes[dayIndex][timeIndex]) {
             newSelectedPValues.push(pValue);
         } else {
@@ -71,7 +66,6 @@ export default function StartTime() {
         setSelectedCheckboxes(newSelectedCheckboxes);
         setSelectedPValues(newSelectedPValues);
     
-        // Create a new object with selected data organized by day
         const selectedData = { ...selectedDataByDay };
         const day = week[dayIndex];
     

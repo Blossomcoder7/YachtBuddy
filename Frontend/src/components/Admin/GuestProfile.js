@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Style/GuestProfile.css";
-import axios from 'axios';
 import GuestEditForm from './GuestEditForm';
-import backendURL from '../../AxiosApi';
+import { httpAPI } from '../../AxiosApi';
 
 
 export default function GuestProfile() {
@@ -12,7 +11,7 @@ export default function GuestProfile() {
 
     const fetchData = async () => {
         try {
-          const response = await axios.get(`${backendURL}/admin/guestProfile`);
+          const response = await httpAPI.get(`/admin/guestProfile`);
           setData(response.data);
           console.log(response.data);
         } catch (error) {
@@ -38,7 +37,7 @@ export default function GuestProfile() {
       const handleSaveEdit = async (editedData) => {
         try {
             // Make a PUT request to update the guest data
-            const response = await axios.put(`${backendURL}/admin/updateGuest/${editedData._id}`, editedData);
+            const response = await httpAPI.put(`/admin/updateGuest/${editedData._id}`, editedData);
             
             // Check the response and handle accordingly
             if (response.status === 200) {

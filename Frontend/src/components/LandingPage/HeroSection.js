@@ -9,7 +9,7 @@ import user1 from "../../images/users.svg";
 import arrow from "../../images/Group 6.svg";
 import { useNavigate } from "react-router-dom";
 // import { UserContext } from "../../utils/UserContext";
-import backendURL from "../../AxiosApi";
+import backendURL, { httpAPI } from "../../AxiosApi";
 import { DateRangePicker } from "react-date-range";
 import { format } from "date-fns";
 import "react-date-range/dist/styles.css";
@@ -68,8 +68,8 @@ export default function HeroSection() {
 
     await console.log({ reqstData, date, selectedlocation })
     try {
-      const response = await axios.get(
-        `${backendURL}/request/request`,
+      const response = await httpAPI.get(
+        `/request/request`,
         { reqstData, date, selectedlocation }
       );
       // console.log(response);

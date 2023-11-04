@@ -4,6 +4,7 @@ const admin = require('../Controllers/Admin');
 const expressAsyncHandler = require("express-async-handler");
 
 const adminRouter = express.Router();
+
 adminRouter.use(verifyToken);
 
 

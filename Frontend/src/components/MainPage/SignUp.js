@@ -10,7 +10,6 @@ import youtube from "../../images/Group 44.svg";
 import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 import fb from "../../images/fb.svg";
-// import google from "../../images/google+.svg";
 import backendURL from "../../AxiosApi";
 import { GoogleLogin } from '@react-oauth/google';
 

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Style/Message.css";
 import axios from "axios";
 import { UserContext } from '../../utils/UserContext';
-import backendURL from "../../AxiosApi";
+import backendURL, { httpAPI } from "../../AxiosApi";
 
 
 export default function OwnMessage() {
@@ -40,8 +40,8 @@ export default function OwnMessage() {
     try {
       console.log("The Compile Coming Here");
       console.log(receiverId);
-      const response = await axios.post(
-        `${backendURL}/chat/newConversation`,
+      const response = await httpAPI.post(
+        `/chat/newConversation`,
         {
          receiver: receiverId, 
          sender: senderId,
@@ -56,12 +56,6 @@ export default function OwnMessage() {
       console.log(error);
     }
   };
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setText((prevData) => ({ ...prevData, [name]: value }));
-  //   console.log(value);
-  // };
 
   const handelSend = async () => {
     try {

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navbar from "../LandingPage/Navbar";
 import "../Style/BoatFeatures.css";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../utils/FormDataContext";
 
@@ -32,7 +31,6 @@ export default function BoatFeatures() {
       { name: "stereoAuxInput", label: "Stereo AUX Input" },
       { name: "swimLadder", label: "Swim Ladder" },
       { name: "wifi", label: "WIFI" },
-      // Add more checkboxes here
     ];
     const extrasCheckboxes = [
       { name: "lifeJackets", label: "Life Jackets" },

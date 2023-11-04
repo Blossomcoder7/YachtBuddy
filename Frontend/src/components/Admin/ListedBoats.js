@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Style/ListedBoats.css";
-import axios from "axios";
 import BoatDetails from "./BoatDetails";
-import backendURL from "../../AxiosApi";
+import  { httpAPI } from "../../AxiosApi";
 
 export default function ListedBoats() {
   const [data, setData] = useState([]);
@@ -10,7 +9,7 @@ export default function ListedBoats() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${backendURL}/admin/listedBoats`);
+      const response = await httpAPI.get(`/admin/listedBoats`);
       setData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -29,7 +28,7 @@ export default function ListedBoats() {
   const handleAcceptClick = async (boat) => {
     alert("You are confirming the acceptance of the boat");
     try {
-      await axios.post(`${backendURL}/admin/acceptBoat/${boat._id}`);
+      await httpAPI.post(`/admin/acceptBoat/${boat._id}`);
       // Update the accepted status for this boat
       const updatedData = data.map((item) => {
         if (item._id === boat._id) {
@@ -50,7 +49,7 @@ export default function ListedBoats() {
 
     try {
       // Assuming you have a backend server running on ${backendURL}
-      await axios.delete(`${backendURL}/admin/deleteBoat/${boat._id}`);
+      await httpAPI.delete(`/admin/deleteBoat/${boat._id}`);
       // Remove the deleted boat from the state
       setData((prevData) => prevData.filter((item) => item._id !== boat._id));
     } catch (error) {

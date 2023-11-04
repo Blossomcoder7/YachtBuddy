@@ -3,9 +3,7 @@ import Navbar from "../LandingPage/Navbar";
 import "../Style/InsauranceType.css";
 import "../Style/ListingStep.css";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { localhost } from "../../Route";
 import { useFormData } from "../../utils/FormDataContext";
 
 
@@ -41,26 +39,6 @@ export default function MultipleBooking() {
 
       }
       navigate("/operatorBooking");
-
-
-  // console.log(formData)
-    //  try {
-    //     const response = await axios.post(
-    //       `${localhost}/listYourBoat/multiBooking`,
-    //       formData
-    //     );
-    //     if (response.status === 200) {
-    //       navigate("/operatorBooking");
-    //     } else if (response.status === 400) {
-    //       // Handle validation errors (e.g., invalid form data)
-    //       alert("Invalid form data. Please check your input.");
-    //     } else {
-    //       // Handle other error cases
-    //       alert("An error occurred. Please try again later.");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error logging in:", error);
-    //   }
     };
 
   return (

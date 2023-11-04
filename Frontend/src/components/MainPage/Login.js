@@ -46,18 +46,6 @@ export default function Login() {
         localStorage.setItem("authToken", authToken);
         login(authToken);
 
-        axios.interceptors.request.use(
-          (config) => {
-            console.log(authToken)
-            if (authToken) {
-              config.headers.Authorization = `Bearer ${authToken}`;
-            }
-            return config;
-          },
-          (error) => {
-            return Promise.reject(error);
-          }
-        );
         if (logedInuser.role === "user") {
           navigate("/");
           setUser(logedInuser);

@@ -3,9 +3,7 @@ import Navbar from "../LandingPage/Navbar";
 import "../Style/InsauranceType.css";
 import "../Style/ListingStep.css";
 import { NavLink } from "react-router-dom";
-// import axios from "axi
 import { useNavigate } from "react-router-dom";
-// import { localhost } from "../../Route";
 import { useFormData } from "../../utils/FormDataContext";
 
 export default function Availability() {

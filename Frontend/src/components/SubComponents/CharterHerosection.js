@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import axios from "axios";
 import "../Style/HeroSection.css";
 import calander from "../../images/calendar-alt.svg";
 import map from "../../images/map-marker-alt.svg";
 import user from "../../images/length.svg";
 import arrow from "../../images/Group 6.svg";
 import price from "../../images/price.svg";
-import backendURL from "../../AxiosApi";
+import { httpAPI } from "../../AxiosApi";
 
 
 export default function CharterHerosection() {
@@ -42,7 +41,7 @@ export default function CharterHerosection() {
     const onsubmit = async(e) => {
       e.preventDefault();
       try {
-        const response = await axios.post(`${backendURL}/request/request`,reqstData);
+        const response = await httpAPI.post(`/request/request`,reqstData);
         console.log(response);
       } catch (error) {
       console.log(error);
