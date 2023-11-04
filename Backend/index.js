@@ -20,9 +20,13 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ['https://theyachtbuddy.com','theyachtbuddy.com','https://www.sandbox.com'],
+  origin: "http://localhost:3000",
   credentials: true
 };
+// const corsOptions = {
+//   origin: ['https://theyachtbuddy.com','theyachtbuddy.com','https://www.sandbox.com'],
+//   credentials: true
+// };
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));

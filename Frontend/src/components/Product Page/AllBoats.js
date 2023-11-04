@@ -100,8 +100,7 @@ export default function AllBoats() {
                     <div className="singleBoatCard">
                       <div className="singleBoatCardL">
                         <img
-                          src= "https://d2wr9urock6v43.cloudfront.net/eyJrZXkiOiJib2F0X3Bob3Rvcy9ib2F0X2ltYWdlcy8wMDAvMjk3Lzg3My9yZWN0YW5nbGVfNjUxXzQzNC9fbWlhbWlfeWFjaHRfcGFydHlfY2x1Yl8xMC5qcGciLCJidWNrZXQiOiJib2F0c2V0dGVyLXByb2QiLCJlZGl0cyI6eyJ3ZWJwIjp7fSwicmVzaXplIjp7IndpZHRoIjoxMjAwfX19?w=1200"
-                          alt=""
+                          src= "https://theyachtbuddy.com/uploads/image_bf3353e1-0b5b-4e7e-be67-4adaa0c2dec4.png"  alt=""
                         ></img>
                         <div className="BoatPrice-tag">
                           <img

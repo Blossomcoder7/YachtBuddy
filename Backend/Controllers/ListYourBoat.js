@@ -52,7 +52,7 @@ exports.ListYourBoat = async (req, res) => {
         const uploadedFiles = base64Images.map((base64, index) => {
       const buffer = Buffer.from(base64, 'base64');
       const filename = `image_${uuid.v4()}.png`;
-      const filePath = path.join(__dirname, '../uploads', filename);
+      const filePath = path.join('/uploads', filename);
       fs.writeFileSync(filePath, buffer);
       return {
         originalName: filename,
