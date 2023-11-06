@@ -17,7 +17,7 @@ import img5 from "../../images/boat5.png";
 import img6 from "../../images/boat6.png";
 import star from "../../images/star.svg";
 import { NavLink } from "react-router-dom";
-import  { httpAPI } from '../../AxiosApi';
+import { httpAPI } from '../../AxiosApi';
 import { useNavigate } from "react-router-dom";
 
 
@@ -93,7 +93,7 @@ export default function SingleBoat() {
 
   const inquiryHandel = async (e) => {
     e.preventDefault();
-    const inquiry = { date, time, startTime, passanger,id };
+    const inquiry = { date, time, startTime, passanger, id };
     try {
       const response = await httpAPI.post(`/inquiry/send`, inquiry);
       console.log(response.data);
@@ -198,26 +198,21 @@ export default function SingleBoat() {
       <Navbar />
       <div className="singleProductSlider">
         <Slider {...settings}>
-          <div className="singleProductSlider-content">
-            <img src={img1} alt=""></img>
-          </div>
-          <div className="singleProductSlider-content">
-            <img src={img2} alt=""></img>
-          </div>
-          <div className="singleProductSlider-content">
-            <img src={img3} alt=""></img>
-          </div>
-          <div className="singleProductSlider-content">
-            <img src={img4} alt=""></img>
-          </div>
-          <div className="singleProductSlider-content">
-            <img src={img5} alt=""></img>
-          </div>
-          <div className="singleProductSlider-content">
-            <img src={img6} alt=""></img>
-          </div>
+          {Array.isArray(data) && data.length > 0 ? (
+            data.map((boat, boatIndex) => (
+              boat.images.map((image, imageIndex) => (
+                <div key={imageIndex} className="singleProductSlider-content">
+                  <img src={`https://theyachtbuddy.com/uploads/${image.filename}`} alt=""></img>
+                </div>
+              ))
+            ))
+          ) : (
+            <p>No data to display</p>
+          )}
         </Slider>
+
       </div>
+
       <div className="wrapper">
         <div className="singleBoatInfo">
           <div className="singleBoatInfoL">
@@ -912,8 +907,8 @@ export default function SingleBoat() {
                                   Duration
                                 </div>
                                 <div className="sc-c55a9e21-2 jhNDLd dURaTiOn">
-                                 
-                                  {numberDays === 1 && requestButton === "Duration"? (
+
+                                  {numberDays === 1 && requestButton === "Duration" ? (
                                     <>
                                       <p style={{ fontSize: "12px" }}> {time}</p>
                                       {openTime && data.timePeriod && (
@@ -927,7 +922,7 @@ export default function SingleBoat() {
                                   ) : (
                                     <p style={{ fontSize: "12px" }}> {numberDays} days</p>
 
-                                  )} 
+                                  )}
 
 
                                 </div>
