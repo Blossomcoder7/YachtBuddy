@@ -52,16 +52,17 @@ exports.ListYourBoat = async (req, res) => {
     const uploadedFiles = base64Images.map((base64, index) => {
       const buffer = Buffer.from(base64, 'base64');
       const filename = `image_${uuid.v4()}.png`;
-      // const filePath = path.join(`uploads + ${filename}`);
+      const filePath = path.join('/root/yacHt/Backend/public/uploads', filename);
       // const filePath = path.join(__dirname, 'public', 'uploads', filename);
 
-      fs.writeFileSync(filename, buffer);
+      fs.writeFileSync(filePath, buffer);
       return {
         originalName: filename,
         filename: filename,
-        path: filename,
+        path: filePath,
       };
-    });
+    }
+    );
 
     // Create a new boat instance with images and other data
     const newBoat = new Boat({
