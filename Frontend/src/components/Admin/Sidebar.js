@@ -3,7 +3,7 @@ import logo from "../../images/logo.svg";
 import dashboard from "../../images/dashboard.png";
 import inquires from "../../images/question.png";
 import booked from "../../images/book.png";
-import clander from "../../images/calendar.png";
+// import clander from "../../images/calendar.png";
 import message from "../../images/comments.png";
 import profile from "../../images/profile.png";
 import card from "../../images/credit-card.png";

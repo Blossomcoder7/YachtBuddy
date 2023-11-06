@@ -1,7 +1,6 @@
 const paypal = require('paypal-rest-sdk');
 const { MONGO_DB, JWT_SECRET } = process.env;
 
-// Configure PayPal SDK with your credentials
 paypal.configure({
   mode: 'sandbox',
   client_id: 'YOUR_CLIENT_ID',
@@ -9,7 +8,6 @@ paypal.configure({
 });
 
 module.exports = {
-  // Secret key for JWT authentication (replace with your own secret)
   jwtSecret: process.env.JWT_SECRET,
 
   // MongoDB connection URI
@@ -17,4 +15,10 @@ module.exports = {
 
   // Other configuration variables
   // ...
+};
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+module.exports = {
+  FRONTEND_URL: isDevelopment ? "http://localhost:3000" : "https://theyachtbuddy.com",
 };

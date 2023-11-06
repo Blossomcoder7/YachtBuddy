@@ -14,26 +14,23 @@ const paypalRoutes = require('./Routers/paypal');
 const imgRoutes = require('./Routers/Images');
 const inquiryRoutes = require('./Routers/inquiry');
 const authRoutes = require('./Routers/authRoutes');
+const { FRONTEND_URL } = require("./config");
 const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: { FRONTEND_URL },
   credentials: true
 };
-// const corsOptions = {
-//   origin: ['https://theyachtbuddy.com','theyachtbuddy.com','https://www.sandbox.com'],
-//   credentials: true
-// };
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 app.use(require('./Middlewares/errorMiddleware'));
 const PORT = process.env.PORT || 5001;
 app.use(express.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname,'uploads')));
 
 app.get("/", (req, res) => {
   res.send("Server is ready");

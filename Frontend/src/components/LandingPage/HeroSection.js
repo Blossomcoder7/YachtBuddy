@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import axios from "axios";
 import "../Style/HeroSection.css";
 import calander from "../../images/calendar-alt.svg";
 import map from "../../images/map-marker-alt.svg";
@@ -9,7 +8,7 @@ import user1 from "../../images/users.svg";
 import arrow from "../../images/Group 6.svg";
 import { useNavigate } from "react-router-dom";
 // import { UserContext } from "../../utils/UserContext";
-import backendURL, { httpAPI } from "../../AxiosApi";
+import  { httpAPI } from "../../AxiosApi";
 import { DateRangePicker } from "react-date-range";
 import { format } from "date-fns";
 import "react-date-range/dist/styles.css";

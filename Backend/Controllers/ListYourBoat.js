@@ -1,11 +1,11 @@
 const Boat = require("../Models/ListYourBoat");
-const Image = require("../Models/Image.js");
+// const Image = require("../Models/Image");
 const User = require("../Models/User");
 const { uploadImages } = require("./Image");
 const fs = require('fs');
 const path = require('path');
 const verifyToken = require('./../Utils/jwtVerify');
-const uuid = require('uuid'); // You can use a UUID library
+const uuid = require('uuid');
 
 
 exports.ListYourBoat = async (req, res) => {
@@ -49,15 +49,17 @@ exports.ListYourBoat = async (req, res) => {
 
     // Upload images
     const base64Images = req.body.images;
-        const uploadedFiles = base64Images.map((base64, index) => {
+    const uploadedFiles = base64Images.map((base64, index) => {
       const buffer = Buffer.from(base64, 'base64');
       const filename = `image_${uuid.v4()}.png`;
-      const filePath = path.join('/uploads', filename);
-      fs.writeFileSync(filePath, buffer);
+      // const filePath = path.join(`uploads + ${filename}`);
+      // const filePath = path.join(__dirname, 'public', 'uploads', filename);
+
+      fs.writeFileSync(filename, buffer);
       return {
         originalName: filename,
         filename: filename,
-        path: filePath,
+        path: filename,
       };
     });
 

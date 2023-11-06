@@ -1,12 +1,16 @@
 import axios from "axios";
-const backendURL = process.env.REACT_APP_BACKEND_URL;
+import { apiBaseUrl } from './config';
 
-console.log(backendURL)
+
+
+// console.log(backendURL)
+// const backendURL = "http://localhost:5005";
+const backendURL = apiBaseUrl;
 export default backendURL;
 
 
 export const httpAPI = axios.create({
-    baseURL: backendURL,
+    baseURL: apiBaseUrl,
 });
 
 httpAPI.interceptors.request.use(

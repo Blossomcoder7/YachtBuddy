@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../LandingPage/Navbar";
 import "../Style/Review.css";
-import axios from "axios";
-import backendURL from "../../AxiosApi";
+import { httpAPI } from "../../AxiosApi";
 import {useFormData } from '../../utils/FormDataContext';
 import "../Style/BoatPhotos.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -126,10 +125,7 @@ export default function Review() {
         .map(image => image.split(",")[1] || "");
 
       try {
-        const response = await axios.post(
-          `${backendURL}/listYourBoat/listYourBoat`,
-          {formData, images: base64Images}
-        );
+        const response = await httpAPI.post(`/listYourBoat/listYourBoat`,{formData, images: base64Images});
        
 
         if (response.status === 200) {

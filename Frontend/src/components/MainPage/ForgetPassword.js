@@ -5,8 +5,7 @@ import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 import logo from "../../images/logo.svg";
 import {  useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import backendURL from "../../AxiosApi";
+import  { httpAPI } from "../../AxiosApi";
 
 
 
@@ -26,7 +25,7 @@ export default function ForgetPassword() {
         e.preventDefault();
         try {
             console.log(email)
-            const response = await axios.post(`${backendURL}/auth/forgot-password`, email);
+            const response = await httpAPI.post(`/auth/forgot-password`, email);
             console.log(response.data);
 
         } catch (error) {

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Style/Message.css";
-import axios from "axios";
 import { UserContext } from '../../utils/UserContext';
-import backendURL, { httpAPI } from "../../AxiosApi";
+import { httpAPI } from "../../AxiosApi";
 
 
 export default function Message() {
@@ -38,8 +37,6 @@ export default function Message() {
 
   const handelConversation = async (receiverId, senderId) => {
     try {
-      console.log("The Compile Coming Here");
-      console.log(receiverId);
       const response = await httpAPI.post(
         `/chat/newConversation`,
         {
