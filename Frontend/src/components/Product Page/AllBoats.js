@@ -117,7 +117,7 @@ export default function AllBoats() {
                               </div>
                             ))
                           ) : (
-                            <span>No pricing information available</span>
+                            <span>Get A Quotaion</span>
                           )}
                         </div>
                       </div>

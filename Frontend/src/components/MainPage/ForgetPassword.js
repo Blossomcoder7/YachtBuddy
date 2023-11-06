@@ -25,7 +25,7 @@ export default function ForgetPassword() {
         e.preventDefault();
         try {
             console.log(email)
-            const response = await httpAPI.post(`/auth/forgot-password`, email);
+            const response = await httpAPI.post(`/email/forgot-password`, email);
             console.log(response.data);
 
         } catch (error) {

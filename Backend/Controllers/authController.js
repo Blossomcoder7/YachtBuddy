@@ -6,11 +6,11 @@ const User = require('../Models/User');
 
 // Create a reusable transporter object using Nodemailer
 const transporter = nodemailer.createTransport({
-  host: 'smtp.ethereal.email',
+  host: 'smtp.gmail.com',
   port: 587,
   auth: {
-    user: 'judy62@ethereal.email',
-    pass: 'n8xry9WMKhTfjrUr8C'
+    user: 'bloossomdev@gmail.com',
+    pass: 'wwdwpjqkefptqohq'
   }
 });
 

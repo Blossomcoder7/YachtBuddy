@@ -2,10 +2,12 @@ const Inquiry = require("../Models/Inquiry");
 
 module.exports.SaveInquiry = async (req, res) => {
   try {
-    const { date, time, startTime, passanger, id } = req.body;
+    const { date, time, startTime, ownerId, id } = req.body;
     console.log(req.body.id)
+    console.log("Owner ID ", ownerId);
     const inquiry = new Inquiry({ 
       boatId: id, 
+      ownerId,
       date, 
       duration: time,
       startTime, 

@@ -1,6 +1,6 @@
 import { httpAPI } from '../../AxiosApi';
 import React, { useEffect, useState } from 'react';
-import img from "../../images/boat1.png";
+// import img from "../../images/boat1.png";
 import "./Style/BoatDetailsModal.css";
 
 const BoatDetailsModal = ({ item, closeModal }) => {
@@ -22,10 +22,16 @@ const BoatDetailsModal = ({ item, closeModal }) => {
         <div className="modal-Inquiry">
             <div className="modal-content-Inquiry">
                 <h2 style={{ color: "black" }}>Boat Details</h2>
+                <button style={{
+                    padding: "10px", border: "0", color: "#fff", background: "orange", borderRadius: "10px",
+                     float:"right", marginRight:"50px"
+                }}>Send To Owner</button>
+
                 <div className='inquiryDetail'>
                     <div className='inquiryLeft'>
                         <ul>
                             <li>Name :</li>
+                            <li>Email :</li>
                             <li>Start Date :</li>
                             <li>End Date :</li>
                             <li>Passenger :</li>
@@ -33,20 +39,26 @@ const BoatDetailsModal = ({ item, closeModal }) => {
                         </ul>
                         <ul>
                             <li>{item.username}</li>
+                            <li>{item.email}</li>
                             <li>{item.date.startDate}</li>
                             <li>{item.date.endDate}</li>
                             <li>{item.passenger}</li>
                             <li>{item.duration}</li>
                         </ul>
-                       
+
                     </div>
                     <div className='inquiryLast'>
                         <div className='boatCaRd'>
+
                             <div className='uperBoatCard'>
-                                <img src={img} alt=''></img>
+                                <img src={`https://theyachtbuddy.com/uploads/${data?.images[0]?.filename}`} alt="" />
                             </div>
+
                             <div className='lowerBoatCard'>
-                                <p>Owner : {data?.username}</p>
+                                <p>Boat Address : {data?.boatAddress}</p>
+                                <p>Passangers Capacity : {data?.passangerCapacity}</p>
+                                <p>City : {data?.city}</p>
+                                <p>Cateogiry : {data?.cateogiry}</p>
                             </div>
                         </div>
                     </div>

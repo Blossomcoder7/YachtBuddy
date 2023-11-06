@@ -89,14 +89,18 @@ export default function SingleBoat() {
 
   useEffect(() => {
     fetchData();
+    console.log(data)
   }, []);
 
   const inquiryHandel = async (e) => {
     e.preventDefault();
-    const inquiry = { date, time, startTime, passanger, id };
+    const inquiry = { date, time, startTime, passanger, id,ownerID : data?.userId};
     try {
       const response = await httpAPI.post(`/inquiry/send`, inquiry);
       console.log(response.data);
+
+      // const response2 = await httpAPI.post(`/email/sendQuoteTOAdmin`, inquiry);
+      // console.log(response.data);
 
       alert("Your Quote Send Successfully")
 
@@ -198,17 +202,15 @@ export default function SingleBoat() {
       <Navbar />
       <div className="singleProductSlider">
         <Slider {...settings}>
-          {Array.isArray(data) && data.length > 0 ? (
-            data.map((boat, boatIndex) => (
-              boat.images.map((image, imageIndex) => (
-                <div key={imageIndex} className="singleProductSlider-content">
-                  <img src={`https://theyachtbuddy.com/uploads/${image.filename}`} alt=""></img>
-                </div>
-              ))
-            ))
-          ) : (
-            <p>No data to display</p>
-          )}
+        {Array.isArray(data.images) && data.images.length > 0 ? (
+      data.images.map((image, imageIndex) => (
+        <div key={imageIndex} className="singleProductSlider-content">
+          <img src={`https://theyachtbuddy.com/uploads/${image.filename}`} alt="" />
+        </div>
+      ))
+    ) : (
+      <p>No images to display</p>
+    )}
         </Slider>
 
       </div>

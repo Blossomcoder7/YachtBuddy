@@ -13,7 +13,7 @@ const boatRoutes = require('./Routers/boat');
 const paypalRoutes = require('./Routers/paypal');
 const imgRoutes = require('./Routers/Images');
 const inquiryRoutes = require('./Routers/inquiry');
-const authRoutes = require('./Routers/authRoutes');
+const emailRoutes = require('./Routers/emailRoutes');
 const { FRONTEND_URL } = require("./config");
 const dotenv = require('dotenv');
 dotenv.config();
@@ -48,7 +48,7 @@ app.use('/boat', boatRoutes);
 app.use('/checkout', paypalRoutes);
 app.use('/img', imgRoutes);
 app.use('/inquiry', inquiryRoutes);
-app.use('/auth', authRoutes);
+app.use('/email', emailRoutes);
 
 mongoose.connect(process.env.MONGO_DB, {
   useNewUrlParser: true,
