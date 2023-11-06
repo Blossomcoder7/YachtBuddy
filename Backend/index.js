@@ -31,7 +31,7 @@ app.use(require('./Middlewares/errorMiddleware'));
 const PORT = process.env.PORT || 5001;
 app.use(express.json());
 // app.use('/uploads', express.static(path.join(__dirname,'uploads')));
-app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
+app.use('/root/yacHt/Backend/public/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 
 
 app.get("/", (req, res) => {
