@@ -5,7 +5,7 @@ import Footer from "../LandingPage/Footer";
 import "./AllBoats.css";
 import star from "../../images/star.svg";
 import aboutImg from "../../images/aboutImg.png";
-import  { httpAPI } from '../../AxiosApi';
+import { httpAPI } from '../../AxiosApi';
 
 
 export default function AllBoats() {
@@ -100,8 +100,9 @@ export default function AllBoats() {
                     <div className="singleBoatCard">
                       <div className="singleBoatCardL">
                         <img
-                          src= "https://theyachtbuddy.com/uploads/image_bf3353e1-0b5b-4e7e-be67-4adaa0c2dec4.png"  alt=""
-                        ></img>
+                          src={`https://theyachtbuddy.com/uploads/${boat.images[0].filename}`}
+                          alt=""
+                        />
                         <div className="BoatPrice-tag">
                           <img
                             alt="Icon"
