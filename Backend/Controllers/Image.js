@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const Image = require('../models/Image');
+// const Image = require('../models/Image');
 
 exports.uploadImages = async (req, res) => {
   try {
