@@ -56,7 +56,7 @@ export default function OwnerBoats() {
 
   return (
     <>
-      <div className='AllBoat' style={{ width: "100%",overflowY:"scroll", display: "flex", padding: "30px", flexDirection: "column", alignItems: "center" }}>
+      <div className='AllBoat' style={{ width: "100%", overflowY: "scroll", display: "flex", padding: "30px", flexDirection: "column", alignItems: "center" }}>
         <h2>Boats Listed by Owner</h2>
         <div className="allBoatCard">
           {boats.length > 0 ? (
@@ -65,9 +65,9 @@ export default function OwnerBoats() {
                 <div className="singleBoatCard">
                   <div className="singleBoatCardL">
                     <img
-                      src="https://cdn.boatsetter.com/boat_photos/boat_images/000/445/470/rectangle_651_434/boat_image?1689774991"
+                      src={`https://theyachtbuddy.com/uploads/${boat.images[0].filename}`}
                       alt=""
-                    ></img>
+                    />
                     <div className="BoatPrice-tag">
                       <img
                         alt="Icon"
@@ -82,7 +82,7 @@ export default function OwnerBoats() {
                           </div>
                         ))
                       ) : (
-                        <span>No pricing information available</span>
+                        <span>Get A Quotation</span>
                       )}
                     </div>
                   </div>

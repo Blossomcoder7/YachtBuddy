@@ -89,18 +89,20 @@ export default function SingleBoat() {
 
   useEffect(() => {
     fetchData();
-    console.log(data)
   }, []);
 
   const inquiryHandel = async (e) => {
     e.preventDefault();
-    const inquiry = { date, time, startTime, passanger, id,ownerID : data?.userId};
+    const ownerID = data?.userId;
+    console.log(ownerID)
+    const inquiry = { date, time, startTime, passanger, id,ownerID};
+    const quote = {adminEmail:"admin@gmail.com",Message:"New Inquiry"}
     try {
       const response = await httpAPI.post(`/inquiry/send`, inquiry);
-      console.log(response.data);
-
-      // const response2 = await httpAPI.post(`/email/sendQuoteTOAdmin`, inquiry);
       // console.log(response.data);
+
+      const response2 = await httpAPI.post(`/email/sendQuoteTOAdmin`, quote);
+      // console.log(response2.data);
 
       alert("Your Quote Send Successfully")
 

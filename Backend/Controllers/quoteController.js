@@ -2,22 +2,22 @@ const nodemailer = require('nodemailer');
 
 // Function to send a quote via email
 exports.sendQuoteEmail = async (req, res) => {
-  const { recipientEmail, subject, message } = req.body;
-
+  const { adminEmail, Message } = req.body;
+console.log(req.body)
   // Create a transporter for sending the email
   const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    auth: {
-      user: 'judy62@ethereal.email',
-      pass: 'n8xry9WMKhTfjrUr8C'
-    }
+    host: 'smtp.gmail.com',
+  port: 587,
+  auth: {
+    user: 'bloossomdev@gmail.com',
+    pass: 'wwdwpjqkefptqohq'
+  }
   });
 
   try {
     const mailOptions = {
       from: 'yachtbuddyhosting@gmail.com',
-      to: recipientEmail,
+      to: adminEmail,
       subject: subject,
       text: message,
     };

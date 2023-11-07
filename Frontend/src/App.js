@@ -72,7 +72,7 @@ function App() {
                 <Route exact path="/allBoat/:category" element={<AllBoats/>}></Route>
                 <Route exact path="/checkout" element={<CheckOutPage />}/>
                 <Route exact path="/startTime" element={<StartTime/>}/>
-                <Route exact path="/searchBoaats" element={<SearchProduct/>}/>
+                <Route exact path="/searchBoats" element={<SearchProduct/>}/>
 
 
 

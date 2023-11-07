@@ -4,19 +4,17 @@ const Boat = require("../Models/ListYourBoat");
 exports.createRequest = async (req, res) => {
   try {
     console.log(req.body)
-    // Destructure reqstData and date from req.body
     const { reqstData, date, selectedlocation } = req.body;
     // let startDate = date.startDate;
     // let endDate = date.endDate;
     // console.log({ startDate, endDate }); 
-    // Dinner Key
     console.log(selectedlocation)
 
     const requested = await Boat.find({
       boatAddress: selectedlocation,
       // passangerCapacity: { $gte: reqstData.passanger },
       // availableDates: {
-        // $elemMatch: { $gte: new Date(startDate), $lte: new Date(endDate) }
+      // $elemMatch: { $gte: new Date(startDate), $lte: new Date(endDate) }
       // }
     });
 
@@ -27,7 +25,7 @@ exports.createRequest = async (req, res) => {
         message: "No Boat Found",
       });
     } else {
-      return res.status(200).json({ boats: requested }); // Assuming requested is an array of boats
+      return res.status(200).json({ boats: requested });
     }
   } catch (error) {
     console.log(error);

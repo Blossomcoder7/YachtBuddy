@@ -12,6 +12,10 @@ const messageSchema = new mongoose.Schema({
   email:{
     type:String,
   },
+  sendTOwner:{
+    type:String,
+    default:"no"
+  },
   date: [{
     startDate: Date,
     endDate: Date,

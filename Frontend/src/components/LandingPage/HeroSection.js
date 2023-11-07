@@ -7,18 +7,14 @@ import map from "../../images/map-marker-alt.svg";
 import user1 from "../../images/users.svg";
 import arrow from "../../images/Group 6.svg";
 import { useNavigate } from "react-router-dom";
-// import { UserContext } from "../../utils/UserContext";
-import  { httpAPI } from "../../AxiosApi";
+import { httpAPI } from "../../AxiosApi";
 import { DateRangePicker } from "react-date-range";
 import { format } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
 
 export default function HeroSection() {
-  // const [inputType, setInputType] = useState("text");
   const [reqstData, setReqstData] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [location, setLocation] = useState(false);
@@ -32,7 +28,6 @@ export default function HeroSection() {
     },
   ]);
 
-  // const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     AOS.init({ duration: 3000 });
@@ -67,19 +62,18 @@ export default function HeroSection() {
 
     await console.log({ reqstData, date, selectedlocation })
     try {
-      const response = await httpAPI.get(
-        `/request/request`,
-        { reqstData, date, selectedlocation }
-      );
-      // console.log(response);
+      const response = await httpAPI.post(`/request/request`, {
+        reqstData: reqstData,
+        date: date[0],
+        selectedlocation: selectedlocation,
+      });
+
       if (response.status === 200) {
         setBoat(response.data.boats);
-        navigate("/searchBoaats", { state: { boat: boat } })
+        navigate("/searchBoats", { state: { boat: response.data.boats } });
       }
       if (response.status === 201) {
-        // alert("No Boat Found");
         console.log(selectedlocation);
-        //  clearForm();
 
       }
     } catch (error) {
