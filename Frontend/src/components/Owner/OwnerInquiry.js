@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import "./Style/ListedBoats.css";
 import { httpAPI } from "../../AxiosApi";
-import BoatDetailsModal from './BoatDetailsModal';
+import BoatDetailsModal from './OwnerBoatDetailsModel';
 
-export default function Inquiry() {
+export default function OwnerInquiry() {
   const [data, setData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -24,8 +24,9 @@ export default function Inquiry() {
 
   const fetchData = async () => {
     try {
-      const response = await httpAPI.get(`/inquiry/allInquiry`);
-      const formattedData = response.data.inquiry.map((item) => ({
+      console.log("Owner Inquiry")
+      const response = await httpAPI.get(`/inquiry/ownerInquiry`);
+      const formattedData = response.data.inquiries.map((item) => ({
         ...item,
         date: {
           startDate: formatDate(item.date[0].startDate),

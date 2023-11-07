@@ -19,6 +19,8 @@ export default function HeroSection() {
   const [openDate, setOpenDate] = useState(false);
   const [location, setLocation] = useState(false);
   const [boat, setBoat] = useState();
+  const currentDate = new Date();
+
   const [selectedlocation, setSelectedLocation] = useState("Location");
   const [date, setDate] = useState([
     {
@@ -73,7 +75,7 @@ export default function HeroSection() {
         navigate("/searchBoats", { state: { boat: response.data.boats } });
       }
       if (response.status === 201) {
-        console.log(selectedlocation);
+        alert("Sorry! No Boat Found")
 
       }
     } catch (error) {
@@ -139,6 +141,7 @@ export default function HeroSection() {
                 <div onClick={() => setOpenDate(!openDate)}>
                   {openDate && (
                     <DateRangePicker
+                      minDate={currentDate}
                       editableDateInputs={true}
                       moveRangeOnFirstSelection={false}
                       ranges={date}

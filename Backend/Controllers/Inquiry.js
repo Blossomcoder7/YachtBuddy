@@ -2,12 +2,11 @@ const Inquiry = require("../Models/Inquiry");
 
 module.exports.SaveInquiry = async (req, res) => {
   try {
-    const { date, time, startTime, ownerId, id } = req.body;
-    console.log(req.body.id)
-    console.log("Owner ID ", ownerId);
+    console.log(req.body)
+    const { date, time, startTime, ownerID, id } = req.body;
     const inquiry = new Inquiry({ 
       boatId: id, 
-      ownerId,
+      ownerID,
       date, 
       duration: time,
       startTime, 
@@ -41,3 +40,38 @@ module.exports.AllInquiry = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+module.exports.updateInquiry = async (req, res) => {
+  try {
+    const { id } = req.params; 
+    const inquiry = await Inquiry.findById({_id:id});
+
+    if (!inquiry) {
+      return res.status(201).json({ message: 'Inquiry not found' });
+    }
+
+    inquiry.sendTOwner = "yes"; 
+    await inquiry.save();
+
+    return res.status(200).json({ message: 'Inquiry status updated' });
+  } catch (error) {
+    console.error('Error updating inquiry status:', error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+};
+
+module.exports.ownerInquiry = async (req, res) => {
+  try {
+    const ownerId = req.id;
+
+    const inquiries = await Inquiry.find({ ownerID: ownerId, sendTOwner: "yes" });
+    if (inquiries.length === 0) {
+      return res.status(404).json({ message: "No inquiries found" });
+    }
+
+    return res.status(200).json({ message: "Inquiries retrieved", inquiries });
+  } catch (error) {
+    console.error('Error retrieving inquiries:', error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+}

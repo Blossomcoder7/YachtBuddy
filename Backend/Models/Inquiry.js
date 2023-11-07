@@ -5,16 +5,16 @@ const messageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Boat',
   },
-  ownerId: {
+  ownerID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
-  email:{
-    type:String,
+  email: {
+    type: String,
   },
-  sendTOwner:{
-    type:String,
-    default:"no"
+  sendTOwner: {
+    type: String,
+    default: "no"
   },
   date: [{
     startDate: Date,

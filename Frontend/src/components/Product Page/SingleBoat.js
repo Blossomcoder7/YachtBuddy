@@ -93,24 +93,31 @@ export default function SingleBoat() {
 
   const inquiryHandel = async (e) => {
     e.preventDefault();
-    const ownerID = data?.userId;
-    console.log(ownerID)
-    const inquiry = { date, time, startTime, passanger, id,ownerID};
-    const quote = {adminEmail:"admin@gmail.com",Message:"New Inquiry"}
-    try {
-      const response = await httpAPI.post(`/inquiry/send`, inquiry);
-      // console.log(response.data);
 
-      const response2 = await httpAPI.post(`/email/sendQuoteTOAdmin`, quote);
-      // console.log(response2.data);
+    if (data) {
+      // Ensure that data exists before accessing userId
+      const ownerID = data.userId;
+console.log(ownerID)
+      const inquiry = { date, time, startTime, passanger, id, ownerID };
+      const quote = { adminEmail: "blossomcoder@gmail.com", Message: "New Inquiry" };
 
-      alert("Your Quote Send Successfully")
+      try {
+        const response = await httpAPI.post(`/inquiry/send`, inquiry);
+        console.log(response.data);
 
+        const response2 = await httpAPI.post(`/email/sendQuoteTOAdmin`, quote);
+        console.log(response2.data);
 
-    } catch (error) {
-      console.log("The Server Error", error)
+        alert("Your Quote Send Successfully");
+      } catch (error) {
+        console.log("The Server Error", error);
+      }
+    } else {
+      // Handle the case where data is not available yet.
+      console.log("Data is not available yet.");
     }
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPassanger((prevData) => ({
@@ -199,20 +206,22 @@ export default function SingleBoat() {
     setMultiDay(true);
   };
 
+
+
   return (
     <>
       <Navbar />
       <div className="singleProductSlider">
         <Slider {...settings}>
-        {Array.isArray(data.images) && data.images.length > 0 ? (
-      data.images.map((image, imageIndex) => (
-        <div key={imageIndex} className="singleProductSlider-content">
-          <img src={`https://theyachtbuddy.com/uploads/${image.filename}`} alt="" />
-        </div>
-      ))
-    ) : (
-      <p>No images to display</p>
-    )}
+          {Array.isArray(data.images) && data.images.length > 0 ? (
+            data.images.map((image, imageIndex) => (
+              <div key={imageIndex} className="singleProductSlider-content">
+                <img src={`https://theyachtbuddy.com/uploads/${image.filename}`} alt="" />
+              </div>
+            ))
+          ) : (
+            <p>No images to display</p>
+          )}
         </Slider>
 
       </div>

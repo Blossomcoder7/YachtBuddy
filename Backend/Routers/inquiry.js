@@ -8,5 +8,8 @@ Inquiry.use(verifyToken);
 
 Inquiry.post("/send",inquiry.SaveInquiry);
 Inquiry.get("/allInquiry",inquiry.AllInquiry);
+Inquiry.put("/updateInquiry/:id",inquiry.updateInquiry);
+
+Inquiry.get("/ownerInquiry",inquiry.ownerInquiry);
 
 module.exports = Inquiry;

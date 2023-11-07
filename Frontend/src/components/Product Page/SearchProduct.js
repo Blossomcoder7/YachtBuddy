@@ -10,21 +10,7 @@ import { useLocation } from "react-router-dom";
 export default function SearchProduct() {
   const location = useLocation();
   const boat = location.state.boat;
-  console.log(boat);
-  // const boatData = [
-  //   {
-  //     location: "ST.CLAIR SHORES, MI",
-  //     rating: "5.0",
-  //     bookings: "10",
-  //     productName: "Lake Pleasant enjoy a new 2023 Yamaha SX190 Jetboat",
-  //     hour: "6-8",
-  //     captain: "No Captain",
-  //     passanger: "8",
-  //     id:1
-  //   },
-
-
-  // ];
+ 
   const pageSize = 18;
   const totalPages = Math.ceil(boat.length / pageSize);
 

@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 // Function to send a quote via email
 exports.sendQuoteEmail = async (req, res) => {
   const { adminEmail, Message } = req.body;
-console.log(req.body)
   // Create a transporter for sending the email
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -18,8 +17,8 @@ console.log(req.body)
     const mailOptions = {
       from: 'yachtbuddyhosting@gmail.com',
       to: adminEmail,
-      subject: subject,
-      text: message,
+      subject: "A New Enquiry Recieved",
+      text: Message,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

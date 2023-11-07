@@ -44,6 +44,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import SearchProduct from "./components/Product Page/SearchProduct";
 import Inquiry from "./components/Admin/Inquiry";
 import ForgetPassword from "./components/MainPage/ForgetPassword";
+import OwnerInquiry from "./components/Owner/OwnerInquiry";
 
 
 function App() {
@@ -100,6 +101,7 @@ function App() {
                   <Route index element={<HomeDash />} />
                   <Route exact path = "messsage" element={<Message/>}></Route>
                   <Route exact path = "boats" element={<OwnerBoats/>}></Route>
+                  <Route exact path = "inquiry" element={<OwnerInquiry/>}></Route>
                 </Route>
 
 

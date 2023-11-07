@@ -1,6 +1,6 @@
 import { httpAPI } from '../../AxiosApi';
 import React, { useEffect, useState } from 'react';
-import "./Style/BoatDetailsModal.css";
+import "../Admin/Style/BoatDetailsModal.css";
 
 const BoatDetailsModal = ({ item, closeModal }) => {
     const [data, setData] = useState();
@@ -13,19 +13,19 @@ const BoatDetailsModal = ({ item, closeModal }) => {
             console.error("Error fetching data:", error);
         }
     };
-    const sendToOwner = async (id) => {
-        console.log("call to hoya")
-        try {
-            const response = await httpAPI.put(`/inquiry/updateInquiry/${id}`);
+    // const sendToOwner = async (id) => {
+    //     console.log("call to hoya")
+    //     try {
+    //         const response = await httpAPI.put(`/inquiry/updateInquiry/${id}`);
 
-            if (response.status === 200) {
-                console.log('Inquiry status updated successfully');
-                alert("Inquiry successfully Send To Owner")
-            }
-        } catch (error) {
-            console.error('Error sending inquiry to owner:', error);
-        }
-    };
+    //         if (response.status === 200) {
+    //             console.log('Inquiry status updated successfully');
+    //             alert("Inquiry successfully Send To Owner")
+    //         }
+    //     } catch (error) {
+    //         console.error('Error sending inquiry to owner:', error);
+    //     }
+    // };
     useEffect(() => {
         fetchData();
     }, []);
@@ -33,11 +33,7 @@ const BoatDetailsModal = ({ item, closeModal }) => {
         <div className="modal-Inquiry">
             <div className="modal-content-Inquiry">
                 <h2 style={{ color: "black" }}>Boat Details</h2>
-                <button style={{
-                    padding: "10px", border: "0", color: "#fff", background: "orange", borderRadius: "10px",
-                    float: "right", marginRight: "50px"
-                }}
-                    onClick={() => { sendToOwner(item._id); }}>Send To Owner</button>
+               
 
                 <div className='inquiryDetail'>
                     <div className='inquiryLeft'>
