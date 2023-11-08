@@ -243,3 +243,57 @@ color: rgba(0, 0, 0, 0.685);
         text-align: left;
         font-size: 30px;
     }
+
+    /* Responsive for mobile ..../ */
+
+@media screen and (max-width: 990px) {
+  .allBoatHead {
+    height: 25vh;
+    padding: 0;
+  }
+  .allBoatCard {
+    display: unset;
+  }
+  .singleBoatCard{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .allBoatLower {
+    padding: 10px 0;
+  }
+  .Container h2 {
+    font-size: 25px;
+}
+.Grid{
+  display: unset;
+}
+.Grid-cell {
+  width: calc(100% - 10px);
+}
+.Circle--sm {
+  line-height: 1.8em;
+  width: 2em;
+  height: 2em;
+  margin-top: 20px;
+}
+.Grid-cell h3 {
+  font-size: 18px;
+  line-height: 4px;
+}
+.Grid-cell p {
+  margin-top: 10px;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.836);
+  word-spacing: 3px;
+  font-size: 16px;
+}
+.lineDivider {
+  display: none;
+  margin: 0;
+}
+.aboutMain1 {
+  display: unset;
+}
+.aboutUs1 {
+  margin: 0;
+}
+}

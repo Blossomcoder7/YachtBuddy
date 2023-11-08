@@ -247,14 +247,17 @@ color: #fff;
   }
   .mask, .mask1{
     border-radius: 20px;
-    padding: 0 30px;
+    /* padding: 0 30px; */
   }
   .mask h1, .mask1 h1{
-line-height: 45px;
-font-size: 40px;
+line-height: 35px;
+text-align: left;
+font-size: 30px;
   }
   .mask p, .mask1 p{
-    line-height: 30px;
+    line-height: 25px;
+    font-size: 20px;
+    text-align: left;
   }
   
 .signupFooter {
@@ -267,12 +270,21 @@ font-size: 40px;
 .loggedMe span {
   width: 50%;
 }
+.loggedMe span P, .loggedMe p{
+  font-size: 13.5px;
+  margin-top: -2px;
+}
 .socialButton {
   flex-direction: column;
   gap: 10px;
 }
-.socialButton label {
+.socialButton label{
   width: 100%;
+}
+.socialButton a {
+  width: 100%;
+  padding: 15px;
+  background-color: #47B7AC;
 }
 .socialButton label:nth-child(3) {
   width: 100%;

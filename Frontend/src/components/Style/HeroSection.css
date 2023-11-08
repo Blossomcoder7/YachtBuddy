@@ -171,13 +171,13 @@ span.rdrInRange, span.rdrStartEdge, span.rdrEndEdge  {
 }
 
 .react-datepicker__day--selected {
-  background-color: #007bff; /* Change the selected date background color */
-  color: #fff; /* Change the text color for selected date */
+  background-color: #007bff; 
+  color: #fff; 
 }
 
 .react-datepicker__header {
-  background-color: #007bff; /* Change the header background color */
-  color: #fff; /* Change the header text color */
+  background-color: #007bff; 
+  color: #fff;
 }
 
 
@@ -206,7 +206,7 @@ span.rdrInRange, span.rdrStartEdge, span.rdrEndEdge  {
   font-size: 30px;
   text-align: left;
 }
-.heroSection span {
+.heroSection>span {
   font-size: 18px;
 }
 .boatRequest form{
@@ -226,4 +226,21 @@ margin: 0;
 .inputRequest button {
 height: 45px;
 }
+.LoCationValue {
+  width: 100%;
+left: 0;
+top: 10px;
+}
+.boatRequest .rdrDateRangePickerWrapper.dateRange {
+  left: 0;
+  bottom: -100px;
+  }
+  .boatRequest .rdrDefinedRangesWrapper {
+    width: 100px;
+    font-size: 10px;
+    display: none;
+  }
+  .boatRequest .rdrCalendarWrapper {
+    font-size: 10px !important;
+  }
 }

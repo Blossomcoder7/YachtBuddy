@@ -536,9 +536,7 @@
 .jpkWIi {
     flex-direction: column;
 }
-.goeXEm {
-    display: flex;
-}
+
 .eeUKug {
     padding: 10px 0px 5px;
     border-bottom: 1px solid rgba(219, 223, 229, 0.5);
@@ -580,9 +578,7 @@
 .jpkWIi {
     flex-direction: column;
 }
-.goeXEm {
-    display: flex;
-}
+
 .gLJKxr {
     display: flex;
     flex-direction: column;
@@ -793,4 +789,60 @@ overflow-y: scroll;
     background-color: #241c61;
     color: #fff;
     border-radius: 15px;
+}
+
+
+
+/* Responsive for mobile ..../ */
+
+
+@media screen and (max-width: 990px) {
+    .singleProductSlider-content {
+        height: 30vh;
+        padding: 10px;
+    }
+    .singleProductSlider-content img {
+        height: 100%;
+    }
+    .singleBoatInfoL {
+        width: 100%;
+    }
+    .singleBoatInfoL h1 {
+        font-size: 20px;
+    }    
+    .singleBoatInfo {
+        display: unset;
+    }
+    .glibert span img {
+        scale: 1;
+    }
+    .glibert span {
+        display: flex;
+        font-size: 16px;
+        gap: 2px;
+    }
+    .dghmTt {
+        padding-top: 15px;
+    }
+    .kKtNiv {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-left: 1px solid rgb(219, 223, 229);
+    }
+    .idtAGw {
+        padding-top: 30px;
+        border-bottom: 1px solid rgb(219, 223, 229);
+        gap: 10px;
+        scroll-margin-top: 40px;
+    }
+    .cGikrv {
+        font-size: 25px;
+    }
+    .gqfTeg p {
+        line-height: 19px;
+        font-size: 12px;
+    }
+    .idKRxe {
+     padding: 0px;
+    }
 }
