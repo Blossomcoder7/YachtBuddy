@@ -151,3 +151,16 @@ box-shadow: 0 2px 2px 1px  rgba(128, 128, 128, 0.267);
 .paypal-button.paypal-button-color-gold{
     display: none !important;
 }
+.stripeBtn{
+    width: 100%;
+border-radius: 15px;
+}
+.stripe-button-container {
+    display: inline-block;
+    padding: 10px; 
+    background: linear-gradient(rgb(125, 197, 238), rgb(0, 140, 221) 85%, rgb(48, 162, 228));; /* Customize the background color */
+    color: #fff; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  }

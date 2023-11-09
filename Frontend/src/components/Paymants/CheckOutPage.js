@@ -4,14 +4,41 @@ import img from "../../images/boat5.png";
 import Navbar from "../LandingPage/Navbar";
 import profile from "../../images/profile.png";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import axios from "axios";
-import backendURL, { httpAPI } from '../../AxiosApi';
+import { httpAPI } from '../../AxiosApi';
+import StripeCheckout from 'react-stripe-checkout';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 export default function CheckOutPage() {
   const [hasPromoCode, setHasPromoCode] = useState(false);
   const [data, setData] = useState();
+
+  const [product] =useState({
+    name:"Sample Game",
+    price:200,
+    description:"sample payment"
+  })
+
+  // toast.configure();
+ 
+
+  async function handelStripeToken(token,address){
+    try {
+      const response = await httpAPI.post(`/checkout/stripe`, {token,product});
+        
+  console.log(response.status);
+  if(response.status === 200){
+    toast("Success Payment is completed ",{type:'success'});
+  }else{
+    toast("Failure payment is not completed", {type:"error"})
+  }
+    } catch (error) {
+      
+    }
+   
+  }
 
 
 
@@ -84,6 +111,11 @@ export default function CheckOutPage() {
       <Navbar></Navbar>
       <div className="wrapper">
         <div className="checkOut">
+        <ToastContainer
+        autoClose={5000}
+        hideProgressBar={true}
+        position="top-right"
+      />
           <div className="checkOutL">
             <h2>Checkout</h2>
             <div className="checkOutDetail">
@@ -386,6 +418,18 @@ export default function CheckOutPage() {
                 onApprove={(data, actions) => onApprove(data, actions)}
               />
             </PayPalScriptProvider>
+
+            <div className="stripe-button-container">
+            <StripeCheckout className="stripeBtn"
+            stripeKey="pk_test_51OAQ1hSAE0mbmhcBzy6jw7XSCb8WTFvwRyDCl4ySK9Wts2xKdXcvstTMgeFJfjZSgpNs6zBqhPsGn9QfShblx20S00AHXt843K"
+            token={handelStripeToken}
+            amount={product.price *100}
+            name="Stripe"
+            billingAddress
+            shippingAddress/>
+            
+            
+            </div>
           </div>
         </div>
       </div>

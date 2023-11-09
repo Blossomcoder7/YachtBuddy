@@ -1,6 +1,6 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
-const paypal = require('../Controllers/paypal');
+const payment = require('../Controllers/payment');
 const { verifyToken } = require("../Utils/jwtVerify");
 
 
@@ -30,6 +30,8 @@ router.post("/aprove_order", async (req, res) => {
         return res.status(500).json(error);
     }
 });
+
+router.post("/stripe", payment.stripePay);
 
 
 module.exports = router;
