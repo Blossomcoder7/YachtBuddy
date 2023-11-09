@@ -80,20 +80,20 @@ function App() {
 
                 {/* ......////.....List Your Boat.....//// */}
 
-                <Route exact path="/listingStep" element={<Authenticate role={Roles.USER}><ListingStep /></Authenticate>} />
-                <Route exact path="/insauranceType" element={<Authenticate role={Roles.USER}><InsauranceType /></Authenticate>}/>
-                <Route exact path="/boatLocation" element={<Authenticate role={Roles.USER}><BoatLoacation /></Authenticate>}/>
-                <Route exact path="/boatDescription" element={<Authenticate role={Roles.USER}><TitleDescription /></Authenticate>}/>
-                <Route exact path="/cancelPolicy" element={<Authenticate role={Roles.USER}><CancelationPolicy /></Authenticate> }/>
-                <Route exact path="/alowedOnBoat" element={<Authenticate role={Roles.USER}><AllowedOnBoat /></Authenticate>}/>
-                <Route exact path="/boatFeature" element={<Authenticate role={Roles.USER}><BoatFeatures /></Authenticate>}/>
-                <Route exact path="/boatSpecification" element={<Authenticate role={Roles.USER}><Specification /></Authenticate>}/>                
-                <Route exact path="/boatSpecification" element={<Authenticate role={Roles.USER}><Specification /></Authenticate>}/>
-                <Route exact path="/availability" element={<Authenticate role={Roles.USER}><Availability /></Authenticate>}/>
-                <Route exact path="/advanceNotice" element={<Authenticate role={Roles.USER}><AdvanceNotice /></Authenticate> }/>
-                <Route exact path="/multiBooking" element={<Authenticate role={Roles.USER}><MultipleBooking /></Authenticate>}/>
-                <Route exact path="/operatorBooking" element={<Authenticate role={Roles.USER}><OperatorBooking /></Authenticate>}/>
-                <Route exact path="/review" element={<Authenticate role={Roles.USER}><Review /></Authenticate>}/>
+                <Route exact path="/listingStep" element={<ListingStep />} />
+                <Route exact path="/insauranceType" element={<InsauranceType />}/>
+                <Route exact path="/boatLocation" element={<BoatLoacation />}/>
+                <Route exact path="/boatDescription" element={<TitleDescription />}/>
+                <Route exact path="/cancelPolicy" element={<CancelationPolicy /> }/>
+                <Route exact path="/alowedOnBoat" element={<AllowedOnBoat />}/>
+                <Route exact path="/boatFeature" element={<BoatFeatures />}/>
+                <Route exact path="/boatSpecification" element={<Specification />}/>                
+                <Route exact path="/boatSpecification" element={<Specification />}/>
+                <Route exact path="/availability" element={<Availability />}/>
+                <Route exact path="/advanceNotice" element={<AdvanceNotice />}/>
+                <Route exact path="/multiBooking" element={<MultipleBooking />}/>
+                <Route exact path="/operatorBooking" element={<OperatorBooking />}/>
+                <Route exact path="/review" element={<Review />}/>
 
                 
                  {/* .....Owner Dashboard Routing..... */}
