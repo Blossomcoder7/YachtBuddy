@@ -10,4 +10,7 @@ Boat.get('/ownerBoat',verifyToken, boatController.ownerBoat);
 Boat.get('/singleBoat/:id', boatController.singleBoat);
 Boat.get('/:category', boatController.categriseBoat);
 
+//Get : Get all dates of Booking
+Boat.get('/bookedDates/:boatId', boatController.getBookedDates);
+
 module.exports = Boat;

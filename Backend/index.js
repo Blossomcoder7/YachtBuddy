@@ -17,6 +17,8 @@ const inquiryRoutes = require('./Routers/inquiry');
 const emailRoutes = require('./Routers/emailRoutes');
 const { FRONTEND_URL } = require("./config");
 const dotenv = require('dotenv');
+const booking = require("./Routers/booking");
+
 dotenv.config();
 
 const app = express();
@@ -49,6 +51,7 @@ app.use('/checkout', paypalRoutes);
 app.use('/img', imgRoutes);
 app.use('/inquiry', inquiryRoutes);
 app.use('/email', emailRoutes);
+app.use('/booking', booking);
 
 app.use((req, res, next) => {
   res.status(404).send("Route not found");

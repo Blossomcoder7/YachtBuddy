@@ -36,6 +36,7 @@ export default function SingleBoat() {
   const [requestButton, setRequestButton] = useState();
   const [openPasanger, setOpenPasanger] = useState(false);
   const [interval, setInterval] = useState([]);
+  const [bookedDates, setBookeddates] = useState([]);
   const [startTime, setStartTime] = useState("Please enter start time");
   const [date, setDate] = useState([
     {
@@ -89,15 +90,14 @@ export default function SingleBoat() {
 
   useEffect(() => {
     fetchData();
+    bookedDatesHandler();
   }, []);
 
   const inquiryHandel = async (e) => {
     e.preventDefault();
-
     if (data) {
-      // Ensure that data exists before accessing userId
       const ownerID = data.userId;
-console.log(ownerID)
+      console.log(ownerID)
       const inquiry = { date, time, startTime, passanger, id, ownerID };
       const quote = { adminEmail: "blossomcoder@gmail.com", Message: "New Inquiry" };
 
@@ -113,10 +113,32 @@ console.log(ownerID)
         console.log("The Server Error", error);
       }
     } else {
-      // Handle the case where data is not available yet.
       console.log("Data is not available yet.");
     }
   };
+
+  const bookedDatesHandler = async () => {
+    try {
+
+      const response = await httpAPI.get(`/boat/bookedDates/${id}`);
+
+      const formattedDates = response.data.bookedDates.map((date) => {
+        const originalDate = new Date(date);
+        return originalDate.toLocaleDateString('en-GB');
+      });
+
+
+      console.log(formattedDates);
+      setBookeddates(formattedDates);
+
+    } catch (error) {
+
+    }
+  }
+  const formattedBookedDates = bookedDates.map(dateString => {
+    const [day, month, year] = dateString.split('/');
+    return new Date(`${year}-${month}-${day}`);
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -155,6 +177,8 @@ console.log(ownerID)
         time: time,
         date: date,
         duration: numberDays,
+        ownerID: data.userId
+
       };
 
       localStorage.setItem("productDetail", JSON.stringify(productDetail));
@@ -830,7 +854,7 @@ console.log(ownerID)
                   </div>
                 </div>
                 <form className="sc-31598d9d-0 sc-617d572c-0 sc-617d572c-1 sc-11ed60f3-11 kbnFZE goeXEm jpkWIi jLsUKv">
-                  <div className="sc-11ed60f3-7 eeUKug DatePicker" >
+                  <div className="sc-11ed60f3-7 eeUKug DatePicker">
                     <div className="sc-11ed60f3-6 hDpGCH" onClick={() => setOpenDate(!openDate)}>
                       <div className="sc-5ec5715e-5 kgzSol">
                         <div className="sc-5ec5715e-1 ixAPuh" >
@@ -874,6 +898,7 @@ console.log(ownerID)
                                 moveRangeOnFirstSelection={false}
                                 ranges={date}
                                 onChange={handleSelect}
+                                disabledDates={formattedBookedDates}
                               />
                             )}
 
@@ -885,6 +910,7 @@ console.log(ownerID)
                                 ranges={date}
                                 onChange={(item) => setDate([item.selection])}
                                 className="dateRange"
+                                disabledDates={formattedBookedDates}
                               />
                             )}
                             <button className="dateApply" onClick={(e) => {
@@ -901,6 +927,7 @@ console.log(ownerID)
                               moveRangeOnFirstSelection={false}
                               ranges={date}
                               onChange={handleSelect}
+                              disabledDates={formattedBookedDates}
                             />
                             <button className="dateApply" onClick={calculateDay}>Apply</button>
                           </>

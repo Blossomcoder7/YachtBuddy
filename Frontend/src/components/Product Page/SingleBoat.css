@@ -780,7 +780,7 @@ overflow-y: scroll;
 }
 .dateApply{
     position: absolute;
-    bottom: 15px;
+    bottom: 2px;
     right: 50px;
     width: 100px;
     font-size: 16px;

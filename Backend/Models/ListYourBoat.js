@@ -158,6 +158,7 @@ const boatSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.Mixed, 
     required: false,
   },
+ 
   timePeriod: {
     type: mongoose.Schema.Types.Mixed, 
     required: false,

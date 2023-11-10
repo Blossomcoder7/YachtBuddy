@@ -15,32 +15,44 @@ export default function CheckOutPage() {
   const [hasPromoCode, setHasPromoCode] = useState(false);
   const [data, setData] = useState();
 
-  const [product] =useState({
-    name:"Sample Game",
-    price:200,
-    description:"sample payment"
+  const [product] = useState({
+    name: "Sample Game",
+    price: 200,
+    description: "sample payment"
   })
 
   // toast.configure();
- 
 
-  async function handelStripeToken(token,address){
+
+  async function handelStripeToken(token, address) {
     try {
-      const response = await httpAPI.post(`/checkout/stripe`, {token,product});
-        
-  console.log(response.status);
-  if(response.status === 200){
-    toast("Success Payment is completed ",{type:'success'});
-  }else{
-    toast("Failure payment is not completed", {type:"error"})
-  }
+      const response = await httpAPI.post(`/checkout/stripe`, { token, product });
+      console.log(response.status);
+      if (response.status === 200) {
+        toast("Success Payment is completed ", { type: 'success' });
+      } else {
+        toast("Failure payment is not completed", { type: "error" })
+      }
     } catch (error) {
-      
+
     }
-   
+
   }
 
+  const bookingHandler = async (e) => {
+    e.preventDefault();
+    const bookingDetail = localStorage.getItem("productDetail");
+    try {
+      const response = await httpAPI.post(`/booking/create-booking`, { bookingDetail });
+      console.log(response.status);
+      if(response.status === 200){
+        alert("Successfully Saved");
+      }
 
+    } catch (error) {
+
+    }
+  }
 
 
   useEffect(() => {
@@ -97,8 +109,8 @@ export default function CheckOutPage() {
   const onApprove = (data) => {
     // Order is captured on the server
     return httpAPI.post(`/checkout/aprove_order`, {
-        orderID: data.orderID
-      })
+      orderID: data.orderID
+    })
       .then((response) => response.data)
       .catch((error) => {
         // Handle errors here
@@ -111,11 +123,11 @@ export default function CheckOutPage() {
       <Navbar></Navbar>
       <div className="wrapper">
         <div className="checkOut">
-        <ToastContainer
-        autoClose={5000}
-        hideProgressBar={true}
-        position="top-right"
-      />
+          <ToastContainer
+            autoClose={5000}
+            hideProgressBar={true}
+            position="top-right"
+          />
           <div className="checkOutL">
             <h2>Checkout</h2>
             <div className="checkOutDetail">
@@ -381,7 +393,7 @@ export default function CheckOutPage() {
                   Charter Agreement
                 </p>
               </div>
-              <button>Instant Book</button>
+              <button onClick={bookingHandler}>Instant Book</button>
             </form>
           </div>
 
@@ -390,7 +402,6 @@ export default function CheckOutPage() {
             <h4>Pricing Information</h4>
             <span>
               <p>Boat price</p>
-              {/* <p>${data.price}.00</p> */}
               {data && data.price && <p>${data.price}.00</p>}
             </span>
             <span>
@@ -420,15 +431,13 @@ export default function CheckOutPage() {
             </PayPalScriptProvider>
 
             <div className="stripe-button-container">
-            <StripeCheckout className="stripeBtn"
-            stripeKey="pk_test_51OAQ1hSAE0mbmhcBzy6jw7XSCb8WTFvwRyDCl4ySK9Wts2xKdXcvstTMgeFJfjZSgpNs6zBqhPsGn9QfShblx20S00AHXt843K"
-            token={handelStripeToken}
-            amount={product.price *100}
-            name="Stripe"
-            billingAddress
-            shippingAddress/>
-            
-            
+              <StripeCheckout className="stripeBtn"
+                stripeKey="pk_test_51OAQ1hSAE0mbmhcBzy6jw7XSCb8WTFvwRyDCl4ySK9Wts2xKdXcvstTMgeFJfjZSgpNs6zBqhPsGn9QfShblx20S00AHXt843K"
+                token={handelStripeToken}
+                amount={product.price * 100}
+                name="Stripe"
+                billingAddress
+                shippingAddress />
             </div>
           </div>
         </div>
