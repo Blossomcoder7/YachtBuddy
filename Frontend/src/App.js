@@ -47,6 +47,7 @@ import ForgetPassword from "./components/MainPage/ForgetPassword";
 import OwnerInquiry from "./components/Owner/OwnerInquiry";
 import BookedCharter from "./components/Admin/BookedCharter";
 import OwnerBookedChaerter from "./components/Owner/OwnerBookedChaerter";
+import BookedCharterDetail from "./components/Admin/BookedCharterDetail";
 
 
 function App() {
@@ -117,6 +118,7 @@ function App() {
                       <Route exact path="message" element={<Message />} />
                       <Route exact path="inquiry" element={<Inquiry />} />
                       <Route exact path="bookedCharter" element={<BookedCharter />} />
+                      <Route exact path="booked-Charter-details" element={<BookedCharterDetail />} />
                     </Route>
 
                   </Routes>
