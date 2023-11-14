@@ -111,7 +111,7 @@ export default function HeroSection() {
       <div className="heroSection ">
         <div className="wrapper herosection-1">
           <h1 data-aos="fade-up">
-            Enjoy The Best Experience Out on The Water{" "}
+            Enjoy The Best Experience Out On The Water{" "}
           </h1>
           <span data-aos="fade-left">Going beyond destinations</span>
           <div className="boxShadow" data-aos="fade-down">

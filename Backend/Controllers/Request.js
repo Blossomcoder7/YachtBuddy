@@ -6,10 +6,10 @@ exports.createRequest = async (req, res) => {
     console.log(req.body)
     const { reqstData, date, selectedlocation } = req.body;
     let PersonCount = reqstData.passanger;
-    console.log("PersonCount IS ",PersonCount)
+    console.log("PersonCount IS ", PersonCount)
     let startDate = date.startDate;
     let endDate = date.endDate;
-    console.log({ startDate, endDate }); 
+    console.log({ startDate, endDate });
     console.log(selectedlocation)
 
     const requested = await Boat.find({

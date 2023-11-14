@@ -185,14 +185,20 @@
 
 
 @media screen and (max-width: 990px) {
+
   .popularBoatsDown{
     flex-direction: column;
     gap: 20px    ;
-    padding: 10px 30px;
+    padding: 10px 0px;
   }
 .popularBoatsCard {
 width: 100%;
 }
+.popularBoatsCard {
+  min-width: 20rem;
+  padding: 20px;
+}
+
 .priceTag{
   width: 70px;
   height: 70px;
@@ -205,5 +211,11 @@ width: 100%;
 .popularBoats_cardDown {
   text-align: left;
   padding: 10px;
+}
+.popularBoats_cardUp img {
+  height: 300px;
+}
+.popularBoatsDown {
+  margin-left: 0;
 }
 }

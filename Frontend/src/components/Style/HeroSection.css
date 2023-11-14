@@ -206,16 +206,20 @@ span.rdrInRange, span.rdrStartEdge, span.rdrEndEdge  {
   font-size: 30px;
   text-align: left;
 }
-.heroSection>span {
-  font-size: 18px;
+/* .heroSection>span {
+  font-size: 14px;
+} */
+span.aos-init.aos-animate {
+  font-size: 22px;
 }
 .boatRequest form{
   display: block;
-  padding: 0;
+  padding: 4px;
 }
 
 .inputRequest {
   width: 100%;
+  padding: 5px;
 }
 .boxShadow {
   width: 100%;

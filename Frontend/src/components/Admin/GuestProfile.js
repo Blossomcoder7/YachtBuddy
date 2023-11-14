@@ -72,10 +72,10 @@ export default function GuestProfile() {
           {data.map((item) => (
   <div key={item._id} className="ListedBoatHead ListedBoatHeadC">
     <div className="ListBoatCont">{item.name}</div>
-    <div className="ListBoatCont">{item.email}</div>
+    <div className="ListBoatCont">{item.email.substring(0,18)}</div>
     <div className="ListBoatCont">{item.role}</div>
     <div className="ListBoatCont">{item.mobileNo}</div>
-    <div className="ListBoatCont view">{item.createdAt}</div>
+    <div className="ListBoatCont view">{item.createdAt.substring(0,10)}</div>
     <div className="ListBoatCont sTatusBtn">
       <button className="acceptBtn" onClick={() => handleEditClick(item)}>
         Edit

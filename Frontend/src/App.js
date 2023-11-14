@@ -45,82 +45,86 @@ import SearchProduct from "./components/Product Page/SearchProduct";
 import Inquiry from "./components/Admin/Inquiry";
 import ForgetPassword from "./components/MainPage/ForgetPassword";
 import OwnerInquiry from "./components/Owner/OwnerInquiry";
+import BookedCharter from "./components/Admin/BookedCharter";
+import OwnerBookedChaerter from "./components/Owner/OwnerBookedChaerter";
 
 
 function App() {
   return (
     <div className="App">
       <GoogleOAuthProvider clientId="184628421959-fddbic6ghenvjo4od9km4g04ss9db1m3.apps.googleusercontent.com">
-      <AuthProvider>
-        <UserProvider>
-          <FormDataProvider>
-            <ImageProvider>
-            <BrowserRouter>
-              <Routes>
-                
-                <Route exact path="/" element={<Home />}>
-              </Route>
-                <Route exact path="/charter" element={<Charter />}></Route>
-                <Route exact path="/listYourBoat" element={<ListBoat />}></Route>
-                <Route exact path="/aboutUs" element={<AboutUs />}></Route>
-                <Route exact path="/support" element={<Support />}></Route>
-                <Route exact path="/signup" element={<SignUp />}></Route>
-                <Route exact path="/login" element={<Login />}></Route>
-                <Route exact path="/forgetPassword" element={<ForgetPassword/>}></Route>
-                <Route exact path="/request" element={<RequestForm />}></Route>
-                <Route exact path="/renterSupport" element={<RenterCategiorySuport />}></Route>
-                <Route exact path="/singleBoat/:id" element={<SingleBoat />}></Route>
-                <Route exact path="/allBoat/:category" element={<AllBoats/>}></Route>
-                <Route exact path="/checkout" element={<CheckOutPage />}/>
-                <Route exact path="/startTime" element={<StartTime/>}/>
-                <Route exact path="/searchBoats" element={<SearchProduct/>}/>
+        <AuthProvider>
+          <UserProvider>
+            <FormDataProvider>
+              <ImageProvider>
+                <BrowserRouter>
+                  <Routes>
+
+                    <Route exact path="/" element={<Home />}>
+                    </Route>
+                    <Route exact path="/charter" element={<Charter />}></Route>
+                    <Route exact path="/listYourBoat" element={<ListBoat />}></Route>
+                    <Route exact path="/aboutUs" element={<AboutUs />}></Route>
+                    <Route exact path="/support" element={<Support />}></Route>
+                    <Route exact path="/signup" element={<SignUp />}></Route>
+                    <Route exact path="/login" element={<Login />}></Route>
+                    <Route exact path="/forgetPassword" element={<ForgetPassword />}></Route>
+                    <Route exact path="/request" element={<RequestForm />}></Route>
+                    <Route exact path="/renterSupport" element={<RenterCategiorySuport />}></Route>
+                    <Route exact path="/singleBoat/:id" element={<SingleBoat />}></Route>
+                    <Route exact path="/allBoat/:category" element={<AllBoats />}></Route>
+                    <Route exact path="/checkout" element={<CheckOutPage />} />
+                    <Route exact path="/startTime" element={<StartTime />} />
+                    <Route exact path="/searchBoats" element={<SearchProduct />} />
 
 
 
 
-                {/* ......////.....List Your Boat.....//// */}
+                    {/* ......////.....List Your Boat.....//// */}
 
-                <Route exact path="/listingStep" element={<ListingStep />} />
-                <Route exact path="/insauranceType" element={<InsauranceType />}/>
-                <Route exact path="/boatLocation" element={<BoatLoacation />}/>
-                <Route exact path="/boatDescription" element={<TitleDescription />}/>
-                <Route exact path="/cancelPolicy" element={<CancelationPolicy /> }/>
-                <Route exact path="/alowedOnBoat" element={<AllowedOnBoat />}/>
-                <Route exact path="/boatFeature" element={<BoatFeatures />}/>
-                <Route exact path="/boatSpecification" element={<Specification />}/>                
-                <Route exact path="/boatSpecification" element={<Specification />}/>
-                <Route exact path="/availability" element={<Availability />}/>
-                <Route exact path="/advanceNotice" element={<AdvanceNotice />}/>
-                <Route exact path="/multiBooking" element={<MultipleBooking />}/>
-                <Route exact path="/operatorBooking" element={<OperatorBooking />}/>
-                <Route exact path="/review" element={<Review />}/>
-
-                
-                 {/* .....Owner Dashboard Routing..... */}
-                <Route exact path="/ownerDashboard" element={<OwnerDashboard />}>
-                  <Route index element={<HomeDash />} />
-                  <Route exact path = "messsage" element={<Message/>}></Route>
-                  <Route exact path = "boats" element={<OwnerBoats/>}></Route>
-                  <Route exact path = "inquiry" element={<OwnerInquiry/>}></Route>
-                </Route>
+                    <Route exact path="/listingStep" element={<ListingStep />} />
+                    <Route exact path="/insauranceType" element={<InsauranceType />} />
+                    <Route exact path="/boatLocation" element={<BoatLoacation />} />
+                    <Route exact path="/boatDescription" element={<TitleDescription />} />
+                    <Route exact path="/cancelPolicy" element={<CancelationPolicy />} />
+                    <Route exact path="/alowedOnBoat" element={<AllowedOnBoat />} />
+                    <Route exact path="/boatFeature" element={<BoatFeatures />} />
+                    <Route exact path="/boatSpecification" element={<Specification />} />
+                    <Route exact path="/boatSpecification" element={<Specification />} />
+                    <Route exact path="/availability" element={<Availability />} />
+                    <Route exact path="/advanceNotice" element={<AdvanceNotice />} />
+                    <Route exact path="/multiBooking" element={<MultipleBooking />} />
+                    <Route exact path="/operatorBooking" element={<OperatorBooking />} />
+                    <Route exact path="/review" element={<Review />} />
 
 
-                {/* ........Admin Dashboard Routing...... */}
-                <Route exact path="/dashboard" element={<Dashboard />}>
-                  <Route index element={<HomeDash />} />
-                  <Route exact path="listedBoats" element={<ListedBoats />} />
-                  <Route exact path="boatDEtails" element={<BoatDetails />} />
-                  <Route exact path="guestProfile" element={<GuestProfile />} />
-                  <Route exact path="message" element={<Message />} />
-                  <Route exact path="inquiry" element={<Inquiry/>} />
-                </Route>
+                    {/* .....Owner Dashboard Routing..... */}
+                    <Route exact path="/ownerDashboard" element={<OwnerDashboard />}>
+                      <Route index element={<HomeDash />} />
+                      <Route exact path="messsage" element={<Message />}></Route>
+                      <Route exact path="boats" element={<OwnerBoats />}></Route>
+                      <Route exact path="inquiry" element={<OwnerInquiry />}></Route>
+                      <Route exact path="booked-charter" element={<OwnerBookedChaerter />}></Route>
+                    </Route>
 
-              </Routes>
-            </BrowserRouter>
-            </ImageProvider>
-          </FormDataProvider>
-        </UserProvider>
-      </AuthProvider>
+
+                    {/* ........Admin Dashboard Routing...... */}
+                    <Route exact path="/dashboard" element={<Dashboard />}>
+                      <Route index element={<HomeDash />} />
+                      <Route exact path="listedBoats" element={<ListedBoats />} />
+                      <Route exact path="boatDEtails" element={<BoatDetails />} />
+                      <Route exact path="guestProfile" element={<GuestProfile />} />
+                      <Route exact path="message" element={<Message />} />
+                      <Route exact path="inquiry" element={<Inquiry />} />
+                      <Route exact path="bookedCharter" element={<BookedCharter />} />
+                    </Route>
+
+                  </Routes>
+                </BrowserRouter>
+              </ImageProvider>
+            </FormDataProvider>
+          </UserProvider>
+        </AuthProvider>
       </GoogleOAuthProvider>
     </div>
   );

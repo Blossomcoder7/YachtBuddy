@@ -43,7 +43,7 @@ export default function Sidebar() {
               <img src={booked} alt=""></img> <li>All Boats</li>
             </span>
           </NavLink>
-          <NavLink>
+          <NavLink to="/ownerDashboard/booked-charter">
             <span>
               <img src={booked} alt=""></img> <li>Booked Charters</li>
             </span>

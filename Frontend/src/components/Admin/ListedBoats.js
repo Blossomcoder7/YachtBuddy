@@ -73,8 +73,10 @@ export default function ListedBoats() {
   <div key={item._id} className="ListedBoatHead ListedBoatHeadC">
     <div className="ListBoatCont">{item.username}</div>
     <div className="ListBoatCont">{item.locationType}</div>
-    <div className="ListBoatCont">{item.state}, {item.country}</div>
-    <div className="ListBoatCont">{item.cateogiry}</div>
+    <div className="ListBoatCont">{item.state}
+    {/* , {item.country} */}
+    </div>
+    <div className="ListBoatCont">{item.cateogiry.substring(0,20)}</div>
     <div className="ListBoatCont view">
       <span onClick={() => handleViewClick(item)}>View</span>
     </div>

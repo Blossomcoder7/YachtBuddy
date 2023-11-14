@@ -1,4 +1,5 @@
 const Booking = require('../Models/Booking');
+const Boat = require("../Models/ListYourBoat");
 
 const getDatesBetweenDates = (startDate, endDate) => {
     const dates = [];
@@ -42,6 +43,67 @@ module.exports.createBooking = async (req, res) => {
         await newBooking.save();
 
         res.status(200).json({ message: 'Booking created successfully', booking: newBooking });
+    } catch (error) {
+        console.error('Error creating booking:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+module.exports.allBooking = async (req, res) => {
+    try {
+        const uniqueBoatIds = await Booking.aggregate([
+            {
+                $group: {
+                    _id: '$boatId',
+                    firstBooking: { $first: '$$ROOT' }
+                }
+            },
+            {
+                $replaceRoot: { newRoot: '$firstBooking' }
+            }
+        ]);
+
+        console.log("Unique Boat IDs:", uniqueBoatIds.map(booking => booking.boatId));
+
+        // find all the boat
+        const boatInfo = await Boat.find({ _id: { $in: uniqueBoatIds.map(booking => booking.boatId) } });
+        console.log("Boat Info :", boatInfo);
+
+        return res.status(200).json(boatInfo);
+
+
+    } catch (error) {
+        console.error('Error creating booking:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+module.exports.ownerBooking = async (req, res) => {
+    try {
+        const uniqueBoatIds = await Booking.aggregate([
+            {
+                $group: {
+                    _id: '$boatId',
+                    firstBooking: { $first: '$$ROOT' }
+                }
+            },
+            {
+                $replaceRoot: { newRoot: '$firstBooking' }
+            }
+        ]);
+
+        console.log("Unique Boat IDs:", uniqueBoatIds.map(booking => booking.boatId));
+
+        // find all the boat
+        const boatInfo = await Boat.find({
+            _id: { $in: uniqueBoatIds.map(booking => booking.boatId) },
+            userId: req.id
+        });
+        console.log("Boat Info :", boatInfo);
+
+        return res.status(200).json(boatInfo);
+
+
     } catch (error) {
         console.error('Error creating booking:', error);
         res.status(500).json({ error: 'Internal Server Error' });

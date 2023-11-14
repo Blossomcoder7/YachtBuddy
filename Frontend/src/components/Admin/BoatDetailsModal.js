@@ -26,9 +26,11 @@ const BoatDetailsModal = ({ item, closeModal }) => {
             console.error('Error sending inquiry to owner:', error);
         }
     };
+
     useEffect(() => {
         fetchData();
     }, []);
+
     return (
         <div className="modal-Inquiry">
             <div className="modal-content-Inquiry">
