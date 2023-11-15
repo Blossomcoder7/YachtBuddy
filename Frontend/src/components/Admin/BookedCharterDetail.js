@@ -41,7 +41,7 @@ export default function BookedCharterDetail() {
 
     <>
       <div className="bookedCharterDetail" style={{padding:"30px"}}>
-        <div className="bookedDates">
+        <div className="bookedDates" style={{width:"100%", display:"flex",justifyContent:"space-around"}}>
           <DateRange
             minDate={currentDate}
             editableDateInputs={false}
@@ -50,11 +50,11 @@ export default function BookedCharterDetail() {
             // onChange={handleSelect}
             disabledDates={formattedBookedDates}
           />
-          <div>
-            {bookedDates.map((item,index)=>{
-              <span key={index}>{item}</span>
-            })}
-            <h1>{bookedDates[0]}</h1>
+          <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+            <h1>Booked Dates</h1>
+            {bookedDates.map((item,index)=>(
+              <p key={index} style={{padding:"5px 10px",background:"orange",margin:"2px",color:"white"}}>{item}</p>
+            ))}
           </div>
         </div>
       </div>

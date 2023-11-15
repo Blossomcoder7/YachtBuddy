@@ -251,6 +251,22 @@ color: rgba(0, 0, 0, 0.685);
     height: 25vh;
     padding: 0;
   }
+  .searchBoat, .searchBoat form {
+    border: 0;
+    display: unset;
+  }
+  .searchBoat form select, .searchBoat form button, .searchBoat form input{
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .searchBoat form input:nth-child(1) {
+    width: 100%;
+    font-size: 12px;
+  }
+  .allBoatHead h1 {
+    font-size: 28px;
+  }
   .allBoatCard {
     display: unset;
   }
@@ -295,5 +311,22 @@ color: rgba(0, 0, 0, 0.685);
 }
 .aboutUs1 {
   margin: 0;
+}
+.allBoatLower h2 {
+  font-size: 20px;
+}
+.singleBoatCardL {
+  height: 180px;
+}
+.singleBoatCardL > img {
+  height: 180px;
+}
+.singleBoatCardR h5 {
+  min-height: 35px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.BoatPrice-tag {
+  font-size: 12px;
 }
 }
