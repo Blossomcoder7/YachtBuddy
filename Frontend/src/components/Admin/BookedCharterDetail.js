@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { DateRange } from 'react-date-range';
 import { httpAPI } from '../../AxiosApi';
-
+import { useParams } from "react-router-dom";
 
 
 export default function BookedCharterDetail() {
+  const { id } = useParams();
   const currentDate = new Date();
   const [bookedDates, setBookeddates] = useState([]);
 
@@ -17,7 +18,7 @@ export default function BookedCharterDetail() {
   const bookedDatesHandler = async () => {
     try {
 
-      const response = await httpAPI.get(`/boat/bookedDates/`);
+      const response = await httpAPI.get(`/boat/bookedDates/${id}`);
 
       const formattedDates = response.data.bookedDates.map((date) => {
         const originalDate = new Date(date);
@@ -39,8 +40,8 @@ export default function BookedCharterDetail() {
   return (
 
     <>
-      <div className="bookedCharterDetail">
-        <div>
+      <div className="bookedCharterDetail" style={{padding:"30px"}}>
+        <div className="bookedDates">
           <DateRange
             minDate={currentDate}
             editableDateInputs={false}
@@ -49,6 +50,11 @@ export default function BookedCharterDetail() {
             // onChange={handleSelect}
             disabledDates={formattedBookedDates}
           />
+          <div>
+            {bookedDates.map((item,index)=>{
+              <span key={index}>{item}</span>
+            })}
+          </div>
         </div>
       </div>
     </>

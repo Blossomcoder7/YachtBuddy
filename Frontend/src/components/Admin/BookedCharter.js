@@ -10,7 +10,7 @@ export default function BookedCharter() {
     try {
       const response = await httpAPI.get(`/booking/all-booking`);
       setData(response.data);
-      console.log(response.data.boat);
+      console.log(response.data[0]._id);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -24,10 +24,11 @@ export default function BookedCharter() {
     <>
       <div className="bookedCharter">
         <div className="allBoatCard">
-          {data.length > 0 ? (
+        {Array.isArray(data) && data.length > 0 ? (
             data.map((boat, index) => (
               <>
-                <Link to={`/singleBoat/${boat._id}`} key={index}>
+              <p>{data._id}</p>
+                <Link to={`/dashboard/booked-Charter-details/${data[0]._id}`} key={index}>
                   <div className="singleBoatCard">
                     <div className="singleBoatCardL">
                       <img

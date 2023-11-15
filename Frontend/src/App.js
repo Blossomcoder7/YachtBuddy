@@ -118,7 +118,7 @@ function App() {
                       <Route exact path="message" element={<Message />} />
                       <Route exact path="inquiry" element={<Inquiry />} />
                       <Route exact path="bookedCharter" element={<BookedCharter />} />
-                      <Route exact path="booked-Charter-details" element={<BookedCharterDetail />} />
+                      <Route exact path="booked-Charter-details/:id" element={<BookedCharterDetail />} />
                     </Route>
 
                   </Routes>
