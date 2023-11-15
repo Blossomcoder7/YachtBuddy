@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Style/ListedBoats.css";
 import BoatDetails from "./BoatDetails";
-import  { httpAPI } from "../../AxiosApi";
+import { httpAPI } from "../../AxiosApi";
 
 export default function ListedBoats() {
   const [data, setData] = useState([]);
@@ -39,10 +39,9 @@ export default function ListedBoats() {
       setData(updatedData);
       alert("The Boat Accepted Successfully");
     } catch (error) {
-      console.error('Error accepting boat:', error);
+      console.error("Error accepting boat:", error);
     }
   };
-  
 
   const handleDeleteClick = async (boat) => {
     alert("You are confirming the deletion of the boat");
@@ -53,7 +52,7 @@ export default function ListedBoats() {
       // Remove the deleted boat from the state
       setData((prevData) => prevData.filter((item) => item._id !== boat._id));
     } catch (error) {
-      console.error('Error deleting boat:', error);
+      console.error("Error deleting boat:", error);
     }
   };
 
@@ -70,28 +69,34 @@ export default function ListedBoats() {
             <div className="ListBoatCont">Status</div>
           </div>
           {data.map((item) => (
-  <div key={item._id} className="ListedBoatHead ListedBoatHeadC">
-    <div className="ListBoatCont">{item.username}</div>
-    <div className="ListBoatCont">{item.locationType}</div>
-    <div className="ListBoatCont">{item.state}
-    {/* , {item.country} */}
-    </div>
-    <div className="ListBoatCont">{item.cateogiry.substring(0,20)}</div>
-    <div className="ListBoatCont view">
-      <span onClick={() => handleViewClick(item)}>View</span>
-    </div>
-    <div className="ListBoatCont sTatusBtn">
-      {item.status === "accepted" ? (
-        <p>Accepted</p>
-      ) : (
-        <button onClick={() => handleAcceptClick(item)} className="acceptBtn">
-          Accept
-        </button>
-      )}
-      <button onClick={() => handleDeleteClick(item)}>Delete</button>
-    </div>
-  </div>
-))}
+            <div key={item._id} className="ListedBoatHead ListedBoatHeadC">
+              <div className="ListBoatCont">{item.username}</div>
+              <div className="ListBoatCont">{item.locationType}</div>
+              <div className="ListBoatCont">
+                {item.state}
+                {/* , {item.country} */}
+              </div>
+              <div className="ListBoatCont">
+                {item.cateogiry.substring(0, 20)}
+              </div>
+              <div className="ListBoatCont view">
+                <span onClick={() => handleViewClick(item)}>View</span>
+              </div>
+              <div className="ListBoatCont sTatusBtn">
+                {item.status === "accepted" ? (
+                  <p>Accepted</p>
+                ) : (
+                  <button
+                    onClick={() => handleAcceptClick(item)}
+                    className="acceptBtn"
+                  >
+                    Accept
+                  </button>
+                )}
+                <button onClick={() => handleDeleteClick(item)}>Delete</button>
+              </div>
+            </div>
+          ))}
 
           {selectedBoat && <BoatDetails boat={selectedBoat} />}
         </div>

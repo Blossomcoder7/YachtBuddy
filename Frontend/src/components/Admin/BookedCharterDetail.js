@@ -54,6 +54,7 @@ export default function BookedCharterDetail() {
             {bookedDates.map((item,index)=>{
               <span key={index}>{item}</span>
             })}
+            <h1>{bookedDates[0]}</h1>
           </div>
         </div>
       </div>
