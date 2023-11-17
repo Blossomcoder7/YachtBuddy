@@ -7,26 +7,27 @@ export default function OwnerBookedChaerter() {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        try {
-            const response = await httpAPI.get(`    `);
-            setData(response.data);
-            console.log(response.data.boat);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
+      try {
+        const response = await httpAPI.get(`/booking/owner-booking`);
+        setData(response.data);
+        console.log(response.data[0]._id);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
-
+  
     useEffect(() => {
-        fetchData();
+      fetchData();
     }, []);
     return (
         <>
             <div className="bookedCharter">
                 <div className="allBoatCard">
-                    {data.length > 0 ? (
+                {Array.isArray(data) && data.length > 0 ? (
                         data.map((boat, index) => (
                             <>
-                                <Link to={`/singleBoat/${boat._id}`} key={index}>
+                <Link to={`/ownerDashboard/booked-Charter-details/${data[0]._id}`} key={index}>
+
                                     <div className="singleBoatCard">
                                         <div className="singleBoatCardL">
                                             <img

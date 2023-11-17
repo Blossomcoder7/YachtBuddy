@@ -869,14 +869,14 @@
 
 .CaLaNder {
     width: min-content;
-    height: 72vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fff;
     position: absolute;
     right: 0px;
-    bottom: -550px;
+    bottom: -530px;
     border-radius: 10px;
     z-index: 9999;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

@@ -27,8 +27,7 @@ export default function BookedCharter() {
         {Array.isArray(data) && data.length > 0 ? (
             data.map((boat, index) => (
               <>
-              <p>{data._id}</p>
-                <Link to={`/dashboard/booked-Charter-details/${data[0]._id}`} key={index}>
+                <Link to={`/dashboard/booked-Charter-details/${boat._id}`} key={index}>
                   <div className="singleBoatCard">
                     <div className="singleBoatCardL">
                       <img

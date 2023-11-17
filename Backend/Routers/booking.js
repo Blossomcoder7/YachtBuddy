@@ -11,5 +11,7 @@ router.get('/all-booking', bookingController.allBooking);
 
 router.get('/owner-booking', bookingController.ownerBooking);
 
+router.get('/bookingDetail/:id', bookingController.bookingDetail);
+
 
 module.exports = router;

@@ -48,6 +48,7 @@ import OwnerInquiry from "./components/Owner/OwnerInquiry";
 import BookedCharter from "./components/Admin/BookedCharter";
 import OwnerBookedChaerter from "./components/Owner/OwnerBookedChaerter";
 import BookedCharterDetail from "./components/Admin/BookedCharterDetail";
+import OwnerBookedCharterDetail from "./components/Owner/OwnerBokkedCharterDetails";
 
 
 function App() {
@@ -106,6 +107,8 @@ function App() {
                       <Route exact path="boats" element={<OwnerBoats />}></Route>
                       <Route exact path="inquiry" element={<OwnerInquiry />}></Route>
                       <Route exact path="booked-charter" element={<OwnerBookedChaerter />}></Route>
+                      <Route exact path="booked-Charter-details/:id" element={<OwnerBookedCharterDetail />} />
+
                     </Route>
 
 

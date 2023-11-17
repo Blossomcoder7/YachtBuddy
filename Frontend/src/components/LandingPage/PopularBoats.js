@@ -57,7 +57,7 @@ export default function PopularBoats() {
           <p data-aos="fade-left">Our Popular Boats</p>
           <h1 data-aos="fade-up">Available Yachts</h1>
         </div>
-          <div className="popularBoatsDown">
+          <div className="popularBoatsDown sliderMargin">
             <motion.div ref={carousel} className="carousel" whileTap={{cursor:"grabbing"}}>
               <motion.div drag="x"               
               dragConstraints={{right:0, left: -width}}

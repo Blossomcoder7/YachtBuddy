@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  user: {
+  userID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User', 
     required: true,
@@ -22,6 +22,12 @@ const bookingSchema = new mongoose.Schema({
   totalPrice: {
     type: Number,
     required: true,
+  },
+  userName: {
+    type: String,
+  },
+  userEmail: {
+    type: String,
   },
    bookedDates: [
     {
