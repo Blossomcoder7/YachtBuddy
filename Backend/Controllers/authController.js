@@ -21,9 +21,6 @@ function generateToken() {
 
 exports.forgotPassword = async (req, res) => {
   const { email } = req.body;
-
-  console.log(email)
-  // console.log(req.body)
   try {
     const user = await User.findOne({ email: email });
 
@@ -36,15 +33,15 @@ exports.forgotPassword = async (req, res) => {
     user.resetTokenExpiry = Date.now() + 3600000;
 
     await user.save();
-    console.log(token)
-    const resetLink = `http://localhost:3000/reset-password/${token}`;
+    const resetLink = `https://theyachtbuddy.com/reset-password/${token}`;
+
     const mailOptions = {
       from: 'yachtbuddyhosting@gmail.com',
       to: email,
       subject: 'Password Reset Request',
       text: `Click this link to reset your password: ${resetLink}`,
     };
-    console.log(mailOptions)
+
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
@@ -53,6 +50,7 @@ exports.forgotPassword = async (req, res) => {
         res.status(200).send('Password reset email sent');
       }
     });
+    
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
@@ -60,7 +58,7 @@ exports.forgotPassword = async (req, res) => {
 };
 
 exports.resetPassword = async (req, res) => {
-  const { token, newPassword } = req.body;
+  const { token, password } = req.body;
 
   try {
     const user = await User.findOne({
@@ -72,8 +70,7 @@ exports.resetPassword = async (req, res) => {
       return res.status(401).send('Invalid or expired token');
     }
 
-    // Set the new password, clear the reset token, and save the user
-    user.password = newPassword;
+    user.password = password;
     user.resetToken = undefined;
     user.resetTokenExpiry = undefined;
     await user.save();

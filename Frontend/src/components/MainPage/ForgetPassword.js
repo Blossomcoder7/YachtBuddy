@@ -24,9 +24,10 @@ export default function ForgetPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log(email)
             const response = await httpAPI.post(`/email/forgot-password`, email);
-            console.log(response.data);
+            if(response.status === 200){
+                alert("Reset Password Link Send Successfully On Your Email");
+            }
 
         } catch (error) {
             console.error("Error logging in:", error);

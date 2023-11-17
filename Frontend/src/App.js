@@ -49,6 +49,7 @@ import BookedCharter from "./components/Admin/BookedCharter";
 import OwnerBookedChaerter from "./components/Owner/OwnerBookedChaerter";
 import BookedCharterDetail from "./components/Admin/BookedCharterDetail";
 import OwnerBookedCharterDetail from "./components/Owner/OwnerBokkedCharterDetails";
+import ResetPassword from "./components/MainPage/ResetPassword";
 
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
                     <Route exact path="/checkout" element={<CheckOutPage />} />
                     <Route exact path="/startTime" element={<StartTime />} />
                     <Route exact path="/searchBoats" element={<SearchProduct />} />
+                    <Route exact path="/reset-password/:token" element={<ResetPassword/>} />
 
 
 
