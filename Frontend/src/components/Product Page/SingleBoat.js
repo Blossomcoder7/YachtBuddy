@@ -91,6 +91,7 @@ export default function SingleBoat() {
   useEffect(() => {
     fetchData();
     bookedDatesHandler();
+    window.scrollTo(0,0);
   }, []);
 
   const inquiryHandel = async (e) => {

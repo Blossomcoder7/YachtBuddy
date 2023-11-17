@@ -38,6 +38,7 @@ function ResetPassword() {
         console.log(response.data);
         if (response.status === 200) {
           alert("password change sucessfuly");
+          navigate("/");
         }
       } else {
         alert("Password Not Matched");
