@@ -12,7 +12,7 @@ router = express.Router();
 
 router.post("/create_order", async (req, res) => {
     try {
-        const response = await paypal.createOrder(req);
+        const response = await payment.createOrder(req);
         return res.status(200).json(response)
     } catch (error) {
         console.error(req.path, "Error in create order Api", error);
