@@ -61,21 +61,7 @@ module.exports.createOrder = async (req) => {
   }
   const orderData = await orderResponse.json();
   console.log(orderData);
-
-  // const newPayPalOrder = new PayPalOrder({
-  //   orderId: orderData.id,
-  //   intent: orderData.intent,
-  //   amount: orderData.purchase_units[0].amount.value,
-  //   currencyCode: orderData.purchase_units[0].amount.currency_code,
-  //   userName: req.user.name, // Add user-related data
-  //   userEmail: req.user.email,
-  //   // createdAt timestamp is automatically generated
-  //   // Add more fields as needed
-  // });
-
-  // await newPayPalOrder.save();
-
-  return orderData;
+    return orderData;
 }
 
 module.exports.captureOrder = async (orderId, res) => {
