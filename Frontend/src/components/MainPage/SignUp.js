@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../Style/SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from '../../utils/UserContext';
+import { UserContext } from "../../utils/UserContext";
 import { useAuth } from "../../utils/AuthContext";
 import logo from "../../images/logo.svg";
 import facebook from "../../images/Group 45.svg";
@@ -11,9 +11,7 @@ import linkedin from "../../images/Group 43.svg";
 import twiter from "../../images/Group 42.svg";
 import fb from "../../images/fb.svg";
 import backendURL from "../../AxiosApi";
-import { GoogleLogin } from '@react-oauth/google';
-
-
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function SignUp() {
   const { setUser } = useContext(UserContext);
@@ -28,16 +26,14 @@ export default function SignUp() {
 
   const navigate = useNavigate();
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({
       ...data,
       [name]: value,
     });
-    console.log(data)
+    console.log(data);
   };
- 
 
   // Set up the interceptor before making any Axios requests
   useEffect(() => {
@@ -64,24 +60,25 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${backendURL}/user/register`,
-        data
-      );
-      if (response.status === 200 && response.data ) {
-        const logedInuser = response.data;
-        console.log(logedInuser)
-        if (logedInuser) {
-          const authToken = response.data.authToken;
-          console.log(authToken)
-          login(authToken);
-          localStorage.setItem("authToken", authToken);
-  
-          navigate("/");
-          setUser(logedInuser);
+      if (data.password.length > 8) {
+        const response = await axios.post(`${backendURL}/user/register`, data);
+        if (response.status === 200 && response.data) {
+          const logedInuser = response.data;
+          console.log(logedInuser);
+          if (logedInuser) {
+            const authToken = response.data.authToken;
+            console.log(authToken);
+            login(authToken);
+            localStorage.setItem("authToken", authToken);
+
+            navigate("/");
+            setUser(logedInuser);
+          }
+        } else {
+          console.error("Unexpected response structure:", response);
         }
-      } else {
-        console.error("Unexpected response structure:", response);
+      }else{
+        alert( "Password must be between 8 to 12 characters, contain at least one uppercase letter, one lowercase letter, one digits, and no spaces.")
       }
     } catch (error) {
       console.error("API request error:", error);
@@ -96,7 +93,7 @@ export default function SignUp() {
 
       axios.interceptors.request.use(
         (config) => {
-          console.log(GoogleauthToken)
+          console.log(GoogleauthToken);
           if (GoogleauthToken) {
             config.headers.Authorization = `Bearer ${GoogleauthToken}`;
           }
@@ -108,7 +105,7 @@ export default function SignUp() {
       );
       navigate("/");
     }
-  }
+  };
   return (
     <>
       <div className="signupPage">
@@ -180,21 +177,28 @@ export default function SignUp() {
                     <img src={fb} alt=""></img>
                   </div>
                   <span style={{ backgroundColor: "#3B5998" }}>Facebook</span>
-                </label>                    
-              <Link to="/signup">  <label>Sign Up</label></Link>
+                </label>
+                <Link to="/signup">
+                  {" "}
+                  <label>Sign Up</label>
+                </Link>
               </div>
               <div className="gooGleBTn">
-              <GoogleLogin className="GoOgLeBtN"
-                    onSuccess={googleOnSuccess}
-                    onError={() => {
-                      console.log('Login Failed');
-                    }}
-                  />
-                  </div>
+                <GoogleLogin
+                  className="GoOgLeBtN"
+                  onSuccess={googleOnSuccess}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </div>
               <div className="haveAcnt">
                 <p>You Have an Account ?</p>
-               <Link to="/login"> <p style={{ color: "#47B7AC" }}>Sign In</p></Link>
-              </div> 
+                <Link to="/login">
+                  {" "}
+                  <p style={{ color: "#47B7AC" }}>Sign In</p>
+                </Link>
+              </div>
             </div>
           </div>
           {/* </div> */}
