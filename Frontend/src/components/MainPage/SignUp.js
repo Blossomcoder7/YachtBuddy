@@ -77,8 +77,10 @@ export default function SignUp() {
         } else {
           console.error("Unexpected response structure:", response);
         }
-      }else{
-        alert( "Password must be between 8 to 12 characters, contain at least one uppercase letter, one lowercase letter, one digits, and no spaces.")
+      } else {
+        alert(
+          "Password must be between 8 to 12 characters, contain at least one uppercase letter, one lowercase letter, one digits, and no spaces."
+        );
       }
     } catch (error) {
       console.error("API request error:", error);

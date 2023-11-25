@@ -10,7 +10,7 @@ const
 router = express.Router();
 // router.use(verifyToken);
 
-router.post("/create_order", async (req, res) => {
+router.post("/create_order",  async (req, res) => {
     try {
         const response = await payment.createOrder(req);
         return res.status(200).json(response)
