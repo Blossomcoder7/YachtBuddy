@@ -75,7 +75,7 @@ export default function SearchProduct() {
           <div className="allBoatCard">
             {/* {displayedBoats.map((boat, index) => ( */}
             {boat?.map((boat, index) => (
-              <Link to={`/singleBoat/${boat.id}`}>
+              <Link to={`/singleBoat/${boat._id}`}>
                <div className="singleBoatCard">
                       <div className="singleBoatCardL">
                         <img

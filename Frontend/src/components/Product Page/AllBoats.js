@@ -41,8 +41,6 @@ export default function AllBoats() {
     try {
       const response = await httpAPI.get(`/boat/${category}`);
       setData(response.data.boat);
-      console.log(response.data.boat)
-
     } catch (error) {
       console.error("Error fetching data:", error);
     }

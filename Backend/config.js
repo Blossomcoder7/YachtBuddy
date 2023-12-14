@@ -21,5 +21,6 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 
 module.exports = {
-  FRONTEND_URL: isDevelopment ? "http://localhost:3000" : "https://theyachtbuddy.com",
+  // FRONTEND_URL: isDevelopment ? "http://localhost:3000" : "https://theyachtbuddy.com",
+  FRONTEND_URL :"https://theyachtbuddy.com"
 };

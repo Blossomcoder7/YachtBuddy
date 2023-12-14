@@ -4,6 +4,8 @@ const BoatList = require("../Models/ListYourBoat");
 const User = require("../Models/User");
 const Booking = require("../Models/Booking")
 
+
+
 exports.allBoat = async (req, res) => {
   try {
     const boat = await BoatList.find();
