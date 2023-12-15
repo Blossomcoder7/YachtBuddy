@@ -74,6 +74,11 @@ export default function Sidebar() {
               <img src={notification} alt=""></img> <li>Notifications</li>
             </span>
           </NavLink>
+          <NavLink to='/listyourboat'>
+            <span>
+              <img src={profile} alt=""></img> <li>List Boat</li>
+            </span>
+          </NavLink>
           {/* <NavLink> */}
             <span onClick={handleLogout}>
               <img src={sign} alt=""></img> <li>Sign Out</li>

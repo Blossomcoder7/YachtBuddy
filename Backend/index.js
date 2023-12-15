@@ -24,10 +24,9 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: "https://theyachtbuddy.com",
+  origin: FRONTEND_URL,
   credentials: true
 };
-
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '100mb', extended: true }));
 app.use(require('./Middlewares/errorMiddleware'));

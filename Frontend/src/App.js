@@ -50,7 +50,6 @@ import OwnerBookedChaerter from "./components/Owner/OwnerBookedChaerter";
 import BookedCharterDetail from "./components/Admin/BookedCharterDetail";
 import OwnerBookedCharterDetail from "./components/Owner/OwnerBokkedCharterDetails";
 import ResetPassword from "./components/MainPage/ResetPassword";
-import { useEffect } from "react";
 
 
 function App() {
