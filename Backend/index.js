@@ -36,6 +36,7 @@ app.use('/root/yacHt/Backend/public/uploads', express.static(path.join(__dirname
 
 
 app.get("/", (req, res) => {
+  console.log("home")
   res.send("Server is ready");
 });
 
